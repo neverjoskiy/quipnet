@@ -40,6 +40,54 @@
         <item name="colorBackground">@color/m3_background</item>
         <item name="colorOnBackground">@color/m3_onBackground</item>
 
+        <!-- Материал 3 Expressive — кастомные роли m3Color* для разметки.
+             Разметка ссылается на ?attr/m3Color*, а не на color*,
+             поэтому значения нужно задать явно. -->
+        <item name="m3ColorPrimary">@color/m3_primary</item>
+        <item name="m3ColorOnPrimary">@color/m3_onPrimary</item>
+        <item name="m3ColorPrimaryContainer">@color/m3_primaryContainer</item>
+        <item name="m3ColorOnPrimaryContainer">@color/m3_onPrimaryContainer</item>
+        <item name="m3ColorPrimaryFixed">@color/m3_primaryFixed</item>
+        <item name="m3ColorPrimaryFixedDim">@color/m3_primaryFixedDim</item>
+        <item name="m3ColorOnPrimaryFixed">@color/m3_onPrimaryFixed</item>
+        <item name="m3ColorOnPrimaryFixedVariant">@color/m3_onPrimaryFixedVariant</item>
+
+        <item name="m3ColorSecondary">@color/m3_secondary</item>
+        <item name="m3ColorOnSecondary">@color/m3_onSecondary</item>
+        <item name="m3ColorSecondaryContainer">@color/m3_secondaryContainer</item>
+        <item name="m3ColorOnSecondaryContainer">@color/m3_onSecondaryContainer</item>
+        <item name="m3ColorSecondaryFixed">@color/m3_secondaryFixed</item>
+        <item name="m3ColorSecondaryFixedDim">@color/m3_secondaryFixedDim</item>
+        <item name="m3ColorOnSecondaryFixed">@color/m3_onSecondaryFixed</item>
+        <item name="m3ColorOnSecondaryFixedVariant">@color/m3_onSecondaryFixedVariant</item>
+
+        <item name="m3ColorTertiary">@color/m3_tertiary</item>
+        <item name="m3ColorOnTertiary">@color/m3_onTertiary</item>
+        <item name="m3ColorTertiaryContainer">@color/m3_tertiaryContainer</item>
+        <item name="m3ColorOnTertiaryContainer">@color/m3_onTertiaryContainer</item>
+
+        <item name="m3ColorError">@color/m3_error</item>
+        <item name="m3ColorOnError">@color/m3_onError</item>
+        <item name="m3ColorErrorContainer">@color/m3_errorContainer</item>
+        <item name="m3ColorOnErrorContainer">@color/m3_onErrorContainer</item>
+
+        <item name="m3ColorOutline">@color/m3_outline</item>
+        <item name="m3ColorOutlineVariant">@color/m3_outlineVariant</item>
+
+        <item name="m3ColorInverseSurface">@color/m3_inverseSurface</item>
+        <item name="m3ColorInverseOnSurface">@color/m3_inverseOnSurface</item>
+        <item name="m3ColorInversePrimary">@color/m3_inversePrimary</item>
+
+        <item name="m3ColorSurface">@color/m3_surface</item>
+        <item name="m3ColorSurfaceDim">@color/m3_surfaceDim</item>
+        <item name="m3ColorSurfaceBright">@color/m3_surfaceBright</item>
+        <item name="m3ColorSurfaceContainer">@color/m3_surfaceContainer</item>
+        <item name="m3ColorSurfaceContainerHigh">@color/m3_surfaceContainerHigh</item>
+        <item name="m3ColorSurfaceContainerHighest">@color/m3_surfaceContainerHighest</item>
+
+        <item name="m3ColorBackground">@color/m3_background</item>
+        <item name="m3ColorOnBackground">@color/m3_onBackground</item>
+
         <!-- Scarf — дополнительный экспрессивный акцент (золотой) -->
         <item name="m3ColorScarf">@color/m3_scarf</item>
         <item name="m3ColorOnScarf">@color/m3_onScarf</item>
