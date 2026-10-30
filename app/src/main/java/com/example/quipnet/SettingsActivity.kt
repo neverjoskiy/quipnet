@@ -2408,7 +2408,7 @@ class SettingsActivity : AppCompatActivity() {
 
     private fun checkBatteryOptimization(switch: Switch) {
 
-        val green = android.content.res.ColorStateList.valueOf(QuipNetTheme.color(this, R.attr.quipnetAccent))
+        val green = android.content.res.ColorStateList.valueOf(QuipNetTheme.color(this, R.attr.m3ColorPrimary))
 
         val grey = android.content.res.ColorStateList.valueOf(android.graphics.Color.GRAY)
 
@@ -2576,7 +2576,7 @@ class SettingsActivity : AppCompatActivity() {
 
                 ds.isUnderlineText = true
 
-                ds.color = QuipNetTheme.color(this@SettingsActivity, R.attr.quipnetAccent)
+                ds.color = QuipNetTheme.color(this@SettingsActivity, R.attr.m3ColorPrimary)
 
                 ds.clearShadowLayer() // Remove any shadow
 
@@ -2597,7 +2597,7 @@ class SettingsActivity : AppCompatActivity() {
 
                 android.text.style.ForegroundColorSpan(
 
-                    QuipNetTheme.color(this@SettingsActivity, R.attr.quipnetTextValue)
+                    QuipNetTheme.color(this@SettingsActivity, R.attr.m3ColorOnPrimaryContainer)
 
                 ),
 
@@ -2937,7 +2937,7 @@ class SettingsActivity : AppCompatActivity() {
         fun hint(text: String, top: Int = 8) = TextView(this).apply {
             this.text = text
             textSize = 12f
-            setTextColor(QuipNetTheme.color(this@SettingsActivity, R.attr.quipnetTextHint))
+            setTextColor(QuipNetTheme.color(this@SettingsActivity, R.attr.m3ColorOnSurfaceContainer))
             setPadding(0, (top * density).toInt(), 0, 0)
         }
 
@@ -2945,7 +2945,7 @@ class SettingsActivity : AppCompatActivity() {
             this.text = text
             textSize = 14f
             setTypeface(typeface, android.graphics.Typeface.BOLD)
-            setTextColor(QuipNetTheme.color(this@SettingsActivity, R.attr.quipnetTextTitle))
+            setTextColor(QuipNetTheme.color(this@SettingsActivity, R.attr.m3ColorOnSurfaceContainer))
             setPadding(0, (16 * density).toInt(), 0, (4 * density).toInt())
         }
 
@@ -2956,7 +2956,7 @@ class SettingsActivity : AppCompatActivity() {
             val side = (34 * density).toInt()
             minWidth = side
             minHeight = side
-            setTextColor(QuipNetTheme.color(this@SettingsActivity, R.attr.quipnetTextTitle))
+            setTextColor(QuipNetTheme.color(this@SettingsActivity, R.attr.m3ColorOnSurfaceContainer))
             setOnClickListener { onClick() }
         }
 
@@ -2977,7 +2977,7 @@ class SettingsActivity : AppCompatActivity() {
             texts.addView(TextView(this@SettingsActivity).apply {
                 text = (if (active) "● " else "") + profile.name
                 textSize = 14f
-                setTextColor(QuipNetTheme.color(this@SettingsActivity, R.attr.quipnetTextTitle))
+                setTextColor(QuipNetTheme.color(this@SettingsActivity, R.attr.m3ColorOnSurfaceContainer))
                 alpha = if (selectable && profile.usable) 1f else 0.5f
             })
             // Причина всегда названа: выключенный пункт без объяснения — это
@@ -3019,7 +3019,7 @@ class SettingsActivity : AppCompatActivity() {
             row.addView(TextView(this@SettingsActivity).apply {
                 text = (if (chosen) "● " else "○ ") + list.name + "  (${list.addresses.size})"
                 textSize = 14f
-                setTextColor(QuipNetTheme.color(this@SettingsActivity, R.attr.quipnetTextTitle))
+                setTextColor(QuipNetTheme.color(this@SettingsActivity, R.attr.m3ColorOnSurfaceContainer))
                 layoutParams = LinearLayout.LayoutParams(0, -2, 1f)
             })
             if (!list.builtIn) {
@@ -3039,7 +3039,7 @@ class SettingsActivity : AppCompatActivity() {
             setSingleLine(false)
             setLines(2)
             textSize = 13f
-            setTextColor(QuipNetTheme.color(this@SettingsActivity, R.attr.quipnetTextTitle))
+            setTextColor(QuipNetTheme.color(this@SettingsActivity, R.attr.m3ColorOnSurfaceContainer))
         }
 
         /**
@@ -3094,7 +3094,7 @@ class SettingsActivity : AppCompatActivity() {
             text = "Импорт списка из файла"
             textSize = 13f
             setPadding(0, (10 * density).toInt(), 0, (10 * density).toInt())
-            setTextColor(QuipNetTheme.color(this@SettingsActivity, R.attr.quipnetAccent))
+            setTextColor(QuipNetTheme.color(this@SettingsActivity, R.attr.m3ColorPrimary))
             setOnClickListener { pickDnsListFile { text -> absorb(text, quiet = false) } }
         }
 
@@ -4183,9 +4183,9 @@ class SettingsActivity : AppCompatActivity() {
         // описывал.
         titleView.text = "Выбор протокола/региона"
 
-        titleView.setTextColor(QuipNetTheme.color(this, R.attr.quipnetTextTitle))
+        titleView.setTextColor(QuipNetTheme.color(this, R.attr.m3ColorOnSurfaceContainer))
 
-        val greenTint = ColorStateList.valueOf(QuipNetTheme.color(this, R.attr.quipnetAccent))
+        val greenTint = ColorStateList.valueOf(QuipNetTheme.color(this, R.attr.m3ColorPrimary))
 
         buttons.forEach { button ->
 
@@ -4199,7 +4199,7 @@ class SettingsActivity : AppCompatActivity() {
 
             button.buttonTintList = greenTint
 
-            button.setTextColor(QuipNetTheme.color(this, R.attr.quipnetTextTitle))
+            button.setTextColor(QuipNetTheme.color(this, R.attr.m3ColorOnSurfaceContainer))
 
         }
 
@@ -4875,7 +4875,7 @@ class SettingsActivity : AppCompatActivity() {
 
         // Тема, а не литерал: карточка «Выбор протокола» — самая заметная на
         // экране, и золотая на фиолетовой Proton или медной PoE она выглядит чужой.
-        titleView.setTextColor(QuipNetTheme.color(this, R.attr.quipnetTextTitle))
+        titleView.setTextColor(QuipNetTheme.color(this, R.attr.m3ColorOnSurfaceContainer))
 
         val options = buildList {
 
@@ -4899,7 +4899,7 @@ class SettingsActivity : AppCompatActivity() {
 
         radioGroup.setOnCheckedChangeListener(null)
 
-        val yellowTint = ColorStateList.valueOf(QuipNetTheme.color(this, R.attr.quipnetAccent))
+        val yellowTint = ColorStateList.valueOf(QuipNetTheme.color(this, R.attr.m3ColorPrimary))
 
         buttons.forEachIndexed { index, button ->
 
@@ -4929,7 +4929,7 @@ class SettingsActivity : AppCompatActivity() {
 
             button.buttonTintList = yellowTint
 
-            button.setTextColor(QuipNetTheme.color(this, R.attr.quipnetTextTitle))
+            button.setTextColor(QuipNetTheme.color(this, R.attr.m3ColorOnSurfaceContainer))
 
         }
 
@@ -5227,12 +5227,12 @@ class SettingsActivity : AppCompatActivity() {
 
             when (progress.state) {
 
-                UpdateDownloadProgress.State.READY -> QuipNetTheme.color(this, R.attr.quipnetAccent)
+                UpdateDownloadProgress.State.READY -> QuipNetTheme.color(this, R.attr.m3ColorPrimary)
 
                 // Заголовок строки, а не белый литерал: у всех соседей он
-                // `?attr/quipnetTextTitle`, и на светлых темах белый по светлому
+                // `?attr/m3ColorOnSurfaceContainer`, и на светлых темах белый по светлому
                 // исчезает совсем (I21).
-                else -> QuipNetTheme.color(this, R.attr.quipnetTextTitle)
+                else -> QuipNetTheme.color(this, R.attr.m3ColorOnSurfaceContainer)
 
             }
 
@@ -5599,7 +5599,7 @@ class SettingsActivity : AppCompatActivity() {
             hint = "xxxxxxxx-xxxxxxxx-xxxxxxxx"
             setSingleLine(true)
             setTextColor(Color.WHITE)
-            setHintTextColor(QuipNetTheme.color(this@SettingsActivity, R.attr.quipnetTextHint))
+            setHintTextColor(QuipNetTheme.color(this@SettingsActivity, R.attr.m3ColorOnSurfaceContainer))
             setPadding(48, 32, 48, 32)
         }
 

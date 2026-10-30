@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+  Локальный прокси — Material 3 Expressive.
+  Цвета, типографика, карточки, поля ввода, кнопки — из Theme.QuipNet.
+-->
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
+    android:background="?attr/m3ColorBackground"
     android:padding="16dp">
 
     <LinearLayout
@@ -15,23 +21,27 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Раздача через QuipNet"
-            android:textColor="?attr/quipnetAccent"
-            android:textSize="24sp"
-            android:textStyle="bold" />
+            android:textColor="?attr/m3ColorOnBackground"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            android:textAppearance="?attr/textAppearanceHeadlineLarge" />
 
         <TextView
             android:id="@+id/btn_toggle_proxy"
             android:layout_width="match_parent"
-            android:layout_height="52dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="14dp"
-            android:background="@drawable/bg_settings_action_green"
+            android:background="@drawable/btn_expressive_filled"
             android:clickable="true"
             android:focusable="true"
             android:gravity="center"
+            android:paddingTop="14dp"
+            android:paddingBottom="14dp"
             android:text="Включить"
-            android:textColor="?attr/quipnetAccentOn"
+            android:textColor="#000000"
             android:textSize="16sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:textAppearance="?attr/textAppearanceLabelLarge" />
 
         <TextView
             android:id="@+id/tv_proxy_status"
@@ -39,9 +49,10 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="14dp"
             android:text="Прокси выключен"
-            android:textColor="?attr/quipnetTextTitle"
-            android:textSize="15sp"
-            android:textStyle="bold" />
+            android:textColor="?attr/m3ColorOnSurfaceContainer"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textAppearance="?attr/textAppearanceTitleMedium" />
 
         <TextView
             android:id="@+id/tv_proxy_summary"
@@ -49,264 +60,348 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:text="Доступен только при живом VPN. Протоколы: HTTP, HTTPS CONNECT, SOCKS5 CONNECT."
-            android:textColor="?attr/quipnetTextHint"
-            android:textSize="12sp" />
+            android:textColor="?attr/m3ColorOnSurfaceContainer"
+            android:textSize="12sp"
+            android:textAppearance="?attr/textAppearanceBodySmall" />
 
-        <LinearLayout
+        <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:background="?attr/quipnetCardBackground"
-            android:orientation="vertical"
-            android:padding="12dp">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Куда подключаться"
-                android:textColor="?attr/quipnetAccent"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/tv_gateway_lead"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="Включите раздачу, чтобы увидеть адрес."
-                android:textColor="?attr/quipnetTextTitle"
-                android:textSize="14sp" />
+            app:cardCornerRadius="16dp"
+            app:cardElevation="2dp"
+            app:cardBackgroundColor="?attr/m3ColorSurfaceContainer"
+            app:strokeWidth="1dp"
+            app:strokeColor="?attr/m3ColorOutlineVariant">
 
             <LinearLayout
-                android:id="@+id/container_gateway_endpoints"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:orientation="vertical" />
+                android:orientation="vertical"
+                android:paddingLeft="16dp"
+                android:paddingTop="16dp"
+                android:paddingRight="16dp"
+                android:paddingBottom="16dp">
 
-            <TextView
-                android:id="@+id/tv_gateway_empty"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
-                android:text="Пока некуда: включите точку доступа, USB-модем или подключитесь к общей сети Wi-Fi."
-                android:textColor="?attr/quipnetTextHint"
-                android:textSize="13sp" />
-        </LinearLayout>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Куда подключаться"
+                    android:textColor="?attr/m3ColorPrimary"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textAppearance="?attr/textAppearanceTitleMedium" />
 
-        <LinearLayout
+                <TextView
+                    android:id="@+id/tv_gateway_lead"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Включите раздачу, чтобы увидеть адрес."
+                    android:textColor="?attr/m3ColorOnSurfaceContainer"
+                    android:textSize="14sp"
+                    android:textAppearance="?attr/textAppearanceBodyMedium" />
+
+                <LinearLayout
+                    android:id="@+id/container_gateway_endpoints"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:orientation="vertical" />
+
+                <TextView
+                    android:id="@+id/tv_gateway_empty"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:text="Пока некуда: включите точку доступа, USB-модем или подключитесь к общей сети Wi-Fi."
+                    android:textColor="?attr/m3ColorOnSurfaceContainer"
+                    android:textSize="13sp"
+                    android:textAppearance="?attr/textAppearanceBodySmall" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:background="?attr/quipnetCardBackground"
-            android:orientation="vertical"
-            android:padding="12dp">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Устройства с WireGuard"
-                android:textColor="?attr/quipnetTextTitle"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
-                android:text="Для ПК, Mac, телефонов и приставок, где есть WireGuard: весь трафик устройства, вместе с UDP и DNS, пойдёт через VPN этого телефона, без настройки прокси. Нажмите «Добавить устройство» и отсканируйте QR или вставьте конфиг в WireGuard."
-                android:textColor="?attr/quipnetTextHint"
-                android:textSize="13sp" />
+            app:cardCornerRadius="16dp"
+            app:cardElevation="2dp"
+            app:cardBackgroundColor="?attr/m3ColorSurfaceContainer"
+            app:strokeWidth="1dp"
+            app:strokeColor="?attr/m3ColorOutlineVariant">
 
             <LinearLayout
-                android:id="@+id/container_wg_devices"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:orientation="vertical" />
+                android:orientation="vertical"
+                android:paddingLeft="16dp"
+                android:paddingTop="16dp"
+                android:paddingRight="16dp"
+                android:paddingBottom="16dp">
 
-            <TextView
-                android:id="@+id/btn_wg_add_device"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_marginTop="8dp"
-                android:background="@drawable/bg_settings_action_green"
-                android:clickable="true"
-                android:focusable="true"
-                android:gravity="center"
-                android:text="Добавить устройство"
-                android:textColor="?attr/quipnetAccentOn"
-                android:textSize="15sp"
-                android:textStyle="bold" />
-        </LinearLayout>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Устройства с WireGuard"
+                    android:textColor="?attr/m3ColorOnSurfaceContainer"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textAppearance="?attr/textAppearanceTitleMedium" />
 
-        <LinearLayout
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:text="Для ПК, Mac, телефонов и приставок, где есть WireGuard: весь трафик устройства, вместе с UDP и DNS, пойдёт через VPN этого телефона, без настройки прокси. Нажмите «Добавить устройство» и отсканируйте QR или вставьте конфиг в WireGuard."
+                    android:textColor="?attr/m3ColorOnSurfaceContainer"
+                    android:textSize="13sp"
+                    android:textAppearance="?attr/textAppearanceBodySmall" />
+
+                <LinearLayout
+                    android:id="@+id/container_wg_devices"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:orientation="vertical" />
+
+                <TextView
+                    android:id="@+id/btn_wg_add_device"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/btn_expressive_filled_tonal"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:gravity="center"
+                    android:paddingTop="12dp"
+                    android:paddingBottom="12dp"
+                    android:text="Добавить устройство"
+                    android:textColor="?attr/m3ColorOnSecondaryContainer"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:textAppearance="?attr/textAppearanceLabelLarge" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:background="?attr/quipnetCardBackground"
-            android:orientation="vertical"
-            android:padding="12dp">
-
-            <TextView
-                android:id="@+id/tv_host_port"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Хост: 127.0.0.1    Порт: 1370"
-                android:textColor="?attr/quipnetTextTitle"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/tv_username"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:text="Логин: ----"
-                android:textColor="?attr/quipnetTextTitle"
-                android:textSize="15sp" />
-
-            <TextView
-                android:id="@+id/tv_password"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="Пароль: ----"
-                android:textColor="?attr/quipnetTextTitle"
-                android:textSize="15sp" />
-
-            <TextView
-                android:id="@+id/btn_regenerate_creds"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_marginTop="14dp"
-                android:background="@drawable/bg_settings_action_green"
-                android:clickable="true"
-                android:focusable="true"
-                android:gravity="center"
-                android:text="Сменить логин и пароль"
-                android:textColor="?attr/quipnetAccentOn"
-                android:textSize="15sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/btn_toggle_open_tethered"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/bg_settings_action_green"
-                android:clickable="true"
-                android:focusable="true"
-                android:gravity="center"
-                android:minHeight="48dp"
-                android:paddingTop="12dp"
-                android:paddingBottom="12dp"
-                android:text="Без пароля для клиентов раздачи: выкл"
-                android:textColor="?attr/quipnetAccentOn"
-                android:textSize="14sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/tv_open_tethered_hint"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
-                android:text="Многие телевизоры и приставки не умеют вводить логин и пароль прокси. Послабление действует только для устройств, подключённых к раздаче самого телефона, и никогда — для общей сети Wi-Fi."
-                android:textColor="?attr/quipnetTextHint"
-                android:textSize="12sp" />
-
-            <TextView
-                android:id="@+id/btn_toggle_allow_direct"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/bg_settings_action_green"
-                android:clickable="true"
-                android:focusable="true"
-                android:gravity="center"
-                android:minHeight="48dp"
-                android:paddingTop="12dp"
-                android:paddingBottom="12dp"
-                android:text="Без VPN выпускать напрямую: выкл"
-                android:textColor="?attr/quipnetAccentOn"
-                android:textSize="14sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/tv_allow_direct_hint"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
-                android:text="Если выключить, при отсутствии туннеля QuipNet честно отвечает клиенту ошибкой. Пока включено, интернет у клиентов работает даже без VPN — но идёт открыто, со своим обычным адресом."
-                android:textColor="?attr/quipnetTextHint"
-                android:textSize="12sp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:background="?attr/quipnetCardBackground"
-            android:orientation="vertical"
-            android:padding="12dp">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Что пойдёт мимо VPN"
-                android:textColor="#FFB347"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="Через прокси идёт только TCP. Мимо туннеля пойдут: онлайн-игры, звонки и видеосвязь (UDP); QUIC и HTTP/3; системные DNS-запросы программ, не использующих прокси; программы, игнорирующие системную настройку прокси — торренты, часть игр и утилит. Локальная сеть остаётся доступна напрямую намеренно.\n\nЕсли на устройстве есть WireGuard, добавьте его выше: тогда через VPN пойдёт всё, включая UDP, звонки и DNS. Прозрачной раздачи без клиента на устройстве Android без root не позволяет."
-                android:textColor="?attr/quipnetTextHint"
-                android:textSize="12sp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:background="?attr/quipnetCardBackground"
-            android:orientation="vertical"
-            android:padding="12dp">
-
-            <TextView
-                android:id="@+id/tv_unauthorized_counter"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Неудачных входов: 0"
-                android:textColor="#FF6B6B"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
-                android:text="Если Android позволяет, QuipNet покажет какое приложение пыталось использовать прокси без авторизации."
-                android:textColor="?attr/quipnetTextHint"
-                android:textSize="12sp" />
+            app:cardCornerRadius="16dp"
+            app:cardElevation="2dp"
+            app:cardBackgroundColor="?attr/m3ColorSurfaceContainer"
+            app:strokeWidth="1dp"
+            app:strokeColor="?attr/m3ColorOutlineVariant">
 
             <LinearLayout
-                android:id="@+id/container_unauthorized_attempts"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:orientation="vertical" />
+                android:orientation="vertical"
+                android:paddingLeft="16dp"
+                android:paddingTop="16dp"
+                android:paddingRight="16dp"
+                android:paddingBottom="16dp">
 
-            <TextView
-                android:id="@+id/tv_unauthorized_empty"
+                <TextView
+                    android:id="@+id/tv_host_port"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Хост: 127.0.0.1    Порт: 1370"
+                    android:textColor="?attr/m3ColorOnSurfaceContainer"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textAppearance="?attr/textAppearanceTitleMedium" />
+
+                <TextView
+                    android:id="@+id/tv_username"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="Логин: ----"
+                    android:textColor="?attr/m3ColorOnSurfaceContainer"
+                    android:textSize="15sp"
+                    android:textAppearance="?attr/textAppearanceBodyMedium" />
+
+                <TextView
+                    android:id="@+id/tv_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Пароль: ----"
+                    android:textColor="?attr/m3ColorOnSurfaceContainer"
+                    android:textSize="15sp"
+                    android:textAppearance="?attr/textAppearanceBodyMedium" />
+
+                <TextView
+                    android:id="@+id/btn_regenerate_creds"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:background="@drawable/btn_expressive_filled_tonal"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:gravity="center"
+                    android:paddingTop="12dp"
+                    android:paddingBottom="12dp"
+                    android:text="Сменить логин и пароль"
+                    android:textColor="?attr/m3ColorOnSecondaryContainer"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:textAppearance="?attr/textAppearanceLabelLarge" />
+
+                <TextView
+                    android:id="@+id/btn_toggle_open_tethered"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/btn_expressive_text"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:gravity="center"
+                    android:minHeight="48dp"
+                    android:paddingTop="12dp"
+                    android:paddingBottom="12dp"
+                    android:text="Без пароля для клиентов раздачи: выкл"
+                    android:textColor="?attr/m3ColorPrimary"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:textAppearance="?attr/textAppearanceLabelMedium" />
+
+                <TextView
+                    android:id="@+id/tv_open_tethered_hint"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:text="Многие телевизоры и приставки не умеют вводить логин и пароль прокси. Послабление действует только для устройств, подключённых к раздаче самого телефона, и никогда — для общей сети Wi-Fi."
+                    android:textColor="?attr/m3ColorOnSurfaceContainer"
+                    android:textSize="12sp"
+                    android:textAppearance="?attr/textAppearanceBodySmall" />
+
+                <TextView
+                    android:id="@+id/btn_toggle_allow_direct"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/btn_expressive_text"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:gravity="center"
+                    android:minHeight="48dp"
+                    android:paddingTop="12dp"
+                    android:paddingBottom="12dp"
+                    android:text="Без VPN выпускать напрямую: выкл"
+                    android:textColor="?attr/m3ColorPrimary"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:textAppearance="?attr/textAppearanceLabelMedium" />
+
+                <TextView
+                    android:id="@+id/tv_allow_direct_hint"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:text="Если выключить, при отсутствии туннеля QuipNet честно отвечает клиенту ошибкой. Пока включено, интернет у клиентов работает даже без VPN — но идёт открыто, со своим обычным адресом."
+                    android:textColor="?attr/m3ColorOnSurfaceContainer"
+                    android:textSize="12sp"
+                    android:textAppearance="?attr/textAppearanceBodySmall" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="2dp"
+            app:cardBackgroundColor="?attr/m3ColorSurfaceContainer"
+            app:strokeWidth="1dp"
+            app:strokeColor="?attr/m3ColorOutlineVariant">
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="Пока нет неудачных попыток."
-                android:textColor="?attr/quipnetTextHint"
-                android:textSize="13sp" />
-        </LinearLayout>
+                android:orientation="vertical"
+                android:paddingLeft="16dp"
+                android:paddingTop="16dp"
+                android:paddingRight="16dp"
+                android:paddingBottom="16dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Что пойдёт мимо VPN"
+                    android:textColor="?attr/m3ColorScarf"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textAppearance="?attr/textAppearanceTitleMedium" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Через прокси идёт только TCP. Мимо туннеля пойдут: онлайн-игры, звонки и видеосвязь (UDP); QUIC и HTTP/3; системные DNS-запросы программ, не использующих прокси; программы, игнорирующие системную настройку прокси — торренты, часть игр и утилит. Локальная сеть остаётся доступна напрямую намеренно.\n\nЕсли на устройстве есть WireGuard, добавьте его выше: тогда через VPN пойдёт всё, включая UDP, звонки и DNS. Прозрачной раздачи без клиента на устройстве Android без root не позволяет."
+                    android:textColor="?attr/m3ColorOnSurfaceContainer"
+                    android:textSize="12sp"
+                    android:textAppearance="?attr/textAppearanceBodySmall" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="2dp"
+            app:cardBackgroundColor="?attr/m3ColorSurfaceContainer"
+            app:strokeWidth="1dp"
+            app:strokeColor="?attr/m3ColorOutlineVariant">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingLeft="16dp"
+                android:paddingTop="16dp"
+                android:paddingRight="16dp"
+                android:paddingBottom="16dp">
+
+                <TextView
+                    android:id="@+id/tv_unauthorized_counter"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Неудачных входов: 0"
+                    android:textColor="?attr/m3ColorError"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textAppearance="?attr/textAppearanceTitleMedium" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:text="Если Android позволяет, QuipNet покажет какое приложение пыталось использовать прокси без авторизации."
+                    android:textColor="?attr/m3ColorOnSurfaceContainer"
+                    android:textSize="12sp"
+                    android:textAppearance="?attr/textAppearanceBodySmall" />
+
+                <LinearLayout
+                    android:id="@+id/container_unauthorized_attempts"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:orientation="vertical" />
+
+                <TextView
+                    android:id="@+id/tv_unauthorized_empty"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Пока нет неудачных попыток."
+                    android:textColor="?attr/m3ColorOnSurfaceContainer"
+                    android:textSize="13sp"
+                    android:textAppearance="?attr/textAppearanceBodySmall" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
     </LinearLayout>
 </ScrollView>

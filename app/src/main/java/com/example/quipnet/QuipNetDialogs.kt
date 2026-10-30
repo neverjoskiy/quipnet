@@ -61,8 +61,8 @@ object QuipNetDialogs {
     fun styleButton(button: Button?, primary: Boolean) {
         val view = button ?: return
         val context = view.context
-        val accent = QuipNetTheme.color(context, R.attr.quipnetAccent)
-        val accentOn = QuipNetTheme.color(context, R.attr.quipnetAccentOn)
+        val accent = QuipNetTheme.color(context, R.attr.m3ColorPrimary)
+        val accentOn = QuipNetTheme.color(context, R.attr.m3ColorOnPrimaryContainer)
         if (accent == 0) return
         val density = context.resources.displayMetrics.density
         val shape = android.graphics.drawable.GradientDrawable().apply {
@@ -197,7 +197,7 @@ object QuipNetDialogs {
 
         val context = view.context
 
-        val background = if (primary) R.attr.quipnetDialogButtonPrimary else R.attr.quipnetDialogButton
+        val background = if (primary) R.attr.m3ColorPrimaryContainer else R.attr.m3ColorSurfaceContainer
 
         val resource = resourceOf(context, background)
 
@@ -213,7 +213,7 @@ object QuipNetDialogs {
         view.backgroundTintList = null
 
         view.setTextColor(
-            QuipNetTheme.color(context, if (primary) R.attr.quipnetAccentOn else R.attr.quipnetAccent)
+            QuipNetTheme.color(context, if (primary) R.attr.m3ColorOnPrimaryContainer else R.attr.m3ColorPrimary)
         )
 
         // `setBackgroundResource` сбрасывает отступы на те, что у нового фона, а

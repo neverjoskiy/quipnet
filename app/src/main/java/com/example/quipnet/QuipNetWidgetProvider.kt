@@ -89,8 +89,8 @@ class QuipNetWidgetProvider : AppWidgetProvider() {
                     context.applicationContext,
                     QuipNetTheme.optionFor(QuipNetTheme.current(context)).styleRes,
                 )
-                val accent = QuipNetTheme.color(themed, R.attr.quipnetAccent)
-                val dim = QuipNetTheme.color(themed, R.attr.quipnetAccentDim)
+                val accent = QuipNetTheme.color(themed, R.attr.m3ColorPrimary)
+                val dim = QuipNetTheme.color(themed, R.attr.m3ColorPrimary)
                 setImageViewBitmap(R.id.widget_frame_img, frameBitmap(accent, dim))
                 setImageViewBitmap(R.id.widget_btn_next, nextButtonBitmap(context, accent))
             }.onFailure { LogManager.log("Виджет: не удалось применить тему: ${it.message}") }

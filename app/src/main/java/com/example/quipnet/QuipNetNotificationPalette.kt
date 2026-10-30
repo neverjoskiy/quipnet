@@ -113,7 +113,7 @@ object QuipNetNotificationPalette {
         cached?.let { (cachedKey, palette) -> if (cachedKey == key) return palette }
         val accent = runCatching {
             val themed = ContextThemeWrapper(context.applicationContext, QuipNetTheme.optionFor(key).styleRes)
-            QuipNetTheme.color(themed, R.attr.quipnetAccent)
+            QuipNetTheme.color(themed, R.attr.m3ColorPrimary)
         }.getOrElse { ContextCompat.getColor(context, R.color.quipnet_aurora_accent) }
         return derive(accent).also { cached = key to it }
     }

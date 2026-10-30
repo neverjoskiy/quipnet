@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Material 3 Expressive Switch track — мягкая капсула с elevated тенью. -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Включён -->
+    <item android:state_checked="true">
+        <shape android:shape="rectangle">
+            <solid android:color="?attr/quipnetSwitchOn" />
+            <corners android:radius="16dp" />
+        </shape>
+    </item>
+
+    <!-- Выключен -->
+    <item android:state_checked="false">
+        <shape android:shape="rectangle">
+            <solid android:color="?attr/quipnetSwitchOff" />
+            <corners android:radius="16dp" />
+        </shape>
+    </item>
+
+    <!-- Отключён -->
+    <item android:state_enabled="false">
+        <shape android:shape="rectangle">
+            <solid android:color="#1A1A1A" />
+            <corners android:radius="16dp" />
+        </shape>
+    </item>
+</selector>

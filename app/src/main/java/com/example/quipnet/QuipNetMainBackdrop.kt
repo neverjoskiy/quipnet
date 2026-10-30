@@ -198,6 +198,6 @@ internal object QuipNetMainBackdrop {
             context,
             QuipNetTheme.optionFor(QuipNetTheme.current(context)).styleRes,
         )
-        return QuipNetTheme.color(themed, R.attr.quipnetAccent)
+        return QuipNetTheme.color(themed, R.attr.m3ColorPrimary)
     }
 }

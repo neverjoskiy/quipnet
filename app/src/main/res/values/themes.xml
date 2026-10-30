@@ -1,139 +1,301 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Theme.QuipNet" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+
+    <!-- ========================================================================
+         Material 3 Expressive — базовая тема приложения.
+         Родитель: Theme.Material3.DayNight.NoActionBar (Material 3, не Material 2).
+         Цвета берутся из tonal palette colors.xml (m3_*). Формы — small/medium/large
+         скругления. Elevation — выраженные ступени 0..12 dp. Типографика — type scale
+         Material 3 Expressive (display/headline/title/body/label).
+         ======================================================================== -->
+    <style name="Theme.QuipNet" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Виды разметки переводят свой текст при показе (QuipNetLanguage, QuipNetViewInflater). -->
         <item name="viewInflaterClass">com.example.quipnet.QuipNetViewInflater</item>
-        <!-- Primary brand color. -->
-        <item name="colorPrimary">#04070D</item>
-        <item name="colorPrimaryVariant">#04070D</item>
-        <item name="colorOnPrimary">@color/white</item>
-        <!-- Secondary brand color. -->
-        <item name="colorSecondary">#0D1118</item>
-        <item name="colorSecondaryVariant">#0D1118</item>
-        <item name="colorOnSecondary">@color/black</item>
-        <!-- Status bar color. -->
-        <item name="android:statusBarColor">@android:color/transparent</item>
-        <item name="android:windowTranslucentStatus">true</item>
-        <item name="android:windowAnimationStyle">@null</item>
-        <item name="android:windowContentTransitions">false</item>
-        <item name="android:windowEnterTransition">@null</item>
-        <item name="android:windowExitTransition">@null</item>
-        <item name="android:windowReenterTransition">@null</item>
-        <item name="android:windowReturnTransition">@null</item>
-        <item name="android:activityOpenEnterAnimation">@anim/no_anim</item>
-        <item name="android:activityOpenExitAnimation">@anim/no_anim</item>
-        <item name="android:activityCloseEnterAnimation">@anim/no_anim</item>
-        <item name="android:activityCloseExitAnimation">@anim/no_anim</item>
+
+        <!-- Материал 3 — основные роли цвета -->
+        <item name="colorPrimary">@color/m3_primary</item>
+        <item name="colorOnPrimary">@color/m3_onPrimary</item>
+        <item name="colorPrimaryContainer">@color/m3_primaryContainer</item>
+        <item name="colorOnPrimaryContainer">@color/m3_onPrimaryContainer</item>
+        <item name="colorSecondary">@color/m3_secondary</item>
+        <item name="colorOnSecondary">@color/m3_onSecondary</item>
+        <item name="colorSecondaryContainer">@color/m3_secondaryContainer</item>
+        <item name="colorOnSecondaryContainer">@color/m3_onSecondaryContainer</item>
+        <item name="colorTertiary">@color/m3_tertiary</item>
+        <item name="colorOnTertiary">@color/m3_onTertiary</item>
+        <item name="colorTertiaryContainer">@color/m3_tertiaryContainer</item>
+        <item name="colorOnTertiaryContainer">@color/m3_onTertiaryContainer</item>
+        <item name="colorError">@color/m3_error</item>
+        <item name="colorOnError">@color/m3_onError</item>
+        <item name="colorErrorContainer">@color/m3_errorContainer</item>
+        <item name="colorOnErrorContainer">@color/m3_onErrorContainer</item>
+        <item name="colorOutline">@color/m3_outline</item>
+        <item name="colorOutlineVariant">@color/m3_outlineVariant</item>
+        <item name="colorSurface">@color/m3_surface</item>
+        <item name="colorSurfaceDim">@color/m3_surfaceDim</item>
+        <item name="colorSurfaceBright">@color/m3_surfaceBright</item>
+        <item name="colorSurfaceContainer">@color/m3_surfaceContainer</item>
+        <item name="colorSurfaceContainerHigh">@color/m3_surfaceContainerHigh</item>
+        <item name="colorSurfaceContainerHighest">@color/m3_surfaceContainerHighest</item>
+        <item name="colorBackground">@color/m3_background</item>
+        <item name="colorOnBackground">@color/m3_onBackground</item>
+
+        <!-- Scarf — дополнительный экспрессивный акцент (золотой) -->
+        <item name="m3ColorScarf">@color/m3_scarf</item>
+        <item name="m3ColorOnScarf">@color/m3_onScarf</item>
+        <item name="m3ColorScarfContainer">@color/m3_scarfContainer</item>
+        <item name="m3ColorOnScarfContainer">@color/m3_onScarfContainer</item>
+
+        <!-- Оттенок иконок -->
+        <item name="m3ColorIconTint">@color/m3_onPrimaryContainer</item>
+
+        <!-- Старые роли для совместимости с кастомными View -->
+        <item name="colorPrimaryVariant">@color/m3_primary</item>
+        <item name="colorSecondaryVariant">@color/m3_secondary</item>
+
+        <!-- Статус-бар: полупрозрачный тёмный, контент заходит под него (edge-to-edge) -->
+        <item name="android:statusBarColor">#22000000</item>
+        <item name="android:navigationBarColor">@color/m3_surface</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:windowTranslucentStatus">false</item>
+        <item name="android:windowTranslucentNavigation">false</item>
+
+        <!-- Формы Material 3 Expressive: скругления small/medium/large -->
+        <item name="shapeSmall">4dp</item>
+        <item name="shapeMedium">8dp</item>
+        <item name="shapeLarge">12dp</item>
+        <item name="shapeExtraLarge">28dp</item>
+
+        <!-- Элевация Material 3 Expressive: выраженные ступени -->
+        <item name="elevationLevel0">0dp</item>
+        <item name="elevationLevel1">1dp</item>
+        <item name="elevationLevel2">2dp</item>
+        <item name="elevationLevel3">3dp</item>
+        <item name="elevationLevel4">4dp</item>
+        <item name="elevationLevel8">8dp</item>
+        <item name="elevationLevel12">12dp</item>
+
+        <!-- Анимация окон Material 3 Expressive: плавные переходы между экранами -->
+        <item name="android:windowAnimationStyle">@style/AnimationQuipNet</item>
+        <item name="android:windowContentTransitions">true</item>
+        <item name="android:windowEnterTransition">@android:transition/fade</item>
+        <item name="android:windowExitTransition">@android:transition/fade</item>
+        <item name="android:windowReenterTransition">@android:transition/fade</item>
+        <item name="android:windowReturnTransition">@android:transition/fade</item>
+        <item name="android:activityOpenEnterAnimation">@anim/quipnet_slide_in</item>
+        <item name="android:activityOpenExitAnimation">@anim/quipnet_slide_out</item>
+        <item name="android:activityCloseEnterAnimation">@anim/quipnet_slide_in</item>
+        <item name="android:activityCloseExitAnimation">@anim/quipnet_slide_out</item>
+
+        <!-- Типографика Material 3 Expressive — type scale -->
+        <item name="textAppearanceHeadlineLarge">@style/TextAppearance.QuipNet.HeadlineLarge</item>
+        <item name="textAppearanceHeadlineMedium">@style/TextAppearance.QuipNet.HeadlineMedium</item>
+        <item name="textAppearanceHeadlineSmall">@style/TextAppearance.QuipNet.HeadlineSmall</item>
+        <item name="textAppearanceTitleLarge">@style/TextAppearance.QuipNet.TitleLarge</item>
+        <item name="textAppearanceTitleMedium">@style/TextAppearance.QuipNet.TitleMedium</item>
+        <item name="textAppearanceTitleSmall">@style/TextAppearance.QuipNet.TitleSmall</item>
+        <item name="textAppearanceBodyLarge">@style/TextAppearance.QuipNet.BodyLarge</item>
+        <item name="textAppearanceBodyMedium">@style/TextAppearance.QuipNet.BodyMedium</item>
+        <item name="textAppearanceBodySmall">@style/TextAppearance.QuipNet.BodySmall</item>
+        <item name="textAppearanceLabelLarge">@style/TextAppearance.QuipNet.LabelLarge</item>
+        <item name="textAppearanceLabelMedium">@style/TextAppearance.QuipNet.LabelMedium</item>
+        <item name="textAppearanceLabelSmall">@style/TextAppearance.QuipNet.LabelSmall</item>
+        <item name="textAppearanceDisplayLarge">@style/TextAppearance.QuipNet.DisplayLarge</item>
+        <item name="textAppearanceDisplayMedium">@style/TextAppearance.QuipNet.DisplayMedium</item>
+        <item name="textAppearanceDisplaySmall">@style/TextAppearance.QuipNet.DisplaySmall</item>
     </style>
-    
-    <!-- Settings Dialog Theme - Liquid Glass Aesthetic -->
-    <style name="Theme.QuipNet.Settings" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        <!-- Виды разметки переводят свой текст при показе (QuipNetLanguage, QuipNetViewInflater). -->
+
+    <!-- ========================================================================
+         Тема экранов настроек — Material 3 Expressive.
+         Наследуется от Theme.QuipNet, добавляет роли словаря темы (quipnet*).
+         ======================================================================== -->
+    <style name="Theme.QuipNet.Settings" parent="Theme.QuipNet">
         <item name="viewInflaterClass">com.example.quipnet.QuipNetViewInflater</item>
         <item name="android:windowIsFloating">false</item>
-        <item name="android:windowAnimationStyle">@null</item>
-        <item name="android:windowContentTransitions">false</item>
-        <item name="android:windowEnterTransition">@null</item>
-        <item name="android:windowExitTransition">@null</item>
-        <item name="android:windowReenterTransition">@null</item>
-        <item name="android:windowReturnTransition">@null</item>
-        <!--
-            Умолчания словаря темы (values/attrs_nova_theme.xml). Совпадают с
-            «Aurora mint» — ближайшей к прежнему виду из семи. Нужны отдельно от
-            themes_nova.xml, чтобы экран, которому тему забыли поставить, получил
-            рабочую палитру, а не нули: атрибут без значения — это не «серый по
-            умолчанию», это исключение при раздувании разметки.
-        -->
-        <item name="android:windowBackground">@drawable/bg_quipnet_screen_aurora</item>
+
+        <!-- Фон экрана — поверхность базового цвета -->
+        <item name="android:windowBackground">@color/m3_surface</item>
+
+        <!-- Умолчания словаря темы (Auroramint — базовый акцент изумрудный) -->
         <item name="quipnetCardBackground">@drawable/bg_quipnet_card_aurora</item>
         <item name="quipnetFieldBackground">@drawable/bg_quipnet_field_aurora</item>
         <item name="quipnetDialogButton">@drawable/bg_quipnet_dialog_button_aurora</item>
         <item name="quipnetDialogButtonPrimary">@drawable/bg_quipnet_dialog_button_primary_aurora</item>
         <item name="android:alertDialogTheme">@style/Theme.QuipNet.Dialog.Auroramint</item>
         <item name="alertDialogTheme">@style/Theme.QuipNet.Dialog.Auroramint</item>
-        <item name="colorAccent">@color/quipnet_aurora_accent</item>
-        <item name="android:colorAccent">@color/quipnet_aurora_accent</item>
-        <item name="colorControlActivated">@color/quipnet_aurora_accent</item>
-        <item name="android:colorControlActivated">@color/quipnet_aurora_accent</item>
-        <item name="colorControlNormal">@color/quipnet_aurora_text_value</item>
-        <item name="android:colorControlNormal">@color/quipnet_aurora_text_value</item>
-        <item name="android:textColorHint">@color/quipnet_aurora_text_hint</item>
-        <item name="quipnetAccent">@color/quipnet_aurora_accent</item>
-        <item name="quipnetAccentDim">@color/quipnet_aurora_accent_dim</item>
-        <item name="quipnetAccentOn">@color/quipnet_aurora_accent_on</item>
-        <item name="quipnetSeparator">@color/quipnet_aurora_separator</item>
-        <item name="quipnetTextGroupFrom">@color/quipnet_aurora_group_from</item>
-        <item name="quipnetTextGroupTo">@color/quipnet_aurora_group_to</item>
-        <item name="quipnetTextTitle">@color/quipnet_aurora_text_title</item>
-        <item name="quipnetTextValue">@color/quipnet_aurora_text_value</item>
-        <item name="quipnetTextHint">@color/quipnet_aurora_text_hint</item>
-        <item name="quipnetSwitchOn">@color/quipnet_aurora_switch_on</item>
-        <item name="quipnetSwitchOff">@color/quipnet_aurora_switch_off</item>
-        <item name="quipnetSwitchThumbOn">@color/quipnet_aurora_thumb_on</item>
-        <item name="quipnetSwitchThumbOff">@color/quipnet_aurora_thumb_off</item>
-        <item name="quipnetIconTint">@color/quipnet_aurora_icon_tint</item>
-        <item name="quipnetCardFill">@color/quipnet_aurora_card_fill</item>
-        <item name="quipnetCardStroke">@color/quipnet_aurora_card_stroke</item>
-        <item name="switchStyle">@style/LiquidGlassSwitch</item>
-        <item name="android:switchStyle">@style/LiquidGlassSwitch</item>
-        <item name="android:activityOpenEnterAnimation">@anim/no_anim</item>
-        <item name="android:activityOpenExitAnimation">@anim/no_anim</item>
-        <item name="android:activityCloseEnterAnimation">@anim/no_anim</item>
-        <item name="android:activityCloseExitAnimation">@anim/no_anim</item>
+        <item name="colorAccent">@color/m3_primary</item>
+        <item name="android:colorAccent">@color/m3_primary</item>
+        <item name="colorControlActivated">@color/m3_primary</item>
+        <item name="android:colorControlActivated">@color/m3_primary</item>
+        <item name="colorControlNormal">@color/m3_onPrimaryContainer</item>
+        <item name="android:colorControlNormal">@color/m3_onPrimaryContainer</item>
+        <item name="android:textColorHint">@color/m3_onPrimaryContainer</item>
+        <item name="quipnetAccent">@color/m3_primary</item>
+        <item name="quipnetAccentDim">@color/m3_primary_tone_30</item>
+        <item name="quipnetAccentOn">@color/m3_onPrimary</item>
+        <item name="quipnetSeparator">@color/m3_outline</item>
+        <item name="quipnetTextGroupFrom">@color/m3_primary_tone_50</item>
+        <item name="quipnetTextGroupTo">@color/m3_primary_tone_80</item>
+        <item name="quipnetTextTitle">@color/m3_onBackground</item>
+        <item name="quipnetTextValue">@color/m3_onPrimaryContainer</item>
+        <item name="quipnetTextHint">@color/m3_onPrimaryContainer</item>
+        <item name="quipnetSwitchOn">@color/m3_primary</item>
+        <item name="quipnetSwitchOff">@color/m3_outlineVariant</item>
+        <item name="quipnetSwitchThumbOn">@color/m3_onPrimary</item>
+        <item name="quipnetSwitchThumbOff">@color/m3_onBackground</item>
+        <item name="quipnetIconTint">@color/m3_onPrimaryContainer</item>
+        <item name="quipnetCardFill">@color/m3_surfaceContainer</item>
+        <item name="quipnetCardStroke">@color/m3_outline</item>
+        <item name="quipnetFocusFill">@color/m3_primary_tone_40</item>
+        <item name="quipnetFocusStroke">@color/m3_primary</item>
+        <item name="switchStyle">@style/Widget.QuipNet.ExpressiveSwitch</item>
+        <item name="android:switchStyle">@style/Widget.QuipNet.ExpressiveSwitch</item>
     </style>
 
-    <!--
-        Переключатель задан целиком своими размерами и своими состояниями.
-
-        Так он выглядел раньше: крупный и без подписи. Обновление appcompat до
-        1.7.0 и material до 1.12.0 в этой серии поменяло умолчания библиотеки —
-        переключатели стали мелкими, а внутри бегунка появилось «ВКЛ»/«ВЫКЛ».
-        Полагаться на умолчания больше нельзя: следующая версия поменяет их снова.
-        `showText` выключен в обоих пространствах имён, потому что `<Switch>` в
-        разметке разворачивается в `SwitchCompat`, и он читает атрибут без
-        префикса `android:`, а платформенный `Switch` — с префиксом.
-    -->
-    <style name="LiquidGlassSwitch" parent="Widget.MaterialComponents.CompoundButton.Switch">
-        <item name="android:thumb">@drawable/switch_thumb_liquid</item>
-        <item name="track">@drawable/switch_track_liquid</item>
-        <item name="android:track">@drawable/switch_track_liquid</item>
-        <item name="thumbTint">@color/switch_thumb_tint_liquid</item>
-        <item name="android:thumbTint">@color/switch_thumb_tint_liquid</item>
-        <item name="trackTint">@color/switch_track_tint_liquid</item>
-        <item name="android:trackTint">@color/switch_track_tint_liquid</item>
+    <!-- ========================================================================
+         Переключатель Material 3 Expressive.
+         Крупные пропорции, новая геометрия бегунка и трека, анимация состояний.
+         ======================================================================== -->
+    <style name="Widget.QuipNet.ExpressiveSwitch" parent="Widget.Material3.CompoundButton.Switch">
+        <item name="track">@drawable/switch_track_expressive</item>
+        <item name="android:track">@drawable/switch_track_expressive</item>
+        <item name="thumbTint">@color/switch_thumb_tint_expressive</item>
+        <item name="android:thumbTint">@color/switch_thumb_tint_expressive</item>
+        <item name="trackTint">@color/switch_track_tint_expressive</item>
+        <item name="android:trackTint">@color/switch_track_tint_expressive</item>
         <item name="showText">false</item>
         <item name="android:showText">false</item>
         <item name="android:textOn"></item>
         <item name="android:textOff"></item>
-        <item name="android:switchMinWidth">52dp</item>
-        <item name="android:minWidth">52dp</item>
-        <item name="android:minHeight">29dp</item>
+        <item name="android:switchMinWidth">56dp</item>
+        <item name="android:minWidth">56dp</item>
+        <item name="android:minHeight">32dp</item>
         <item name="android:thumbTextPadding">0dp</item>
         <item name="android:background">@null</item>
     </style>
 
-    <!--
-        Кнопка селектора протокола/региона на главном экране.
+    <!-- ========================================================================
+         Типография Material 3 Expressive.
+         Размеры увеличены по сравнению с базовым M3, жирные начертания,
+         контрастная иерархия заголовков и текста.
+         ======================================================================== -->
 
-        Кружок радиокнопки убран (`android:button="@null"`), а выбор показывает
-        обводка — та же зелёная рамка, что у бейджа страны (`bg_region_chip.xml`).
-        Так попросил владелец, и заодно это снимает старую жалобу: кружок с
-        подписью не читался как одна кнопка.
+    <!-- Display — очень большие выразительные заголовки -->
+    <style name="TextAppearance.QuipNet.DisplayLarge" parent="TextAppearance.Material3.DisplayLarge">
+        <item name="android:textSize">57sp</item>
+        <item name="android:textFontWeight">400</item>
+        <item name="android:letterSpacing">-0.02</item>
+        <item name="android:lineHeight">64sp</item>
+    </style>
+    <style name="TextAppearance.QuipNet.DisplayMedium" parent="TextAppearance.Material3.DisplayMedium">
+        <item name="android:textSize">45sp</item>
+        <item name="android:textFontWeight">400</item>
+        <item name="android:letterSpacing">-0.02</item>
+        <item name="android:lineHeight">52sp</item>
+    </style>
+    <style name="TextAppearance.QuipNet.DisplaySmall" parent="TextAppearance.Material3.DisplaySmall">
+        <item name="android:textSize">36sp</item>
+        <item name="android:textFontWeight">400</item>
+        <item name="android:letterSpacing">-0.01</item>
+        <item name="android:lineHeight">44sp</item>
+    </style>
 
-        Отступы больше не нулевые: рамка вокруг текста без внутреннего поля
-        упирается в буквы. Внешний отступ снизу нужен трём полосам — без него
-        строки слипаются.
-    -->
+    <!-- Headline — крупные заглавия экранов -->
+    <style name="TextAppearance.QuipNet.HeadlineLarge" parent="TextAppearance.Material3.HeadlineLarge">
+        <item name="android:textSize">32sp</item>
+        <item name="android:textFontWeight">400</item>
+        <item name="android:letterSpacing">0</item>
+        <item name="android:lineHeight">40sp</item>
+    </style>
+    <style name="TextAppearance.QuipNet.HeadlineMedium" parent="TextAppearance.Material3.HeadlineMedium">
+        <item name="android:textSize">28sp</item>
+        <item name="android:textFontWeight">400</item>
+        <item name="android:letterSpacing">0</item>
+        <item name="android:lineHeight">36sp</item>
+    </style>
+    <style name="TextAppearance.QuipNet.HeadlineSmall" parent="TextAppearance.Material3.HeadlineSmall">
+        <item name="android:textSize">24sp</item>
+        <item name="android:textFontWeight">400</item>
+        <item name="android:letterSpacing">0</item>
+        <item name="android:lineHeight">32sp</item>
+    </style>
+
+    <!-- Title — названия секций -->
+    <style name="TextAppearance.QuipNet.TitleLarge" parent="TextAppearance.Material3.TitleLarge">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textFontWeight">500</item>
+        <item name="android:letterSpacing">0.01</item>
+        <item name="android:lineHeight">28sp</item>
+    </style>
+    <style name="TextAppearance.QuipNet.TitleMedium" parent="TextAppearance.Material3.TitleMedium">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textFontWeight">500</item>
+        <item name="android:letterSpacing">0.015</item>
+        <item name="android:lineHeight">26sp</item>
+    </style>
+    <style name="TextAppearance.QuipNet.TitleSmall" parent="TextAppearance.Material3.TitleSmall">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textFontWeight">500</item>
+        <item name="android:letterSpacing">0.01</item>
+        <item name="android:lineHeight">24sp</item>
+    </style>
+
+    <!-- Body — основной текст -->
+    <style name="TextAppearance.QuipNet.BodyLarge" parent="TextAppearance.Material3.BodyLarge">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textFontWeight">400</item>
+        <item name="android:letterSpacing">0.05</item>
+        <item name="android:lineHeight">24sp</item>
+    </style>
+    <style name="TextAppearance.QuipNet.BodyMedium" parent="TextAppearance.Material3.BodyMedium">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textFontWeight">400</item>
+        <item name="android:letterSpacing">0.025</item>
+        <item name="android:lineHeight">20sp</item>
+    </style>
+    <style name="TextAppearance.QuipNet.BodySmall" parent="TextAppearance.Material3.BodySmall">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textFontWeight">400</item>
+        <item name="android:letterSpacing">0.04</item>
+        <item name="android:lineHeight">16sp</item>
+    </style>
+
+    <!-- Label — подписи, кнопки, чипы -->
+    <style name="TextAppearance.QuipNet.LabelLarge" parent="TextAppearance.Material3.LabelLarge">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textFontWeight">600</item>
+        <item name="android:letterSpacing">0.1</item>
+        <item name="android:lineHeight">20sp</item>
+    </style>
+    <style name="TextAppearance.QuipNet.LabelMedium" parent="TextAppearance.Material3.LabelMedium">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textFontWeight">600</item>
+        <item name="android:letterSpacing">0.1</item>
+        <item name="android:lineHeight">18sp</item>
+    </style>
+    <style name="TextAppearance.QuipNet.LabelSmall" parent="TextAppearance.Material3.LabelSmall">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textFontWeight">600</item>
+        <item name="android:letterSpacing">0.12</item>
+        <item name="android:lineHeight">16sp</item>
+    </style>
+
+    <!-- ========================================================================
+         Анимация переходов между Activity (Material 3 Expressive Motion).
+         Плавный сдвиг + затухание, shared element-готовость.
+         ======================================================================== -->
+    <style name="AnimationQuipNet">
+        <item name="android:activityOpenEnterAnimation">@anim/quipnet_slide_in</item>
+        <item name="android:activityOpenExitAnimation">@anim/quipnet_slide_out</item>
+        <item name="android:activityCloseEnterAnimation">@anim/quipnet_slide_in</item>
+        <item name="android:activityCloseExitAnimation">@anim/quipnet_slide_out</item>
+    </style>
+
+    <!-- ========================================================================
+         Кастомные чипы (сохранены для совместимости, цвета — из M3 палитры).
+         ======================================================================== -->
     <style name="QuipNetMainRegionChip">
         <item name="android:layout_width">wrap_content</item>
-        <!--
-            Высота фиксирована, а не `wrap_content`. Так попросил владелец, и это
-            же снимает мелкую неровность: подпись «MASQUE» выше подписи «EU» на
-            пару пикселей, и ряды выглядели ступенькой. Фиксированная высота
-            заодно делает форму предсказуемо овальной — радиус скругления в
-            `bg_region_chip.xml` равен её половине.
-        -->
         <item name="android:layout_height">36dp</item>
         <item name="android:layout_marginEnd">8dp</item>
         <item name="android:layout_marginBottom">5dp</item>
@@ -144,25 +306,11 @@
         <item name="android:minWidth">72dp</item>
         <item name="android:paddingStart">14dp</item>
         <item name="android:paddingEnd">14dp</item>
-        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:textColor">@color/m3_onPrimary</item>
         <item name="android:textSize">11sp</item>
         <item name="android:textStyle">bold</item>
     </style>
 
-    <!--
-        Кнопка подрегиона в строке под селектором: «Регион: EU US» для Opera и
-        список стран для Proton. Высота та же, что у основной кнопки — владелец
-        попросил одинаковые; отличается только шириной, потому что подписи короче.
-    -->
-    <!--
-        Чип на экране «Оформление».
-
-        Тот же вид, что у выбора региона, но крупнее: там чипов шесть и они стоят
-        под большой кнопкой, а здесь их двадцать семь подряд, и в размере главного
-        экрана они читались как мелкая сыпь. Высота 44dp — тот же размер пальца,
-        что у строки настроек; радиус снова равен половине высоты, иначе форма
-        перестаёт быть овальной.
-    -->
     <style name="QuipNetAppearanceChip" parent="QuipNetMainRegionChip">
         <item name="android:layout_height">104dp</item>
         <item name="android:layout_marginEnd">10dp</item>
@@ -179,5 +327,75 @@
         <item name="android:minWidth">52dp</item>
         <item name="android:paddingStart">12dp</item>
         <item name="android:paddingEnd">12dp</item>
+    </style>
+
+    <!-- ========================================================================
+         Кнопки Material 3 Expressive.
+         Крупные пропорции, новый padding, скругление 28dp, elevation состояний.
+         ======================================================================== -->
+
+    <!-- Filled Button — основное действие, заполненный контейнер primary. -->
+    <style name="Widget.QuipNet.Button.Filled" parent="Widget.Material3.Button">
+        <item name="android:background">@drawable/btn_expressive_filled</item>
+        <item name="android:textColor">?attr/m3ColorOnPrimaryContainer</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textFontWeight">600</item>
+        <item name="android:letterSpacing">0.1</item>
+        <item name="android:minHeight">56dp</item>
+        <item name="android:paddingStart">24dp</item>
+        <item name="android:paddingEnd">24dp</item>
+        <item name="elevation">2dp</item>
+    </style>
+
+    <!-- Filled Tonal Button — тональный secondary container. -->
+    <style name="Widget.QuipNet.Button.FilledTonal" parent="Widget.Material3.Button">
+        <item name="android:background">@drawable/btn_expressive_filled_tonal</item>
+        <item name="android:textColor">?attr/m3ColorOnSecondaryContainer</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textFontWeight">600</item>
+        <item name="android:letterSpacing">0.1</item>
+        <item name="android:minHeight">56dp</item>
+        <item name="android:paddingStart">24dp</item>
+        <item name="android:paddingEnd">24dp</item>
+        <item name="elevation">0dp</item>
+    </style>
+
+    <!-- Outlined Button — обводка на прозрачном фоне. -->
+    <style name="Widget.QuipNet.Button.Outlined" parent="Widget.Material3.Button">
+        <item name="android:background">@drawable/btn_expressive_outlined</item>
+        <item name="android:textColor">?attr/m3ColorPrimary</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textFontWeight">600</item>
+        <item name="android:letterSpacing">0.1</item>
+        <item name="android:minHeight">56dp</item>
+        <item name="android:paddingStart">24dp</item>
+        <item name="android:paddingEnd">24dp</item>
+        <item name="elevation">0dp</item>
+    </style>
+
+    <!-- Text Button — только текст, без фона. -->
+    <style name="Widget.QuipNet.Button.Text" parent="Widget.Material3.Button.TextButton">
+        <item name="android:background">@drawable/btn_expressive_text</item>
+        <item name="android:textColor">?attr/m3ColorPrimary</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textFontWeight">600</item>
+        <item name="android:letterSpacing">0.1</item>
+        <item name="android:minHeight">40dp</item>
+        <item name="android:paddingStart">12dp</item>
+        <item name="android:paddingEnd">12dp</item>
+        <item name="elevation">0dp</item>
+    </style>
+
+    <!-- Elevated Button — с тенью, для важных действий. -->
+    <style name="Widget.QuipNet.Button.Elevated" parent="Widget.Material3.Button">
+        <item name="android:background">@drawable/btn_expressive_filled</item>
+        <item name="android:textColor">?attr/m3ColorOnPrimaryContainer</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textFontWeight">600</item>
+        <item name="android:letterSpacing">0.1</item>
+        <item name="android:minHeight">56dp</item>
+        <item name="android:paddingStart">24dp</item>
+        <item name="android:paddingEnd">24dp</item>
+        <item name="elevation">4dp</item>
     </style>
 </resources>

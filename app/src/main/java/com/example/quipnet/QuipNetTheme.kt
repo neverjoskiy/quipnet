@@ -206,7 +206,7 @@ object QuipNetTheme {
         val overlay = QuipNetAppearanceDrawable(
             texture = QuipNetAppearance.texture(activity),
             temperature = QuipNetAppearance.temperature(activity),
-            accent = color(activity, R.attr.quipnetAccent),
+            accent = color(activity, R.attr.m3ColorPrimary),
             variant = QuipNetAppearance.variant(activity),
         )
         val layers = if (base != null) {
@@ -296,8 +296,8 @@ object QuipNetTheme {
         view.post {
             val width = view.width.toFloat()
             if (width <= 0f) return@post
-            val from = color(view.context, R.attr.quipnetTextGroupFrom)
-            val to = color(view.context, R.attr.quipnetTextGroupTo)
+            val from = color(view.context, R.attr.m3ColorPrimary)
+            val to = color(view.context, R.attr.m3ColorOnPrimaryContainer)
             view.paint.shader = LinearGradient(
                 0f, 0f, width, 0f,
                 from, to,

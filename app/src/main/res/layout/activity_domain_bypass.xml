@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+  Обход по доменам — Material 3 Expressive.
+  Цвета, типографика, карточки, поля ввода, переключатели — из Theme.QuipNet.
+-->
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
+    android:background="?attr/m3ColorBackground"
     android:padding="16dp">
 
     <LinearLayout
@@ -15,9 +21,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Обход по доменам"
-            android:textColor="?attr/quipnetAccent"
-            android:textSize="24sp"
-            android:textStyle="bold" />
+            android:textColor="?attr/m3ColorOnBackground"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            android:textAppearance="?attr/textAppearanceHeadlineLarge" />
 
         <!-- Главный переключатель: включает/выключает всю функцию обхода -->
         <Switch
@@ -25,53 +32,67 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:background="?attr/quipnetCardBackground"
-            android:padding="12dp"
             android:text="Пускать выбранные домены мимо VPN"
-            android:textColor="?attr/quipnetTextTitle"
-            android:textSize="16sp" />
+            android:textColor="?attr/m3ColorOnSurfaceContainer"
+            android:textSize="16sp"
+            android:textAppearance="?attr/textAppearanceTitleMedium" />
 
         <!--
             Блок зон: ru, su, кириллические — объединены одним визуальным контейнером.
             Чекбоксы включаются вместе с мастер-переключателем: зоны действуют.
         -->
-        <LinearLayout
+        <com.google.android.material.card.MaterialCardView
             android:id="@+id/ll_zones_block"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:background="?attr/quipnetCardBackground"
-            android:orientation="vertical"
-            android:padding="12dp">
+            app:cardCornerRadius="16dp"
+            app:cardElevation="2dp"
+            app:cardBackgroundColor="?attr/m3ColorSurfaceContainer"
+            app:strokeWidth="1dp"
+            app:strokeColor="?attr/m3ColorOutlineVariant">
 
-            <CheckBox
-                android:id="@+id/cb_zone_ru"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:buttonTint="?attr/quipnetAccent"
-                android:text=".ru"
-                android:textColor="?attr/quipnetTextTitle"
-                android:textSize="16sp" />
+                android:orientation="vertical"
+                android:paddingLeft="16dp"
+                android:paddingTop="16dp"
+                android:paddingRight="16dp"
+                android:paddingBottom="16dp">
 
-            <CheckBox
-                android:id="@+id/cb_zone_su"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:buttonTint="?attr/quipnetAccent"
-                android:text=".su"
-                android:textColor="?attr/quipnetTextTitle"
-                android:textSize="16sp" />
+                <CheckBox
+                    android:id="@+id/cb_zone_ru"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="?attr/m3ColorPrimary"
+                    android:text=".ru"
+                    android:textColor="?attr/m3ColorOnSurfaceContainer"
+                    android:textSize="16sp"
+                    android:textAppearance="?attr/textAppearanceTitleMedium" />
 
-            <CheckBox
-                android:id="@+id/cb_zone_cyrillic"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:buttonTint="?attr/quipnetAccent"
-                android:text="Кириллические зоны (.рф и другие)"
-                android:textColor="?attr/quipnetTextTitle"
-                android:textSize="16sp" />
+                <CheckBox
+                    android:id="@+id/cb_zone_su"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="?attr/m3ColorPrimary"
+                    android:text=".su"
+                    android:textColor="?attr/m3ColorOnSurfaceContainer"
+                    android:textSize="16sp"
+                    android:textAppearance="?attr/textAppearanceTitleMedium" />
 
-        </LinearLayout>
+                <CheckBox
+                    android:id="@+id/cb_zone_cyrillic"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="?attr/m3ColorPrimary"
+                    android:text="Кириллические зоны (.рф и другие)"
+                    android:textColor="?attr/m3ColorOnSurfaceContainer"
+                    android:textSize="16sp"
+                    android:textAppearance="?attr/textAppearanceTitleMedium" />
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
 
         <!-- Метка над полем ввода собственных доменов -->
         <TextView
@@ -79,8 +100,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:text="Свои домены, по одному в строке"
-            android:textColor="?attr/quipnetTextTitle"
-            android:textSize="14sp" />
+            android:textColor="?attr/m3ColorOnSurfaceContainer"
+            android:textSize="14sp"
+            android:textAppearance="?attr/textAppearanceBodyMedium" />
 
         <!-- Поле ввода доменов: каждый домен на отдельной строке -->
         <EditText
@@ -88,15 +110,19 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:background="?attr/quipnetCardBackground"
+            android:background="@drawable/field_expressive"
             android:gravity="top"
             android:hint="ozon.ru&#10;example.com"
             android:inputType="textMultiLine|textNoSuggestions"
             android:minLines="4"
-            android:padding="12dp"
-            android:textColor="?attr/quipnetTextTitle"
-            android:textColorHint="?attr/quipnetTextHint"
-            android:textSize="14sp" />
+            android:paddingStart="12dp"
+            android:paddingTop="12dp"
+            android:paddingEnd="12dp"
+            android:paddingBottom="12dp"
+            android:textColor="?attr/m3ColorOnSurfaceContainer"
+            android:textColorHint="?attr/m3ColorOnSurfaceContainer"
+            android:textSize="14sp"
+            android:textAppearance="?attr/textAppearanceBodyMedium" />
 
         <!-- Живая сводка: обновляется при каждом изменении текста и чекбоксов -->
         <TextView
@@ -104,8 +130,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:textColor="?attr/quipnetTextHint"
-            android:textSize="13sp" />
+            android:textColor="?attr/m3ColorOnSurfaceContainer"
+            android:textSize="13sp"
+            android:textAppearance="?attr/textAppearanceBodySmall" />
 
         <!--
             Подсказка о механике. Написана буквально про то, что происходит:
@@ -115,9 +142,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="Свои домены выводятся двумя путями сразу. Первый — вырезом маршрута: при подключении имя разрешается в адреса, и они выводятся из туннеля. Нужен Android 13 и новее, и вырез считается один раз, в момент подключения, — правки списка на идущем сеансе подействуют только после переподключения. Второй — тем же ядром, что и зоны: имя сверяется с перехваченными DNS-ответами. Он работает на любой версии Android, но только на WARP и MASQUE, только для TCP на портах 80 и 443 и только при включённом шифрованном DNS. Правило действует на всё имя целиком и на его поддомены — ozon.ru покрывает market.ozon.ru, но не 67ozon.ru.&#10;&#10;Зоны: адреса узнаются из перехваченных DNS-ответов, и совпавшие соединения уходят наружу мимо туннеля. Работает только на WARP и MASQUE (на Opera и VLESS трафик обрабатывает tun2proxy, и ядро его не видит) и только для TCP на портах 80 и 443. QUIC (HTTP/3) идёт через туннель и доходит — то есть на него обход не действует вовсе, отката на TCP не будет. Одновременно помнится не больше 256 адресов, самые старые вытесняются. Нужен включённый шифрованный DNS: без перехвата адреса зон узнать неоткуда.&#10;&#10;О чём стоит знать: обойдённая зона — это доверие всей зоне. Хозяин любого имени в ней может направить его на какой угодно адрес, и этот адрес пойдёт мимо VPN. Адреса берутся только из ответов на запросы к именам из ваших правил, чужие записи в том же ответе отбрасываются, — но само правило «пускать зону целиком» шире, чем список доменов. И обход идёт по адресу: если на выученном адресе живут другие имена (общая CDN, anycast), их трафик тоже пойдёт мимо туннеля."
-            android:textColor="?attr/quipnetTextValue"
-            android:textSize="12sp" />
+            android:text="Свои домены выводятся двумя путями сразу. Первый — вырезом маршрута: при подключении имя разрешается в адреса, и они выводятся из туннеля. Нужен Android 13 и новее, и вырез считается один раз, в момент подключения, — правки списка на идущем сеансе подействуют только после переподключения. Второй — тем же ядром, что и зоны: имя сверяется с перехваченными DNS-ответами. Он работает на любой версии Android, но только на WARP и MASQUE, только для TCP на портах 80 и 443 и только при включённом шифрованном DNS. Правило действует на всё имя целиком и на его поддомены — ozon.ru покрывает market.ozon.ru, но не 67ozon.ru.\n\nЗоны: адреса узнаются из перехваченных DNS-ответов, и совпавшие соединения уходят наружу мимо туннеля. Работает только на WARP и MASQUE (на Opera и VLESS трафик обрабатывает tun2proxy, и ядро его не видит) и только для TCP на портах 80 и 443. QUIC (HTTP/3) идёт через туннель и доходит — то есть на него обход не действует вовсе, отката на TCP не будет. Одновременно помнится не больше 256 адресов, самые старые вытесняются. Нужен включённый шифрованный DNS: без перехвата адреса зон узнать неоткуда.\n\nО чём стоит знать: обойдённая зона — это доверие всей зоне. Хозяин любого имени в ней может направить его на какой угодно адрес, и этот адрес пойдёт мимо VPN. Адреса берутся только из ответов на запросы к именам из ваших правил, чужие записи в том же ответе отбрасываются, — но само правило «пускать зону целиком» шире, чем список доменов. И обход идёт по адресу: если на выученном адресе живут другие имена (общая CDN, anycast), их трафик тоже пойдёт мимо туннеля."
+            android:textColor="?attr/m3ColorOnSurfaceContainer"
+            android:textSize="12sp"
+            android:textAppearance="?attr/textAppearanceBodySmall" />
 
     </LinearLayout>
 

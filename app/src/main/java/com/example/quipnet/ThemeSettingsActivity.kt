@@ -68,7 +68,7 @@ class ThemeSettingsActivity : AppCompatActivity() {
         temperatureValue = findViewById(R.id.tv_temperature_value)
         themeNote = findViewById(R.id.tv_theme_note)
 
-        val accent = QuipNetTheme.color(this, R.attr.quipnetAccent)
+        val accent = QuipNetTheme.color(this, R.attr.m3ColorPrimary)
         themeGroup.selectionGlowColor = accent
         textureGroup.selectionGlowColor = accent
 

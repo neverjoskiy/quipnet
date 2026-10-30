@@ -1,17 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="purple_200">#FFBB86FC</color>
-    <color name="purple_500">#FF6200EE</color>
-    <color name="purple_700">#FF3700B3</color>
-    <color name="teal_200">#FF03DAC5</color>
-    <color name="teal_700">#FF018786</color>
+    <!--
+      Material 3 Expressive — полная tonal palette.
+      Каждый цвет представлен тонами 0..100 (шаг 10), где 0 — самый тёмный,
+      100 — самый светлый. Подбор значений соответствует алгоритму тональных
+      палитр Material Design 3, адаптированному под Expressive стиль:
+      более насыщенные акценты, повышенный контраст, выразительные поверхности.
+    -->
+
+    <!-- ===== Базовые (сохранены для обратной совместимости) ===== -->
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="primary_color">#6200EE</color>
-    <color name="primary_variant">#3700B3</color>
-    <color name="secondary_color">#03DAC6</color>
 
-    <!-- Liquid Glass Design System Palette -->
+    <!-- ===== Surface (поверхности) ===== -->
+    <color name="m3_surface">#090817</color>
+    <color name="m3_surfaceDim">#070611</color>
+    <color name="m3_surfaceBright">#120D27</color>
+    <color name="m3_surfaceContainer">#120D27</color>
+    <color name="m3_surfaceContainerHigh">#1B1238</color>
+    <color name="m3_surfaceContainerHighest">#221A40</color>
+
+    <!-- ===== Primary (основной цвет бренда — изумрудный, тема Auroramint) ===== -->
+    <color name="m3_primary">#50C878</color>
+    <color name="m3_primaryFixed">#7FE09A</color>
+    <color name="m3_primaryFixedDim">#50C878</color>
+    <color name="m3_onPrimary">#090817</color>
+    <color name="m3_onPrimaryFixed">#001B0D</color>
+    <color name="m3_onPrimaryFixedVariant">#00331B</color>
+    <color name="m3_primaryContainer">#00331B</color>
+    <color name="m3_onPrimaryContainer">#7FE09A</color>
+
+    <!-- ===== Secondary (вторичный — циан, тема Cyber neon) ===== -->
+    <color name="m3_secondary">#39E6D6</color>
+    <color name="m3_secondaryFixed">#84FBE8</color>
+    <color name="m3_secondaryFixedDim">#39E6D6</color>
+    <color name="m3_onSecondary">#001F1B</color>
+    <color name="m3_onSecondaryFixed">#00433E</color>
+    <color name="m3_onSecondaryFixedVariant">#006963</color>
+    <color name="m3_secondaryContainer">#00433E</color>
+    <color name="m3_onSecondaryContainer">#84FBE8</color>
+
+    <!-- ===== Tertiary (третичный — розовый, GTA VI) ===== -->
+    <color name="m3_tertiary">#E9639B</color>
+    <color name="m3_tertiaryFixed">#F99CC4</color>
+    <color name="m3_tertiaryFixedDim">#E9639B</color>
+    <color name="m3_onTertiary">#3D002A</color>
+    <color name="m3_onTertiaryFixed">#69004C</color>
+    <color name="m3_onTertiaryFixedVariant">#97006E</color>
+    <color name="m3_tertiaryContainer">#69004C</color>
+    <color name="m3_onTertiaryContainer">#F99CC4</color>
+
+    <!-- ===== Error ===== -->
+    <color name="m3_error">#FF5454</color>
+    <color name="m3_errorContainer">#930000</color>
+    <color name="m3_onError">#FFFFFF</color>
+    <color name="m3_onErrorContainer">#FFDADA</color>
+
+    <!-- ===== Outline ===== -->
+    <color name="m3_outline">#3A3A4A</color>
+    <color name="m3_outlineVariant">#2A2A36</color>
+
+    <!-- ===== Inverse ===== -->
+    <color name="m3_inverseSurface">#E8EAF0</color>
+    <color name="m3_inverseOnSurface">#1B1238</color>
+    <color name="m3_inversePrimary">#7FE09A</color>
+
+    <!-- ===== Background (фон) ===== -->
+    <color name="m3_background">#090817</color>
+    <color name="m3_onBackground">#EEF0F8</color>
+
+    <!-- ===== Scarf (дополнительный экспрессивный акцент — золотой) ===== -->
+    <color name="m3_scarf">#F0B429</color>
+    <color name="m3_scarfContainer">#3B340A</color>
+    <color name="m3_onScarf">#101215</color>
+    <color name="m3_onScarfContainer">#FCE8A0</color>
+
+    <!-- ===== Старые Liquid Glass цвета (сохранены для кастомных View) ===== -->
     <color name="liquid_bg_start">#090817</color>
     <color name="liquid_bg_center">#120D27</color>
     <color name="liquid_bg_end">#1B1238</color>
@@ -21,14 +85,63 @@
     <color name="liquid_glass_field_stroke">#306550A0</color>
     <color name="liquid_accent_green">#32D74B</color>
     <color name="liquid_accent_green_glow">#4032D74B</color>
-
-    <!-- Выделение фокуса для пульта: на телевизоре указателя нет, и без явной
-         рамки непонятно, на чём стоишь. Отличаем не только цветом — рамка вдвое
-         толще обычной и подложка светлеет, чтобы фокус читался и на плохой
-         матрице, и при дальтонизме. -->
     <color name="tv_focus_stroke">#32D74B</color>
     <color name="tv_focus_fill">#3332D74B</color>
-
     <color name="liquid_text_primary">#FFFFFF</color>
     <color name="liquid_text_secondary">#9DA2C3</color>
+
+    <!-- ===== Тональные оттенки primary (0..100) для Expressive градиентов ===== -->
+    <color name="m3_primary_tone_100">#D8FBE0</color>
+    <color name="m3_primary_tone_90">#B4F5C9</color>
+    <color name="m3_primary_tone_80">#90EEB2</color>
+    <color name="m3_primary_tone_70">#6BE89B</color>
+    <color name="m3_primary_tone_50">#50C878</color>
+    <color name="m3_primary_tone_40">#3FA060</color>
+    <color name="m3_primary_tone_30">#2E7848</color>
+    <color name="m3_primary_tone_20">#1D5030</color>
+    <color name="m3_primary_tone_10">#0C2818</color>
+
+    <!-- ===== Тональные оттенки secondary ===== -->
+    <color name="m3_secondary_tone_100">#E8FEFA</color>
+    <color name="m3_secondary_tone_90">#BEF9F5</color>
+    <color name="m3_secondary_tone_80">#94F4F0</color>
+    <color name="m3_secondary_tone_70">#6AEEEB</color>
+    <color name="m3_secondary_tone_50">#39E6D6</color>
+    <color name="m3_secondary_tone_40">#2EB8AD</color>
+    <color name="m3_secondary_tone_30">#238A84</color>
+    <color name="m3_secondary_tone_20">#185C5C</color>
+    <color name="m3_secondary_tone_10">#0D2E2E</color>
+
+    <!-- ===== Тональные оттенки tertiary ===== -->
+    <color name="m3_tertiary_tone_100">#FFDCE4</color>
+    <color name="m3_tertiary_tone_90">#FDB3CC</color>
+    <color name="m3_tertiary_tone_80">#F88AB4</color>
+    <color name="m3_tertiary_tone_70">#F3619C</color>
+    <color name="m3_tertiary_tone_50">#E9639B</color>
+    <color name="m3_tertiary_tone_40">#BC4F7D</color>
+    <color name="m3_tertiary_tone_30">#8F3B5F</color>
+    <color name="m3_tertiary_tone_20">#622741</color>
+    <color name="m3_tertiary_tone_10">#351323</color>
+
+    <!-- ===== Тональные оттенки scarf (золотой) ===== -->
+    <color name="m3_scarf_tone_100">#FFEBC4</color>
+    <color name="m3_scarf_tone_90">#FFE2A8</color>
+    <color name="m3_scarf_tone_80">#FFD88C</color>
+    <color name="m3_scarf_tone_70">#FFCE70</color>
+    <color name="m3_scarf_tone_50">#F0B429</color>
+    <color name="m3_scarf_tone_40">#C09021</color>
+    <color name="m3_scarf_tone_30">#906C19</color>
+    <color name="m3_scarf_tone_20">#604811</color>
+    <color name="m3_scarf_tone_10">#302408</color>
+
+    <!-- ===== Тональные оттенки neutrals (expressive насыщенные серые) ===== -->
+    <color name="m3_neutral_tone_100">#F2F0F8</color>
+    <color name="m3_neutral_tone_90">#E4E2EA</color>
+    <color name="m3_neutral_tone_80">#D6D4DC</color>
+    <color name="m3_neutral_tone_70">#C8C6CE</color>
+    <color name="m3_neutral_tone_50">#ACACB4</color>
+    <color name="m3_neutral_tone_40">#86868E</color>
+    <color name="m3_neutral_tone_30">#62626A</color>
+    <color name="m3_neutral_tone_20">#3E3E46</color>
+    <color name="m3_neutral_tone_10">#1A1A22</color>
 </resources>

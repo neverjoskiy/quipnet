@@ -1,38 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-    Диалог добавления и правки резолвера.
-
-    Цвета взяты из темы, а не заданы числом: диалог рисуется в своём окне
-    `DayNight`, и белый текст на светлой теме системы стал бы невидимым —
-    в отличие от самого экрана, у которого фон всегда тёмный.
+  Диалог добавления и правки резолвера — Material 3 Expressive.
+  Цвета взяты из темы, а не заданы числом.
 -->
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:background="?attr/m3ColorSurfaceContainer">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:paddingLeft="24dp"
-        android:paddingTop="8dp"
+        android:paddingTop="20dp"
         android:paddingRight="24dp"
-        android:paddingBottom="0dp">
+        android:paddingBottom="20dp">
 
-        <!--
-            Группа выбирает транспорт, а не вид значения: «Любой» означает, что
-            приложение спросит резолвер обоими путями и первым пойдёт тот, что на
-            этой сети отвечает быстрее — 443 и 853 блокируют порознь.
-
-            Кнопки «Обычный» здесь нет и быть не может: адрес открытого правила
-            уезжает в вырез маршрута, а это утечка имён наружу. Незашифрованной
-            остаётся ровно одна ступень — резолвер провайдера, и она в списке уже
-            стоит последней.
-        -->
         <RadioGroup
             android:id="@+id/rg_dns_rule_kind"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
             android:orientation="horizontal">
 
             <RadioButton
@@ -41,7 +30,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
                 android:fontFamily="sans-serif"
-                android:text="Любой" />
+                android:text="Любой"
+                android:textColor="?attr/m3ColorOnSurfaceContainer"
+                android:buttonTint="?attr/m3ColorPrimary"
+                android:textAppearance="?attr/textAppearanceBodyMedium" />
 
             <RadioButton
                 android:id="@+id/rb_dns_rule_doh"
@@ -49,50 +41,60 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
                 android:fontFamily="sans-serif"
-                android:text="DoH" />
+                android:text="DoH"
+                android:textColor="?attr/m3ColorOnSurfaceContainer"
+                android:buttonTint="?attr/m3ColorPrimary"
+                android:textAppearance="?attr/textAppearanceBodyMedium" />
 
             <RadioButton
                 android:id="@+id/rb_dns_rule_dot"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif"
-                android:text="DoT" />
+                android:text="DoT"
+                android:textColor="?attr/m3ColorOnSurfaceContainer"
+                android:buttonTint="?attr/m3ColorPrimary"
+                android:textAppearance="?attr/textAppearanceBodyMedium" />
         </RadioGroup>
 
         <EditText
             android:id="@+id/et_dns_rule_value"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/field_expressive"
             android:fontFamily="sans-serif"
             android:hint="Адрес резолвера"
             android:importantForAutofill="no"
             android:inputType="textUri"
-            android:maxLines="2" />
+            android:maxLines="2"
+            android:paddingStart="12dp"
+            android:paddingTop="12dp"
+            android:paddingEnd="12dp"
+            android:paddingBottom="12dp"
+            android:textColor="?attr/m3ColorOnSurfaceContainer"
+            android:textColorHint="?attr/m3ColorOnSurfaceContainer"
+            android:textAppearance="?attr/textAppearanceBodyMedium" />
 
         <TextView
             android:id="@+id/tv_dns_rule_value_error"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="8dp"
             android:fontFamily="sans-serif"
-            android:textColor="#E05252"
+            android:textColor="?attr/m3ColorError"
             android:textSize="12sp"
+            android:textAppearance="?attr/textAppearanceBodySmall"
             android:visibility="gone" />
 
-        <!--
-            Поля bootstrap здесь больше нет. Адреса, по которым дозваниваются до
-            имени резолвера, подставляет само приложение: свежим резолвом мимо VPN
-            при подключении, а для нашего сервера — из зашитого списка. Спрашивать
-            их у человека значило требовать знания, которого у него нет.
-        -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="16dp"
             android:fontFamily="sans-serif"
             android:text="Адреса, по которым приложение дозванивается до имени резолвера, подставляются автоматически."
-            android:textColor="?android:attr/textColorSecondary"
-            android:textSize="11sp" />
+            android:textColor="?attr/m3ColorOnSurfaceContainer"
+            android:textSize="11sp"
+            android:textAppearance="?attr/textAppearanceBodySmall" />
     </LinearLayout>
 </ScrollView>

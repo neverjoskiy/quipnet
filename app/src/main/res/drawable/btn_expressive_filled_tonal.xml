@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Material 3 Expressive Filled Tonal Button — тональная заливка поверх поверхности. -->
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+    android:color="?attr/m3ColorOnSecondaryContainer">
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="?attr/m3ColorSecondaryContainer" />
+            <corners android:radius="28dp" />
+        </shape>
+    </item>
+</ripple>

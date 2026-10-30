@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Material 3 Expressive Text Button — без фона, только цвет и ripple. -->
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+    android:color="?attr/m3ColorOnPrimary">
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="@android:color/transparent" />
+        </shape>
+    </item>
+</ripple>

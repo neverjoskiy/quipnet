@@ -22,8 +22,9 @@
             android:id="@+id/tv_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="?attr/quipnetTextTitle"
-            android:textSize="16sp"/>
+            android:textColor="?attr/m3ColorOnSurfaceContainer"
+            android:textSize="16sp"
+            android:textAppearance="?attr/textAppearanceBodyMedium"/>
 
         <!--
             Подпись у тех приложений, которые уходят мимо туннеля всегда.
@@ -36,9 +37,10 @@
             android:layout_height="wrap_content"
             android:letterSpacing="0.05"
             android:text="direct"
-            android:textColor="#FFD166"
+            android:textColor="?attr/m3ColorScarf"
             android:textSize="11sp"
             android:textStyle="bold"
+            android:textAppearance="?attr/textAppearanceLabelSmall"
             android:visibility="gone"/>
     </LinearLayout>
 
@@ -46,6 +48,6 @@
         android:id="@+id/cb_select"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:buttonTint="?attr/quipnetAccent"/>
+        android:buttonTint="?attr/m3ColorPrimary"/>
 
 </LinearLayout>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-    Словарь темы оформления.
+    Словарь темы оформления — Material 3 Expressive.
 
     Смысл в том, чтобы разметка не знала ни одного цвета. Раньше их было 14 штук
     литералами по десяти файлам — четыре серых на одну роль, четыре зелёных на один
@@ -16,9 +16,66 @@
 -->
 <resources>
 
-    <!-- Подложки. Ссылками, а не цветами: у тем разный радиус и разная толщина
+    <!-- ===== Материал 3 Expressive — поверхности ===== -->
+
+    <!-- ===== Материал 3 Expressive — основные роли ===== -->
+    <attr name="m3ColorPrimary" format="color" />
+    <attr name="m3ColorOnPrimary" format="color" />
+    <attr name="m3ColorPrimaryContainer" format="color" />
+    <attr name="m3ColorOnPrimaryContainer" format="color" />
+    <attr name="m3ColorPrimaryFixed" format="color" />
+    <attr name="m3ColorPrimaryFixedDim" format="color" />
+    <attr name="m3ColorOnPrimaryFixed" format="color" />
+    <attr name="m3ColorOnPrimaryFixedVariant" format="color" />
+
+    <attr name="m3ColorSecondary" format="color" />
+    <attr name="m3ColorOnSecondary" format="color" />
+    <attr name="m3ColorSecondaryContainer" format="color" />
+    <attr name="m3ColorOnSecondaryContainer" format="color" />
+    <attr name="m3ColorSecondaryFixed" format="color" />
+    <attr name="m3ColorSecondaryFixedDim" format="color" />
+    <attr name="m3ColorOnSecondaryFixed" format="color" />
+    <attr name="m3ColorOnSecondaryFixedVariant" format="color" />
+
+    <attr name="m3ColorTertiary" format="color" />
+    <attr name="m3ColorOnTertiary" format="color" />
+    <attr name="m3ColorTertiaryContainer" format="color" />
+    <attr name="m3ColorOnTertiaryContainer" format="color" />
+
+    <attr name="m3ColorError" format="color" />
+    <attr name="m3ColorOnError" format="color" />
+    <attr name="m3ColorErrorContainer" format="color" />
+    <attr name="m3ColorOnErrorContainer" format="color" />
+
+    <attr name="m3ColorOutline" format="color" />
+    <attr name="m3ColorOutlineVariant" format="color" />
+
+    <attr name="m3ColorInverseSurface" format="color" />
+    <attr name="m3ColorInverseOnSurface" format="color" />
+    <attr name="m3ColorInversePrimary" format="color" />
+
+    <attr name="m3ColorSurface" format="color" />
+    <attr name="m3ColorOnSurface" format="color" />
+    <attr name="m3ColorOnSurfaceContainer" format="color" />
+    <attr name="m3ColorOnSurfaceContainerHigh" format="color" />
+    <attr name="m3ColorOnSurfaceContainerHighest" format="color" />
+    <attr name="m3ColorSurfaceDim" format="color" />
+    <attr name="m3ColorSurfaceBright" format="color" />
+    <attr name="m3ColorSurfaceContainer" format="color" />
+    <attr name="m3ColorSurfaceContainerHigh" format="color" />
+    <attr name="m3ColorSurfaceContainerHighest" format="color" />
+
+    <attr name="m3ColorBackground" format="color" />
+    <attr name="m3ColorOnBackground" format="color" />
+
+    <attr name="m3ColorScarf" format="color" />
+    <attr name="m3ColorOnScarf" format="color" />
+    <attr name="m3ColorScarfContainer" format="color" />
+    <attr name="m3ColorOnScarfContainer" format="color" />
+
+    <!-- ===== Подложки. Ссылками, а не цветами: у тем разный радиус и разная толщина
          обводки, а прямоугольные панели Path of Exile — это не «почти как у всех»,
-         а то, по чему тема узнаётся. -->
+         а то, по чему тема узнаётся. --> -->
     <!-- Выделение: заливка и обводка при фокусе пульта, нажатии и свечении под
          пальцем. Раньше на это стоял общий `@color/tv_focus_*`, то есть один и тот
          же зелёный `#32D74B` во всех десяти темах — на золотой теме долгое нажатие
@@ -63,5 +120,26 @@
     <attr name="quipnetSwitchThumbOff" format="color" />
 
     <attr name="quipnetIconTint" format="color" />
+    <attr name="m3ColorIconTint" format="color" />
+
+    <!-- Элевация Material 3 Expressive — именованные ступени для компонентов. -->
+    <attr name="elevationLevel0" format="dimension" />
+    <attr name="elevationLevel1" format="dimension" />
+    <attr name="elevationLevel2" format="dimension" />
+    <attr name="elevationLevel3" format="dimension" />
+    <attr name="elevationLevel4" format="dimension" />
+    <attr name="elevationLevel8" format="dimension" />
+    <attr name="elevationLevel12" format="dimension" />
+
+    <!-- Формы Material 3 Expressive — скругления small/medium/large. -->
+    <attr name="shapeSmall" format="dimension" />
+    <attr name="shapeMedium" format="dimension" />
+    <attr name="shapeLarge" format="dimension" />
+    <attr name="shapeExtraLarge" format="dimension" />
+
+    <!-- Фон и цвет на фоне (стандартные роли, но нужны как кастомные атрибуты
+         для совместимости с текущей версией Material Components). -->
+    <attr name="colorBackground" format="color" />
+    <attr name="colorOnBackground" format="color" />
 
 </resources>

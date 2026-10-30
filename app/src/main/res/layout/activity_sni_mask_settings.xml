@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-    Экран «SNI маскировка».
+  Экран «SNI маскировка» — Material 3 Expressive.
 
-    Две опции и ничего больше: «Авто» с ротацией по встроенным спискам и свой
-    список пользователя. Поле для списка показывается только во второй опции —
-    видимое, но неактивное поле читается как «сюда можно писать», и человек пишет
-    туда при выбранном «Авто», а результата не видит.
+  Две опции и ничего больше: «Авто» с ротацией по встроенным спискам и свой
+  список пользователя. Поле для списка показывается только во второй опции.
 -->
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
     android:clipToPadding="false"
+    android:background="?attr/m3ColorBackground"
     android:paddingLeft="16dp"
     android:paddingTop="16dp"
     android:paddingRight="16dp"
@@ -26,129 +26,164 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="SNI маскировка"
-            android:textColor="?attr/quipnetAccent"
-            android:textSize="24sp"
-            android:textStyle="bold" />
+            android:textColor="?attr/m3ColorOnBackground"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            android:textAppearance="?attr/textAppearanceHeadlineLarge" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:text="Имя, которое видно провайдеру в рукопожатии, вместо настоящего. Работает там, где рукопожатие идёт по TLS: MASQUE, прокси Opera и обращения к API при регистрации."
-            android:textColor="?attr/quipnetTextHint"
-            android:textSize="12sp" />
+            android:textColor="?attr/m3ColorOnBackground"
+            android:textSize="14sp"
+            android:textAppearance="?attr/textAppearanceBodyMedium" />
 
-        <LinearLayout
+        <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:background="?attr/quipnetCardBackground"
-            android:orientation="vertical"
-            android:paddingLeft="16dp"
-            android:paddingTop="12dp"
-            android:paddingRight="16dp"
-            android:paddingBottom="12dp">
+            app:cardCornerRadius="16dp"
+            app:cardElevation="2dp"
+            app:cardBackgroundColor="?attr/m3ColorSurfaceContainer"
+            app:strokeWidth="1dp"
+            app:strokeColor="?attr/m3ColorOutlineVariant">
 
-            <RadioGroup
-                android:id="@+id/rg_sni_mode"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:paddingLeft="16dp"
+                android:paddingTop="16dp"
+                android:paddingRight="16dp"
+                android:paddingBottom="16dp">
 
-                <RadioButton
-                    android:id="@+id/rb_sni_auto"
+                <RadioGroup
+                    android:id="@+id/rg_sni_mode"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Авто"
-                    android:textColor="?attr/quipnetTextTitle"
-                    android:textSize="16sp" />
+                    android:orientation="vertical">
+
+                    <RadioButton
+                        android:id="@+id/rb_sni_auto"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Авто"
+                        android:textColor="?attr/m3ColorOnSurfaceContainer"
+                        android:textSize="16sp"
+                        android:buttonTint="?attr/m3ColorPrimary"
+                        android:textAppearance="?attr/textAppearanceTitleMedium" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="32dp"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginBottom="8dp"
+                        android:text="Приложение выбирает и меняет имя само: сначала российские, затем зарубежные. Если провайдер пускает только к разрешённым адресам, берутся одни российские."
+                        android:textColor="?attr/m3ColorOnSurfaceContainer"
+                        android:textSize="12sp"
+                        android:textAppearance="?attr/textAppearanceBodySmall" />
+
+                    <RadioButton
+                        android:id="@+id/rb_sni_custom"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Свой список"
+                        android:textColor="?attr/m3ColorOnSurfaceContainer"
+                        android:textSize="16sp"
+                        android:buttonTint="?attr/m3ColorPrimary"
+                        android:textAppearance="?attr/textAppearanceTitleMedium" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="32dp"
+                        android:text="Имена через запятую. Перебираются по кругу: если одно не сработало, берётся следующее."
+                        android:textColor="?attr/m3ColorOnSurfaceContainer"
+                        android:textSize="12sp"
+                        android:textAppearance="?attr/textAppearanceBodySmall" />
+                </RadioGroup>
+
+                <EditText
+                    android:id="@+id/et_sni_custom_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:background="@drawable/field_expressive"
+                    android:hint="vk.com, ya.ru, www.gosuslugi.ru"
+                    android:textColorHint="?attr/m3ColorOnSurfaceContainer"
+                    android:inputType="textMultiLine|textNoSuggestions"
+                    android:minLines="2"
+                    android:maxLines="6"
+                    android:paddingStart="12dp"
+                    android:paddingTop="12dp"
+                    android:paddingEnd="12dp"
+                    android:paddingBottom="12dp"
+                    android:textColor="?attr/m3ColorOnSurfaceContainer"
+                    android:textSize="14sp"
+                    android:textAppearance="?attr/textAppearanceBodyMedium"
+                    android:visibility="gone" />
 
                 <TextView
+                    android:id="@+id/tv_sni_custom_status"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="32dp"
-                    android:layout_marginBottom="8dp"
-                    android:text="Приложение выбирает и меняет имя само: сначала российские, затем зарубежные. Если провайдер пускает только к разрешённым адресам, берутся одни российские."
-                    android:textColor="?attr/quipnetTextHint"
-                    android:textSize="12sp" />
+                    android:layout_marginTop="8dp"
+                    android:textColor="?attr/m3ColorOnSurfaceContainer"
+                    android:textSize="12sp"
+                    android:textAppearance="?attr/textAppearanceBodySmall"
+                    android:visibility="gone" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
 
-                <RadioButton
-                    android:id="@+id/rb_sni_custom"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Свой список"
-                    android:textColor="?attr/quipnetTextTitle"
-                    android:textSize="16sp" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="32dp"
-                    android:text="Имена через запятую. Перебираются по кругу: если одно не сработало, берётся следующее."
-                    android:textColor="?attr/quipnetTextHint"
-                    android:textSize="12sp" />
-            </RadioGroup>
-
-            <EditText
-                android:id="@+id/et_sni_custom_list"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:background="?attr/quipnetCardBackground"
-                android:hint="vk.com, ya.ru, www.gosuslugi.ru"
-                android:textColorHint="?attr/quipnetTextHint"
-                android:inputType="textMultiLine|textNoSuggestions"
-                android:minLines="2"
-                android:maxLines="6"
-                android:padding="12dp"
-                android:textColor="?attr/quipnetTextTitle"
-                android:textSize="14sp"
-                android:visibility="gone" />
-
-            <TextView
-                android:id="@+id/tv_sni_custom_status"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:textColor="?attr/quipnetTextHint"
-                android:textSize="12sp"
-                android:visibility="gone" />
-        </LinearLayout>
-
-        <LinearLayout
+        <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:background="?attr/quipnetCardBackground"
-            android:orientation="vertical"
-            android:paddingLeft="16dp"
-            android:paddingTop="12dp"
-            android:paddingRight="16dp"
-            android:paddingBottom="12dp">
+            app:cardCornerRadius="16dp"
+            app:cardElevation="2dp"
+            app:cardBackgroundColor="?attr/m3ColorSurfaceContainer"
+            app:strokeWidth="1dp"
+            app:strokeColor="?attr/m3ColorOutlineVariant">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Сейчас"
-                android:textColor="?attr/quipnetTextTitle"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/tv_sni_state"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
-                android:textColor="?attr/quipnetTextHint"
-                android:textSize="12sp" />
-        </LinearLayout>
+                android:orientation="vertical"
+                android:paddingLeft="16dp"
+                android:paddingTop="16dp"
+                android:paddingRight="16dp"
+                android:paddingBottom="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Сейчас"
+                    android:textColor="?attr/m3ColorOnSurfaceContainer"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textAppearance="?attr/textAppearanceTitleMedium" />
+
+                <TextView
+                    android:id="@+id/tv_sni_state"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:textColor="?attr/m3ColorOnSurfaceContainer"
+                    android:textSize="12sp"
+                    android:textAppearance="?attr/textAppearanceBodySmall" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:text="Профили WireGuard и AmneziaWG маскировать нечем: у них нет TLS, а значит и имени в рукопожатии. Их обфускацию задают параметры самого профиля (Jc, S1–S4, H1–H4, I1–I5)."
-            android:textColor="?attr/quipnetTextHint"
-            android:textSize="12sp" />
+            android:textColor="?attr/m3ColorOnSurfaceContainer"
+            android:textSize="12sp"
+            android:textAppearance="?attr/textAppearanceBodySmall" />
     </LinearLayout>
 </ScrollView>

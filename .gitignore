@@ -1,0 +1,37 @@
+# IDE / editor
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/
+.classpath
+.project
+.settings/
+
+# Build
+build/
+*.apk
+*.aab
+*.apks
+*.dex
+local.properties
+keystore.properties
+*.key
+*.jks
+*.keystore
+
+# Gradle
+.gradle/
+gradlew.bat
+!gradlew
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Playwright / MCP artifacts
+.playwright-mcp/
+.zcode/
+
+# Logs
+*.log

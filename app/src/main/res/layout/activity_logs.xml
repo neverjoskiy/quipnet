@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+  Логи — Material 3 Expressive.
+  Цвета, типографика, карточки, переключатели — из Theme.QuipNet.
+-->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="?attr/m3ColorBackground"
     android:paddingLeft="16dp"
     android:paddingTop="16dp"
     android:paddingRight="16dp"
@@ -14,7 +20,7 @@
         android:minHeight="52dp"
         android:orientation="horizontal"
         android:gravity="center_vertical"
-        android:background="?attr/quipnetCardBackground"
+        android:background="@drawable/card_expressive"
         android:padding="12dp"
         android:layout_marginBottom="12dp">
 
@@ -23,9 +29,10 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Логи"
-            android:textColor="?attr/quipnetTextTitle"
+            android:textColor="?attr/m3ColorOnSurfaceContainer"
             android:textSize="16sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:textAppearance="?attr/textAppearanceTitleMedium" />
 
         <Switch
             android:id="@+id/sw_logs_enabled"
@@ -33,62 +40,76 @@
             android:layout_height="wrap_content" />
     </LinearLayout>
 
-    <LinearLayout
+    <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:background="?attr/quipnetCardBackground"
-        android:padding="12dp"
-        android:layout_marginBottom="12dp">
+        android:layout_marginBottom="12dp"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="2dp"
+        app:cardBackgroundColor="?attr/m3ColorSurfaceContainer"
+        app:strokeWidth="1dp"
+        app:strokeColor="?attr/m3ColorOutlineVariant">
 
-        <TextView
-            android:id="@+id/tv_logs_summary"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Состояние: Выключено"
-            android:textColor="?attr/quipnetTextHint"
-            android:textSize="12sp"
-            android:layout_marginBottom="10dp" />
+            android:orientation="vertical"
+            android:padding="12dp">
 
-        <RadioGroup
-            android:id="@+id/rg_logs_level"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <RadioButton
-                android:id="@+id/rb_logs_error"
-                android:layout_width="wrap_content"
+            <TextView
+                android:id="@+id/tv_logs_summary"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="ERROR"
-                android:textColor="?attr/quipnetTextTitle"
-                android:buttonTint="?attr/quipnetAccent" />
+                android:text="Состояние: Выключено"
+                android:textColor="?attr/m3ColorOnSurfaceContainer"
+                android:textSize="12sp"
+                android:textAppearance="?attr/textAppearanceBodySmall"
+                android:layout_marginBottom="10dp" />
 
-            <RadioButton
-                android:id="@+id/rb_logs_warn"
-                android:layout_width="wrap_content"
+            <RadioGroup
+                android:id="@+id/rg_logs_level"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="WARN"
-                android:textColor="?attr/quipnetTextTitle"
-                android:buttonTint="?attr/quipnetAccent" />
+                android:orientation="horizontal">
 
-            <RadioButton
-                android:id="@+id/rb_logs_info"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="INFO"
-                android:textColor="?attr/quipnetTextTitle"
-                android:buttonTint="?attr/quipnetAccent" />
+                <RadioButton
+                    android:id="@+id/rb_logs_error"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ERROR"
+                    android:textColor="?attr/m3ColorOnSurfaceContainer"
+                    android:buttonTint="?attr/m3ColorPrimary"
+                    android:textAppearance="?attr/textAppearanceBodyMedium" />
 
-            <RadioButton
-                android:id="@+id/rb_logs_debug"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="DEBUG"
-                android:textColor="?attr/quipnetTextTitle"
-                android:buttonTint="?attr/quipnetAccent" />
-        </RadioGroup>
-    </LinearLayout>
+                <RadioButton
+                    android:id="@+id/rb_logs_warn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="WARN"
+                    android:textColor="?attr/m3ColorOnSurfaceContainer"
+                    android:buttonTint="?attr/m3ColorPrimary"
+                    android:textAppearance="?attr/textAppearanceBodyMedium" />
+
+                <RadioButton
+                    android:id="@+id/rb_logs_info"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="INFO"
+                    android:textColor="?attr/m3ColorOnSurfaceContainer"
+                    android:buttonTint="?attr/m3ColorPrimary"
+                    android:textAppearance="?attr/textAppearanceBodyMedium" />
+
+                <RadioButton
+                    android:id="@+id/rb_logs_debug"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="DEBUG"
+                    android:textColor="?attr/m3ColorOnSurfaceContainer"
+                    android:buttonTint="?attr/m3ColorPrimary"
+                    android:textAppearance="?attr/textAppearanceBodyMedium" />
+            </RadioGroup>
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -99,15 +120,17 @@
         <TextView
             android:id="@+id/btn_preview_log"
             android:layout_width="0dp"
-            android:layout_height="48dp"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
             android:text="Обновить"
-            android:textColor="?attr/quipnetTextTitle"
+            android:textColor="?attr/m3ColorOnSecondaryContainer"
             android:textSize="14sp"
             android:textStyle="bold"
-            android:background="?attr/quipnetCardBackground"
-            />
+            android:textAppearance="?attr/textAppearanceLabelMedium"
+            android:background="@drawable/btn_expressive_filled_tonal"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp" />
 
         <Space
             android:layout_width="8dp"
@@ -116,15 +139,17 @@
         <TextView
             android:id="@+id/btn_copy_log"
             android:layout_width="0dp"
-            android:layout_height="48dp"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
             android:text="Скопировать лог"
-            android:textColor="?attr/quipnetTextTitle"
+            android:textColor="?attr/m3ColorOnSecondaryContainer"
             android:textSize="14sp"
             android:textStyle="bold"
-            android:background="?attr/quipnetCardBackground"
-            />
+            android:textAppearance="?attr/textAppearanceLabelMedium"
+            android:background="@drawable/btn_expressive_filled_tonal"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp" />
 
         <Space
             android:layout_width="8dp"
@@ -133,43 +158,56 @@
         <TextView
             android:id="@+id/btn_share_log"
             android:layout_width="0dp"
-            android:layout_height="48dp"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
             android:text="Отправить лог"
-            android:textColor="?attr/quipnetTextTitle"
+            android:textColor="?attr/m3ColorOnSecondaryContainer"
             android:textSize="14sp"
             android:textStyle="bold"
-            android:background="?attr/quipnetCardBackground"
-            />
+            android:textAppearance="?attr/textAppearanceLabelMedium"
+            android:background="@drawable/btn_expressive_filled_tonal"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp" />
     </LinearLayout>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Предпросмотр"
-        android:textColor="?attr/quipnetTextTitle"
+        android:textColor="?attr/m3ColorOnSurfaceContainer"
         android:textSize="14sp"
         android:textStyle="bold"
+        android:textAppearance="?attr/textAppearanceLabelMedium"
         android:layout_marginBottom="8dp" />
 
-    <ScrollView
+    <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:background="?attr/quipnetCardBackground"
-        android:fillViewport="true">
+        app:cardCornerRadius="16dp"
+        app:cardElevation="2dp"
+        app:cardBackgroundColor="?attr/m3ColorSurfaceContainer"
+        app:strokeWidth="1dp"
+        app:strokeColor="?attr/m3ColorOutlineVariant">
 
-        <TextView
-            android:id="@+id/tv_logs_preview"
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="12dp"
-            android:text="Логов пока нет"
-            android:textColor="?attr/quipnetTextHint"
-            android:textSize="12sp"
-            android:fontFamily="monospace"
-            android:textIsSelectable="true" />
-    </ScrollView>
+            android:layout_height="match_parent"
+            android:fillViewport="true">
+
+            <TextView
+                android:id="@+id/tv_logs_preview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="12dp"
+                android:text="Логов пока нет"
+                android:textColor="?attr/m3ColorOnSurfaceContainer"
+                android:textSize="12sp"
+                android:textAppearance="?attr/textAppearanceBodySmall"
+                android:fontFamily="monospace"
+                android:textIsSelectable="true" />
+        </ScrollView>
+    </com.google.android.material.card.MaterialCardView>
 
 </LinearLayout>

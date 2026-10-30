@@ -6973,7 +6973,7 @@ class MainActivity : AppCompatActivity() {
             this,
             QuipNetTheme.optionFor(QuipNetTheme.current(this)).styleRes,
         )
-        val accent = QuipNetTheme.color(themedForAccent, R.attr.quipnetAccent)
+        val accent = QuipNetTheme.color(themedForAccent, R.attr.m3ColorPrimary)
         themeAccentColor = accent
         listOfNotNull(mainRegionGroup as? FlowRadioGroup, mainSubRegionGroup).forEach { group ->
             group.selectionGlowColor = accent

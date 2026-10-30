@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<!--
+  Конфигурации WARP — Material 3 Expressive.
+-->
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="?attr/m3ColorBackground"
     android:padding="16dp">
 
     <TextView
@@ -11,9 +15,10 @@
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-medium"
         android:text="Конфигурации"
-        android:textColor="?attr/quipnetAccent"
-        android:textSize="24sp"
+        android:textColor="?attr/m3ColorPrimary"
+        android:textSize="32sp"
         android:textStyle="bold"
+        android:textAppearance="?attr/textAppearanceHeadlineLarge"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -22,7 +27,7 @@
         android:id="@+id/row_actions"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="14dp"
+        android:layout_marginTop="16dp"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -31,53 +36,59 @@
         <TextView
             android:id="@+id/btn_create_new"
             android:layout_width="match_parent"
-            android:layout_height="52dp"
-            android:background="@drawable/bg_settings_action_dark"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_expressive_filled"
             android:clickable="true"
             android:focusable="true"
             android:fontFamily="sans-serif-medium"
             android:gravity="center"
             android:singleLine="true"
             android:text="Сгенерировать новые"
+            android:textColor="#000000"
             android:textSize="16sp"
-            android:textColor="?attr/quipnetTextTitle"
+            android:textAppearance="?attr/textAppearanceLabelLarge"
+            android:paddingTop="14dp"
+            android:paddingBottom="14dp"
             android:visibility="gone" />
 
         <TextView
             android:id="@+id/btn_paste_config"
             android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/bg_settings_action_dark"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/btn_expressive_filled_tonal"
             android:clickable="true"
             android:focusable="true"
             android:fontFamily="sans-serif-medium"
             android:gravity="center"
             android:singleLine="true"
             android:text="Управление конфигурациями"
-            android:textColor="?attr/quipnetTextTitle" />
+            android:textColor="?attr/m3ColorOnSecondaryContainer"
+            android:textSize="16sp"
+            android:textAppearance="?attr/textAppearanceLabelLarge"
+            android:paddingTop="12dp"
+            android:paddingBottom="12dp" />
 
         <TextView
             android:id="@+id/btn_adapt_network"
             android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/bg_settings_action_dark"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/btn_expressive_filled_tonal"
             android:clickable="true"
             android:focusable="true"
             android:fontFamily="sans-serif-medium"
             android:gravity="center"
             android:singleLine="true"
             android:text="Перепроверить профили"
-            android:textColor="?attr/quipnetTextTitle" />
+            android:textColor="?attr/m3ColorOnSecondaryContainer"
+            android:textSize="16sp"
+            android:textAppearance="?attr/textAppearanceLabelLarge"
+            android:paddingTop="12dp"
+            android:paddingBottom="12dp" />
 
         <!--
             Источник профилей — выбор из двух, а не тумблер.
-
-            Кнопка «Активно: встроенные/импортированные» показывала текущее
-            состояние, но не показывала, из чего выбирают: второй вариант был
-            виден только после нажатия, и нажатие было единственным способом
-            узнать, что он вообще есть.
 
             Группа именно FlowRadioGroup: «Конфигурации:» плюс две подписи в
             строку на телефоне не помещаются, обычный RadioGroup — это
@@ -89,10 +100,10 @@
             android:id="@+id/row_configs_source"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/bg_settings_action_dark"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/card_expressive"
             android:gravity="center_vertical"
-            android:minHeight="48dp"
+            android:minHeight="56dp"
             android:orientation="horizontal">
 
             <TextView
@@ -102,8 +113,9 @@
                 android:fontFamily="sans-serif-medium"
                 android:singleLine="true"
                 android:text="Конфигурации:"
-                android:textColor="?attr/quipnetTextTitle"
-                android:textSize="15sp" />
+                android:textColor="?attr/m3ColorOnSurfaceContainer"
+                android:textSize="15sp"
+                android:textAppearance="?attr/textAppearanceBodyMedium" />
 
             <com.example.quipnet.FlowRadioGroup
                 android:id="@+id/rg_configs_source"
@@ -118,25 +130,27 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="10dp"
-                    android:buttonTint="?attr/quipnetAccent"
+                    android:buttonTint="?attr/m3ColorPrimary"
                     android:maxLines="1"
                     android:paddingStart="0dp"
                     android:paddingEnd="0dp"
                     android:text="Встроенные"
-                    android:textColor="?attr/quipnetTextTitle"
-                    android:textSize="14sp" />
+                    android:textColor="?attr/m3ColorOnSurfaceContainer"
+                    android:textSize="14sp"
+                    android:textAppearance="?attr/textAppearanceBodyMedium" />
 
                 <RadioButton
                     android:id="@+id/rb_configs_imported"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:buttonTint="?attr/quipnetAccent"
+                    android:buttonTint="?attr/m3ColorPrimary"
                     android:maxLines="1"
                     android:paddingStart="0dp"
                     android:paddingEnd="0dp"
                     android:text="Импортированные"
-                    android:textColor="?attr/quipnetTextTitle"
-                    android:textSize="14sp" />
+                    android:textColor="?attr/m3ColorOnSurfaceContainer"
+                    android:textSize="14sp"
+                    android:textAppearance="?attr/textAppearanceBodyMedium" />
             </com.example.quipnet.FlowRadioGroup>
         </LinearLayout>
     </LinearLayout>
@@ -145,12 +159,13 @@
         android:id="@+id/tv_discovery_status"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="14dp"
+        android:layout_marginTop="16dp"
         android:fontFamily="sans-serif-medium"
         android:text="Готово к проверке"
-        android:textColor="?attr/quipnetTextTitle"
+        android:textColor="?attr/m3ColorOnSurfaceContainer"
         android:textSize="15sp"
         android:textStyle="bold"
+        android:textAppearance="?attr/textAppearanceTitleMedium"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/row_actions" />
@@ -162,8 +177,9 @@
         android:layout_marginTop="4dp"
         android:fontFamily="sans-serif-medium"
         android:text="Успешных: 0"
-        android:textColor="?attr/quipnetAccent"
+        android:textColor="?attr/m3ColorPrimary"
         android:textSize="13sp"
+        android:textAppearance="?attr/textAppearanceBodySmall"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_discovery_status" />
 
@@ -177,14 +193,6 @@
         app:layout_constraintStart_toEndOf="@id/tv_discovery_progress"
         app:layout_constraintTop_toTopOf="@id/tv_discovery_progress" />
 
-    <!--
-        Строка «пока ничего нет» стоит ПОД поиском, а не на его месте.
-
-        Дефект, который это чинит: и она, и поле поиска были привязаны к низу
-        tv_discovery_progress, то есть занимали одну и ту же точку и рисовались друг
-        поверх друга. С непустым списком это не видно, а с пустым — текст перекрывал поле
-        ввода.
-    -->
     <TextView
         android:id="@+id/tv_empty"
         android:layout_width="0dp"
@@ -192,8 +200,9 @@
         android:layout_marginTop="18dp"
         android:fontFamily="sans-serif"
         android:text="Пока нет встроенных конфигураций."
-        android:textColor="?attr/quipnetTextHint"
+        android:textColor="?attr/m3ColorOnSurfaceContainer"
         android:textSize="14sp"
+        android:textAppearance="?attr/textAppearanceBodyMedium"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/et_config_search" />
@@ -203,17 +212,18 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:background="?attr/quipnetCardBackground"
+        android:background="@drawable/field_expressive"
         android:hint="Поиск: хост, порт, режим"
         android:imeOptions="actionSearch"
         android:inputType="text"
         android:maxLines="1"
-        android:minHeight="44dp"
+        android:minHeight="56dp"
         android:paddingStart="12dp"
         android:paddingEnd="12dp"
-        android:textColor="?attr/quipnetTextTitle"
-        android:textColorHint="?attr/quipnetTextHint"
+        android:textColor="?attr/m3ColorOnSurfaceContainer"
+        android:textColorHint="?attr/m3ColorOnSurfaceContainer"
         android:textSize="14sp"
+        android:textAppearance="?attr/textAppearanceBodyMedium"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_discovery_progress" />

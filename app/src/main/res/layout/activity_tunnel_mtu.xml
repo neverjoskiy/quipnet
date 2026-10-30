@@ -1,22 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-    Экран «MTU туннеля».
+  Экран «MTU туннеля» — Material 3 Expressive.
 
-    Раньше это была строка в настройках: заголовок, ползунок и подпись. Ползунок
-    там шёл от 1000 до 1440 шагом 10 — сорок четыре положения на ширину экрана, то
-    есть попасть пальцем в конкретное число было нельзя, а вернуться к заводскому
-    1280 можно было только на глаз.
-
-    Здесь то же самое, но с тремя недостающими вещами: поле для точного значения,
-    кнопка «По умолчанию» и честный список транспортов. Регулировка показывается
-    только там, где MTU действительно решает туннель, — остальные транспорты
-    перечислены отдельно с причиной, по которой на них настройка не действует.
+  Регулировка показывается только там, где MTU действительно решает туннель,
+  — остальные транспорты перечислены отдельно с причиной.
 -->
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
     android:clipToPadding="false"
+    android:background="?attr/m3ColorBackground"
     android:paddingLeft="16dp"
     android:paddingTop="16dp"
     android:paddingRight="16dp"
@@ -31,9 +26,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="MTU туннеля"
-            android:textColor="?attr/quipnetAccent"
-            android:textSize="24sp"
-            android:textStyle="bold" />
+            android:textColor="?attr/m3ColorOnBackground"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            android:textAppearance="?attr/textAppearanceHeadlineLarge" />
 
         <TextView
             android:id="@+id/tv_mtu_intro"
@@ -41,173 +37,216 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:text="Размер пакета внутри туннеля. Меньше — больше пакетов на тот же объём; больше — пакет может не поместиться в канал и пропасть целиком."
-            android:textColor="?attr/quipnetTextHint"
-            android:textSize="12sp" />
+            android:textColor="?attr/m3ColorOnBackground"
+            android:textSize="14sp"
+            android:textAppearance="?attr/textAppearanceBodyMedium" />
 
         <!-- Карточка регулировки. Показывается только при поддерживаемом транспорте. -->
-        <LinearLayout
+        <com.google.android.material.card.MaterialCardView
             android:id="@+id/card_mtu_control"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:background="?attr/quipnetCardBackground"
-            android:orientation="vertical"
-            android:paddingLeft="16dp"
-            android:paddingTop="12dp"
-            android:paddingRight="16dp"
-            android:paddingBottom="12dp">
+            app:cardCornerRadius="16dp"
+            app:cardElevation="2dp"
+            app:cardBackgroundColor="?attr/m3ColorSurfaceContainer"
+            app:strokeWidth="1dp"
+            app:strokeColor="?attr/m3ColorOutlineVariant">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
+                android:orientation="vertical"
+                android:paddingLeft="16dp"
+                android:paddingTop="16dp"
+                android:paddingRight="16dp"
+                android:paddingBottom="16dp">
 
-                <TextView
-                    android:id="@+id/tv_mtu_scope"
-                    android:layout_width="0dp"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Действует сейчас"
-                    android:textColor="?attr/quipnetTextTitle"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tv_mtu_scope"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Действует сейчас"
+                        android:textColor="?attr/m3ColorOnSurfaceContainer"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textAppearance="?attr/textAppearanceTitleMedium" />
+
+                    <TextView
+                        android:id="@+id/tv_mtu_value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:text="1280"
+                        android:textColor="?attr/m3ColorPrimary"
+                        android:textSize="24sp"
+                        android:textStyle="bold"
+                        android:textAppearance="?attr/textAppearanceDisplaySmall" />
+                </LinearLayout>
+
+                <SeekBar
+                    android:id="@+id/sb_tunnel_mtu"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:progressTint="?attr/m3ColorPrimary"
+                    android:thumbTint="?attr/m3ColorPrimary" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tv_mtu_min"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="600"
+                        android:textColor="?attr/m3ColorOnSurfaceContainer"
+                        android:textSize="11sp"
+                        android:textAppearance="?attr/textAppearanceBodySmall" />
+
+                    <TextView
+                        android:id="@+id/tv_mtu_max"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1440"
+                        android:textColor="?attr/m3ColorOnSurfaceContainer"
+                        android:textSize="11sp"
+                        android:textAppearance="?attr/textAppearanceBodySmall" />
+                </LinearLayout>
 
                 <TextView
-                    android:id="@+id/tv_mtu_value"
+                    android:id="@+id/tv_mtu_summary"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text=""
+                    android:textColor="?attr/m3ColorOnSurfaceContainer"
+                    android:textSize="12sp"
+                    android:textAppearance="?attr/textAppearanceBodySmall" />
+
+                <!-- Точное значение: ползунок пальцем не набирается. -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/et_mtu_manual"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/field_expressive"
+                        android:hint="Своё значение"
+                        android:imeOptions="actionDone"
+                        android:inputType="number"
+                        android:maxLength="4"
+                        android:paddingStart="12dp"
+                        android:paddingTop="12dp"
+                        android:paddingEnd="12dp"
+                        android:paddingBottom="12dp"
+                        android:textColor="?attr/m3ColorOnSurfaceContainer"
+                        android:textColorHint="?attr/m3ColorOnSurfaceContainer"
+                        android:textSize="15sp"
+                        android:textAppearance="?attr/textAppearanceBodyMedium" />
+
+                    <TextView
+                        android:id="@+id/btn_mtu_apply"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:background="@drawable/btn_expressive_filled_tonal"
+                        android:gravity="center"
+                        android:paddingTop="12dp"
+                        android:paddingBottom="12dp"
+                        android:paddingStart="16dp"
+                        android:paddingEnd="16dp"
+                        android:text="Применить"
+                        android:textAllCaps="false"
+                        android:textSize="14sp"
+                        android:textColor="?attr/m3ColorOnSecondaryContainer"
+                        android:textStyle="bold"
+                        android:textAppearance="?attr/textAppearanceLabelMedium" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/btn_mtu_default"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="12dp"
-                    android:text="1280"
-                    android:textColor="?attr/quipnetAccent"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
-            </LinearLayout>
-
-            <SeekBar
-                android:id="@+id/sb_tunnel_mtu"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
-                android:progressTint="?attr/quipnetIconTint"
-                android:thumbTint="?attr/quipnetIconTint" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/tv_mtu_min"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="600"
-                    android:textColor="?attr/quipnetTextHint"
-                    android:textSize="11sp" />
-
-                <TextView
-                    android:id="@+id/tv_mtu_max"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="1440"
-                    android:textColor="?attr/quipnetTextHint"
-                    android:textSize="11sp" />
-            </LinearLayout>
-
-            <TextView
-                android:id="@+id/tv_mtu_summary"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text=""
-                android:textColor="?attr/quipnetTextHint"
-                android:textSize="12sp" />
-
-            <!-- Точное значение: ползунок в 84 положения пальцем не набирается. -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
-
-                <EditText
-                    android:id="@+id/et_mtu_manual"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="?attr/quipnetFieldBackground"
-                    android:hint="Своё значение"
-                    android:imeOptions="actionDone"
-                    android:inputType="number"
-                    android:maxLength="4"
-                    android:paddingLeft="12dp"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/btn_expressive_text"
+                    android:gravity="start"
                     android:paddingTop="10dp"
-                    android:paddingRight="12dp"
                     android:paddingBottom="10dp"
-                    android:textColor="?attr/quipnetTextTitle"
-                    android:textColorHint="?attr/quipnetTextHint"
-                    android:textSize="15sp" />
-
-                <Button
-                    android:id="@+id/btn_mtu_apply"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:text="Применить"
+                    android:text="По умолчанию (1280)"
                     android:textAllCaps="false"
-                    android:textSize="14sp" />
+                    android:textSize="14sp"
+                    android:textColor="?attr/m3ColorPrimary"
+                    android:textAppearance="?attr/textAppearanceLabelMedium" />
             </LinearLayout>
-
-            <Button
-                android:id="@+id/btn_mtu_default"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="По умолчанию (1280)"
-                android:textAllCaps="false"
-                android:textSize="14sp" />
-        </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
 
         <!-- Транспорты, у которых MTU решает не эта настройка. -->
-        <LinearLayout
+        <com.google.android.material.card.MaterialCardView
             android:id="@+id/card_mtu_unsupported"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:background="?attr/quipnetCardBackground"
-            android:orientation="vertical"
-            android:paddingLeft="16dp"
-            android:paddingTop="12dp"
-            android:paddingRight="16dp"
-            android:paddingBottom="12dp">
+            app:cardCornerRadius="16dp"
+            app:cardElevation="2dp"
+            app:cardBackgroundColor="?attr/m3ColorSurfaceContainer"
+            app:strokeWidth="1dp"
+            app:strokeColor="?attr/m3ColorOutlineVariant">
 
-            <TextView
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Где настройка не действует"
-                android:textColor="?attr/quipnetTextTitle"
-                android:textSize="16sp"
-                android:textStyle="bold" />
+                android:orientation="vertical"
+                android:paddingLeft="16dp"
+                android:paddingTop="16dp"
+                android:paddingRight="16dp"
+                android:paddingBottom="16dp">
 
-            <TextView
-                android:id="@+id/tv_mtu_unsupported"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
-                android:text=""
-                android:textColor="?attr/quipnetTextHint"
-                android:textSize="12sp" />
-        </LinearLayout>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Где настройка не действует"
+                    android:textColor="?attr/m3ColorOnSurfaceContainer"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textAppearance="?attr/textAppearanceTitleMedium" />
+
+                <TextView
+                    android:id="@+id/tv_mtu_unsupported"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text=""
+                    android:textColor="?attr/m3ColorOnSurfaceContainer"
+                    android:textSize="12sp"
+                    android:textAppearance="?attr/textAppearanceBodySmall" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
 
         <TextView
             android:id="@+id/tv_mtu_state"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="16dp"
             android:text=""
-            android:textColor="?attr/quipnetTextHint"
-            android:textSize="12sp" />
+            android:textColor="?attr/m3ColorOnSurfaceContainer"
+            android:textSize="12sp"
+            android:textAppearance="?attr/textAppearanceBodySmall" />
     </LinearLayout>
 </ScrollView>

@@ -345,10 +345,10 @@ class ImportedProfilesSheet(
     private class Palette(val title: Int, val value: Int, val hint: Int, val accent: Int) {
         companion object {
             fun from(ctx: Context): Palette = Palette(
-                title = attrColor(ctx, R.attr.quipnetTextTitle, 0xFFFFFFFF.toInt()),
-                value = attrColor(ctx, R.attr.quipnetTextValue, 0xFFB9C4D6.toInt()),
-                hint = attrColor(ctx, R.attr.quipnetTextHint, 0xFF8A94A6.toInt()),
-                accent = attrColor(ctx, R.attr.quipnetAccent, 0xFF7AA2FF.toInt()),
+                title = attrColor(ctx, R.attr.m3ColorOnSurfaceContainer, 0xFFFFFFFF.toInt()),
+                value = attrColor(ctx, R.attr.m3ColorOnPrimaryContainer, 0xFFB9C4D6.toInt()),
+                hint = attrColor(ctx, R.attr.m3ColorOnSurfaceContainer, 0xFF8A94A6.toInt()),
+                accent = attrColor(ctx, R.attr.m3ColorPrimary, 0xFF7AA2FF.toInt()),
             )
 
             private fun attrColor(ctx: Context, attr: Int, fallback: Int): Int {

@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-    Одна строка списка резолверов.
+  Одна строка списка резолверов — Material 3 Expressive.
 
-    Порядок строк — это порядок опроса, поэтому ручка перетаскивания стоит первой
-    и занимает всю высоту строки: тянут именно за неё, а не за строку целиком —
-    нажатие на строку открывает редактирование.
+  Порядок строк — это порядок опроса, поэтому ручка перетаскивания стоит первой
+  и занимает всю высоту строки: тянут именно за неё, а не за строку целиком —
+  нажатие на строку открывает редактирование.
 -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="?android:attr/selectableItemBackground"
+    android:background="@drawable/card_expressive"
     android:gravity="center_vertical"
     android:minHeight="52dp"
     android:orientation="horizontal"
@@ -46,9 +46,10 @@
                 android:fontFamily="sans-serif-medium"
                 android:minWidth="58dp"
                 android:text="DoH"
-                android:textColor="?attr/quipnetAccent"
+                android:textColor="?attr/m3ColorPrimary"
                 android:textSize="12sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:textAppearance="?attr/textAppearanceLabelMedium" />
 
             <TextView
                 android:id="@+id/tv_dns_rule_value"
@@ -60,8 +61,9 @@
                 android:fontFamily="sans-serif"
                 android:maxLines="2"
                 android:text="https://dns.example.com/dns-query"
-                android:textColor="?attr/quipnetTextTitle"
-                android:textSize="15sp" />
+                android:textColor="?attr/m3ColorOnSurfaceContainer"
+                android:textSize="15sp"
+                android:textAppearance="?attr/textAppearanceBodyMedium" />
         </LinearLayout>
 
         <TextView
@@ -73,8 +75,9 @@
             android:fontFamily="sans-serif"
             android:maxLines="2"
             android:text="bootstrap: 1.1.1.1"
-            android:textColor="?attr/quipnetTextHint"
+            android:textColor="?attr/m3ColorOnSurfaceContainer"
             android:textSize="11sp"
+            android:textAppearance="?attr/textAppearanceBodySmall"
             android:visibility="gone" />
     </LinearLayout>
 

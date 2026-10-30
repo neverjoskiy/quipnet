@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Material 3 Expressive Motion — выход Activity: плавный сдвиг вверх + затухание. -->
+<set xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shareInterpolator="false">
+    <translate
+        android:fromYDelta="0%"
+        android:toYDelta="-20%"
+        android:duration="380"
+        android:interpolator="@android:interpolator/fast_out_slow_in" />
+    <alpha
+        android:fromAlpha="1.0"
+        android:toAlpha="0.0"
+        android:duration="380"
+        android:interpolator="@android:interpolator/fast_out_slow_in" />
+</set>
