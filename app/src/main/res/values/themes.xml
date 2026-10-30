@@ -124,9 +124,6 @@
         <item name="elevationLevel8">8dp</item>
         <item name="elevationLevel12">12dp</item>
 
-        <!-- Анимация окон Material 3 Expressive: плавные переходы между экранами -->
-        <item name="android:windowAnimationStyle">@style/AnimationQuipNet</item>
-
         <!-- Типографика Material 3 Expressive — type scale -->
         <item name="textAppearanceHeadlineLarge">@style/TextAppearance.QuipNet.HeadlineLarge</item>
         <item name="textAppearanceHeadlineMedium">@style/TextAppearance.QuipNet.HeadlineMedium</item>
