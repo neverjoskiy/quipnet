@@ -206,7 +206,7 @@
       Крупные пропорции: 56dp высота, пилюлевидная форма, elevation 4dp.
       Выровнена по центру экрана (геометрический центр).
     -->
-    <com.google.android.material.button.MaterialButton
+    <com.example.quipnet.GlowPillButton
         android:id="@+id/btnConnect"
         style="@style/Widget.QuipNet.Button.Elevated"
         android:layout_width="wrap_content"
@@ -234,7 +234,7 @@
         app:layout_constraintEnd_toEndOf="@+id/btnNextProfile" />
 
     <!-- Кнопка следующего профиля — малая Expressive кнопка (пилюля). -->
-    <com.google.android.material.button.MaterialButton
+    <com.example.quipnet.GlowPillButton
         android:id="@+id/btnNextProfile"
         style="@style/Widget.QuipNet.Button.Filled"
         android:layout_width="68dp"
