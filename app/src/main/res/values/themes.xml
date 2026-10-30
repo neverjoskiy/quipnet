@@ -9,9 +9,6 @@
          Material 3 Expressive (display/headline/title/body/label).
          ======================================================================== -->
     <style name="Theme.QuipNet" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        <!-- Виды разметки переводят свой текст при показе (QuipNetLanguage, QuipNetViewInflater). -->
-        <item name="viewInflaterClass">com.example.quipnet.QuipNetViewInflater</item>
-
         <!-- Материал 3 — основные роли цвета -->
         <item name="colorPrimary">@color/m3_primary</item>
         <item name="colorOnPrimary">@color/m3_onPrimary</item>
