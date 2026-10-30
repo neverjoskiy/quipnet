@@ -1,0 +1,241 @@
+package com.example.quipnet
+
+import android.app.PendingIntent
+import android.appwidget.AppWidgetManager
+import android.appwidget.AppWidgetProvider
+import android.content.ComponentName
+import android.content.Context
+import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.Canvas
+import android.graphics.Color
+import android.graphics.LinearGradient
+import android.graphics.Paint
+import android.graphics.RectF
+import android.graphics.Shader
+import android.os.Build
+import android.view.ContextThemeWrapper
+import android.widget.RemoteViews
+
+/**
+ * Виджет рабочего стола: две круглые кнопки, одно касание на действие.
+ *
+ * Левая кнопка включает и выключает туннель **не открывая приложение** — через
+ * [QuipNetTunnelControl], общий с плиткой в шторке ([QuipNetTileService]) и кнопкой в
+ * уведомлении. Там же объяснено, почему намерение подключения несёт с собой весь
+ * срез настроек, а останов — пять обязательных шагов.
+ *
+ * Правая кнопка открывает экран и нажимает там «следующий профиль». Перебор
+ * профилей живёт в [MainActivity] и знает про VLESS, MASQUE, Opera и Proton
+ * по-разному; переписывать эту цепочку второй раз в приёмнике значило бы
+ * завести вторую, расходящуюся с первой. Экран при этом всё равно нужен: смена
+ * профиля переподнимает туннель, и результат человек должен видеть.
+ *
+ * Состояние кнопки питания приходит широковещанием [QuipNetVpnService.ACTION_VPN_STATE]
+ * — оно уходит с `setPackage`, поэтому доходит и до приёмника из манифеста.
+ * Системный `updatePeriodMillis` не используется вовсе: чаще получаса он не
+ * бывает и будил бы приложение впустую.
+ */
+class QuipNetWidgetProvider : AppWidgetProvider() {
+
+    override fun onUpdate(
+        context: Context,
+        appWidgetManager: AppWidgetManager,
+        appWidgetIds: IntArray,
+    ) {
+        appWidgetIds.forEach { widgetId ->
+            appWidgetManager.updateAppWidget(widgetId, buildViews(context))
+        }
+    }
+
+    override fun onReceive(context: Context, intent: Intent) {
+        LogManager.setAppContext(context)
+        super.onReceive(context, intent)
+        when (intent.action) {
+            ACTION_TOGGLE -> {
+                toggleTunnel(context)
+                // Рисуем сразу, не дожидаясь широковещания службы: между нажатием и
+                // первым сообщением о состоянии проходят сотни миллисекунд, и всё
+                // это время кнопка показывала бы старое состояние.
+                refresh(context)
+            }
+            ACTION_NEXT_PROFILE -> openNextProfile(context)
+            QuipNetVpnService.ACTION_VPN_STATE -> refresh(context)
+        }
+    }
+
+    private fun buildViews(context: Context): RemoteViews {
+        val connected = isTunnelUp(ClientData(context))
+        return RemoteViews(context.packageName, R.layout.widget_quipnet).apply {
+            // Круг живёт в `src`, а не в фоне: фон рисуется по размеру вида и
+            // обрезается, когда лаунчер отводит строку ниже содержимого, а
+            // рисунок при `fitCenter` уменьшается целиком (см. widget_quipnet.xml).
+            setImageViewResource(
+                R.id.widget_btn_power,
+                if (connected) R.drawable.widget_btn_power_on else R.drawable.widget_btn_power_off,
+            )
+            setOnClickPendingIntent(R.id.widget_btn_power, buildSelfPendingIntent(context, ACTION_TOGGLE, 7101))
+            // Описания для TalkBack в макете — русские заглушки: макет раздувает лаунчер,
+            // и перевод интерфейса до него не доходит.
+            setContentDescription(
+                R.id.widget_btn_power,
+                QuipNetLanguage.tr(context, "Подключить или отключить QuipNet"),
+            )
+            setContentDescription(R.id.widget_btn_next, QuipNetLanguage.tr(context, "Следующий профиль"))
+            // Рамка и кнопка «след. профиль» красятся цветами выбранной темы; смена
+            // темы в настройках перерисовывает уже стоящие на столе виджеты.
+            runCatching {
+                val themed = ContextThemeWrapper(
+                    context.applicationContext,
+                    QuipNetTheme.optionFor(QuipNetTheme.current(context)).styleRes,
+                )
+                val accent = QuipNetTheme.color(themed, R.attr.quipnetAccent)
+                val dim = QuipNetTheme.color(themed, R.attr.quipnetAccentDim)
+                setImageViewBitmap(R.id.widget_frame_img, frameBitmap(accent, dim))
+                setImageViewBitmap(R.id.widget_btn_next, nextButtonBitmap(context, accent))
+            }.onFailure { LogManager.log("Виджет: не удалось применить тему: ${it.message}") }
+            setOnClickPendingIntent(
+                R.id.widget_btn_next,
+                buildSelfPendingIntent(context, ACTION_NEXT_PROFILE, 7102),
+            )
+        }
+    }
+
+    private fun mix(a: Int, b: Int, t: Float): Int = Color.argb(
+        255,
+        (Color.red(a) + (Color.red(b) - Color.red(a)) * t).toInt(),
+        (Color.green(a) + (Color.green(b) - Color.green(a)) * t).toInt(),
+        (Color.blue(a) + (Color.blue(b) - Color.blue(a)) * t).toInt(),
+    )
+
+    /** Градиентная обводка рамки; плотность 640 держит собственный размер малым. */
+    private fun frameBitmap(accent: Int, dim: Int): Bitmap {
+        val w = 240
+        val h = 135
+        val bitmap = Bitmap.createBitmap(w, h, Bitmap.Config.ARGB_8888)
+        bitmap.density = 640
+        val paint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
+            style = Paint.Style.STROKE
+            strokeWidth = 4.5f
+            shader = LinearGradient(
+                0f, 0f, w.toFloat(), h.toFloat(),
+                intArrayOf(accent, mix(accent, Color.WHITE, 0.4f), dim, accent),
+                floatArrayOf(0f, 0.33f, 0.68f, 1f),
+                Shader.TileMode.CLAMP,
+            )
+        }
+        Canvas(bitmap).drawRoundRect(RectF(2.25f, 2.25f, w - 2.25f, h - 2.25f), 32f, 32f, paint)
+        return bitmap
+    }
+
+    /** Круг «следующий профиль» цвета темы со значком из ресурса. */
+    private fun nextButtonBitmap(context: Context, accent: Int): Bitmap {
+        val size = 144
+        val bitmap = Bitmap.createBitmap(size, size, Bitmap.Config.ARGB_8888)
+        bitmap.density = 480
+        val canvas = Canvas(bitmap)
+        val fill = Paint(Paint.ANTI_ALIAS_FLAG).apply {
+            shader = LinearGradient(
+                0f, 0f, 0f, size.toFloat(),
+                mix(accent, Color.WHITE, 0.15f), mix(accent, Color.BLACK, 0.6f),
+                Shader.TileMode.CLAMP,
+            )
+        }
+        val stroke = Paint(Paint.ANTI_ALIAS_FLAG).apply {
+            style = Paint.Style.STROKE
+            strokeWidth = 4.5f
+            color = mix(accent, Color.WHITE, 0.55f)
+        }
+        val r = size / 2f
+        canvas.drawCircle(r, r, r - 2.25f, fill)
+        canvas.drawCircle(r, r, r - 2.25f, stroke)
+        androidx.core.content.ContextCompat.getDrawable(context, R.drawable.ic_widget_next)?.let {
+            it.setBounds(39, 39, size - 39, size - 39)
+            it.draw(canvas)
+        }
+        return bitmap
+    }
+
+    private fun buildSelfPendingIntent(context: Context, action: String, requestCode: Int): PendingIntent {
+        val intent = Intent(context, QuipNetWidgetProvider::class.java).apply { this.action = action }
+        return PendingIntent.getBroadcast(
+            context,
+            requestCode,
+            intent,
+            PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE,
+        )
+    }
+
+    private fun toggleTunnel(context: Context) {
+        val clientData = ClientData(context)
+        if (isTunnelUp(clientData)) {
+            QuipNetTunnelControl.stop(context, "Виджет")
+            return
+        }
+        QuipNetTunnelControl.start(context, "Виджет")
+    }
+
+    private fun openNextProfile(context: Context) {
+        val intent = Intent(context, MainActivity::class.java).apply {
+            addFlags(
+                Intent.FLAG_ACTIVITY_NEW_TASK or
+                    Intent.FLAG_ACTIVITY_SINGLE_TOP or
+                    Intent.FLAG_ACTIVITY_CLEAR_TOP
+            )
+            putExtra(MainActivity.EXTRA_WIDGET_ACTION, MainActivity.WIDGET_ACTION_NEXT_PROFILE)
+        }
+        runCatching { context.startActivity(intent) }
+            .onFailure { error -> LogManager.log("Виджет: не удалось открыть экран: ${error.message}") }
+    }
+
+    /**
+     * Туннель считается поднятым по сохранённому состоянию.
+     *
+     * Плитка в шторке сверяется ещё и с системными сетями, потому что живёт
+     * рядом с ними; виджету этого не нужно — он перерисовывается по тому же
+     * широковещанию, которым служба и обновляет это состояние.
+     */
+    private fun isTunnelUp(clientData: ClientData): Boolean {
+        val state = clientData.getServiceState()
+        return state == QuipNetVpnService.STATE_CONNECTED || state == QuipNetVpnService.STATE_CONNECTING
+    }
+
+    private fun refresh(context: Context) = refreshAll(context)
+
+    private fun refreshAllInternal(context: Context) {
+        val manager = AppWidgetManager.getInstance(context) ?: return
+        val ids = manager.getAppWidgetIds(ComponentName(context, QuipNetWidgetProvider::class.java))
+        if (ids.isEmpty()) return
+        val views = buildViews(context)
+        ids.forEach { widgetId -> manager.updateAppWidget(widgetId, views) }
+    }
+
+    companion object {
+        const val ACTION_TOGGLE = "com.example.quipnet.widget.TOGGLE"
+
+        /** Перерисовать все виджеты: например, после смены языка интерфейса. */
+        fun refreshAll(context: Context) = QuipNetWidgetProvider().refreshAllInternal(context)
+        const val ACTION_NEXT_PROFILE = "com.example.quipnet.widget.NEXT_PROFILE"
+
+        /**
+         * Просит лаунчер поставить виджет на рабочий стол.
+         *
+         * Работает с Android 8: до неё системного запроса на закрепление нет
+         * вовсе, и единственный путь — длинное нажатие на рабочем столе. Часть
+         * лаунчеров отказывает и на новых версиях ([AppWidgetManager.isRequestPinAppWidgetSupported]),
+         * поэтому вызов возвращает результат, а не молчит.
+         */
+        fun requestPin(context: Context): Boolean {
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O) return false
+            val manager = AppWidgetManager.getInstance(context) ?: return false
+            if (!manager.isRequestPinAppWidgetSupported) return false
+            return runCatching {
+                manager.requestPinAppWidget(
+                    ComponentName(context, QuipNetWidgetProvider::class.java),
+                    null,
+                    null,
+                )
+            }.getOrDefault(false)
+        }
+    }
+}

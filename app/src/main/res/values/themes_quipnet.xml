@@ -1,0 +1,1061 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Сгенерировано tools/gen_nova_themes.py. Руками не править:
+     правка переживёт ровно до следующего запуска генератора. -->
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <style name="Theme.QuipNet.Settings.Auroramint" parent="Theme.QuipNet.Settings">
+        <item name="android:windowBackground">@drawable/bg_quipnet_screen_aurora</item>
+        <item name="quipnetCardBackground">@drawable/bg_quipnet_card_aurora</item>
+        <item name="quipnetFieldBackground">@drawable/bg_quipnet_field_aurora</item>
+        <item name="android:alertDialogTheme">@style/Theme.QuipNet.Dialog.Auroramint</item>
+        <item name="alertDialogTheme">@style/Theme.QuipNet.Dialog.Auroramint</item>
+        <item name="colorAccent">@color/quipnet_aurora_accent</item>
+        <item name="android:colorAccent">@color/quipnet_aurora_accent</item>
+        <item name="colorControlActivated">@color/quipnet_aurora_accent</item>
+        <item name="android:colorControlActivated">@color/quipnet_aurora_accent</item>
+        <item name="colorControlNormal">@color/quipnet_aurora_text_value</item>
+        <item name="android:colorControlNormal">@color/quipnet_aurora_text_value</item>
+        <item name="android:textColorHint">@color/quipnet_aurora_text_hint</item>
+        <item name="quipnetFocusFill">@color/quipnet_aurora_focus_fill</item>
+        <item name="quipnetFocusStroke">@color/quipnet_aurora_focus_stroke</item>
+        <item name="quipnetAccent">@color/quipnet_aurora_accent</item>
+        <item name="quipnetAccentDim">@color/quipnet_aurora_accent_dim</item>
+        <item name="quipnetAccentOn">@color/quipnet_aurora_accent_on</item>
+        <item name="quipnetSeparator">@color/quipnet_aurora_separator</item>
+        <item name="quipnetTextGroupFrom">@color/quipnet_aurora_group_from</item>
+        <item name="quipnetTextGroupTo">@color/quipnet_aurora_group_to</item>
+        <item name="quipnetTextTitle">@color/quipnet_aurora_text_title</item>
+        <item name="quipnetTextValue">@color/quipnet_aurora_text_value</item>
+        <item name="quipnetTextHint">@color/quipnet_aurora_text_hint</item>
+        <item name="quipnetSwitchOn">@color/quipnet_aurora_switch_on</item>
+        <item name="quipnetSwitchOff">@color/quipnet_aurora_switch_off</item>
+        <item name="quipnetSwitchThumbOn">@color/quipnet_aurora_thumb_on</item>
+        <item name="quipnetSwitchThumbOff">@color/quipnet_aurora_thumb_off</item>
+        <item name="quipnetIconTint">@color/quipnet_aurora_icon_tint</item>
+        <item name="quipnetCardFill">@color/quipnet_aurora_card_fill</item>
+        <item name="quipnetCardStroke">@color/quipnet_aurora_card_stroke</item>
+    </style>
+
+    <style name="Theme.QuipNet.Settings.DNSAI" parent="Theme.QuipNet.Settings">
+        <item name="android:windowBackground">@drawable/bg_quipnet_screen_dnsai</item>
+        <item name="quipnetCardBackground">@drawable/bg_quipnet_card_dnsai</item>
+        <item name="quipnetFieldBackground">@drawable/bg_quipnet_field_dnsai</item>
+        <item name="android:alertDialogTheme">@style/Theme.QuipNet.Dialog.DNSAI</item>
+        <item name="alertDialogTheme">@style/Theme.QuipNet.Dialog.DNSAI</item>
+        <item name="colorAccent">@color/quipnet_dnsai_accent</item>
+        <item name="android:colorAccent">@color/quipnet_dnsai_accent</item>
+        <item name="colorControlActivated">@color/quipnet_dnsai_accent</item>
+        <item name="android:colorControlActivated">@color/quipnet_dnsai_accent</item>
+        <item name="colorControlNormal">@color/quipnet_dnsai_text_value</item>
+        <item name="android:colorControlNormal">@color/quipnet_dnsai_text_value</item>
+        <item name="android:textColorHint">@color/quipnet_dnsai_text_hint</item>
+        <item name="quipnetFocusFill">@color/quipnet_dnsai_focus_fill</item>
+        <item name="quipnetFocusStroke">@color/quipnet_dnsai_focus_stroke</item>
+        <item name="quipnetAccent">@color/quipnet_dnsai_accent</item>
+        <item name="quipnetAccentDim">@color/quipnet_dnsai_accent_dim</item>
+        <item name="quipnetAccentOn">@color/quipnet_dnsai_accent_on</item>
+        <item name="quipnetSeparator">@color/quipnet_dnsai_separator</item>
+        <item name="quipnetTextGroupFrom">@color/quipnet_dnsai_group_from</item>
+        <item name="quipnetTextGroupTo">@color/quipnet_dnsai_group_to</item>
+        <item name="quipnetTextTitle">@color/quipnet_dnsai_text_title</item>
+        <item name="quipnetTextValue">@color/quipnet_dnsai_text_value</item>
+        <item name="quipnetTextHint">@color/quipnet_dnsai_text_hint</item>
+        <item name="quipnetSwitchOn">@color/quipnet_dnsai_switch_on</item>
+        <item name="quipnetSwitchOff">@color/quipnet_dnsai_switch_off</item>
+        <item name="quipnetSwitchThumbOn">@color/quipnet_dnsai_thumb_on</item>
+        <item name="quipnetSwitchThumbOff">@color/quipnet_dnsai_thumb_off</item>
+        <item name="quipnetIconTint">@color/quipnet_dnsai_icon_tint</item>
+        <item name="quipnetCardFill">@color/quipnet_dnsai_card_fill</item>
+        <item name="quipnetCardStroke">@color/quipnet_dnsai_card_stroke</item>
+    </style>
+
+    <style name="Theme.QuipNet.Settings.Proton" parent="Theme.QuipNet.Settings">
+        <item name="android:windowBackground">@drawable/bg_quipnet_screen_proton</item>
+        <item name="quipnetCardBackground">@drawable/bg_quipnet_card_proton</item>
+        <item name="quipnetFieldBackground">@drawable/bg_quipnet_field_proton</item>
+        <item name="android:alertDialogTheme">@style/Theme.QuipNet.Dialog.Proton</item>
+        <item name="alertDialogTheme">@style/Theme.QuipNet.Dialog.Proton</item>
+        <item name="colorAccent">@color/quipnet_proton_accent</item>
+        <item name="android:colorAccent">@color/quipnet_proton_accent</item>
+        <item name="colorControlActivated">@color/quipnet_proton_accent</item>
+        <item name="android:colorControlActivated">@color/quipnet_proton_accent</item>
+        <item name="colorControlNormal">@color/quipnet_proton_text_value</item>
+        <item name="android:colorControlNormal">@color/quipnet_proton_text_value</item>
+        <item name="android:textColorHint">@color/quipnet_proton_text_hint</item>
+        <item name="quipnetFocusFill">@color/quipnet_proton_focus_fill</item>
+        <item name="quipnetFocusStroke">@color/quipnet_proton_focus_stroke</item>
+        <item name="quipnetAccent">@color/quipnet_proton_accent</item>
+        <item name="quipnetAccentDim">@color/quipnet_proton_accent_dim</item>
+        <item name="quipnetAccentOn">@color/quipnet_proton_accent_on</item>
+        <item name="quipnetSeparator">@color/quipnet_proton_separator</item>
+        <item name="quipnetTextGroupFrom">@color/quipnet_proton_group_from</item>
+        <item name="quipnetTextGroupTo">@color/quipnet_proton_group_to</item>
+        <item name="quipnetTextTitle">@color/quipnet_proton_text_title</item>
+        <item name="quipnetTextValue">@color/quipnet_proton_text_value</item>
+        <item name="quipnetTextHint">@color/quipnet_proton_text_hint</item>
+        <item name="quipnetSwitchOn">@color/quipnet_proton_switch_on</item>
+        <item name="quipnetSwitchOff">@color/quipnet_proton_switch_off</item>
+        <item name="quipnetSwitchThumbOn">@color/quipnet_proton_thumb_on</item>
+        <item name="quipnetSwitchThumbOff">@color/quipnet_proton_thumb_off</item>
+        <item name="quipnetIconTint">@color/quipnet_proton_icon_tint</item>
+        <item name="quipnetCardFill">@color/quipnet_proton_card_fill</item>
+        <item name="quipnetCardStroke">@color/quipnet_proton_card_stroke</item>
+    </style>
+
+    <style name="Theme.QuipNet.Settings.Charcoalbirch" parent="Theme.QuipNet.Settings">
+        <item name="android:windowBackground">@drawable/bg_quipnet_screen_charcoal</item>
+        <item name="quipnetCardBackground">@drawable/bg_quipnet_card_charcoal</item>
+        <item name="quipnetFieldBackground">@drawable/bg_quipnet_field_charcoal</item>
+        <item name="android:alertDialogTheme">@style/Theme.QuipNet.Dialog.Charcoalbirch</item>
+        <item name="alertDialogTheme">@style/Theme.QuipNet.Dialog.Charcoalbirch</item>
+        <item name="colorAccent">@color/quipnet_charcoal_accent</item>
+        <item name="android:colorAccent">@color/quipnet_charcoal_accent</item>
+        <item name="colorControlActivated">@color/quipnet_charcoal_accent</item>
+        <item name="android:colorControlActivated">@color/quipnet_charcoal_accent</item>
+        <item name="colorControlNormal">@color/quipnet_charcoal_text_value</item>
+        <item name="android:colorControlNormal">@color/quipnet_charcoal_text_value</item>
+        <item name="android:textColorHint">@color/quipnet_charcoal_text_hint</item>
+        <item name="quipnetFocusFill">@color/quipnet_charcoal_focus_fill</item>
+        <item name="quipnetFocusStroke">@color/quipnet_charcoal_focus_stroke</item>
+        <item name="quipnetAccent">@color/quipnet_charcoal_accent</item>
+        <item name="quipnetAccentDim">@color/quipnet_charcoal_accent_dim</item>
+        <item name="quipnetAccentOn">@color/quipnet_charcoal_accent_on</item>
+        <item name="quipnetSeparator">@color/quipnet_charcoal_separator</item>
+        <item name="quipnetTextGroupFrom">@color/quipnet_charcoal_group_from</item>
+        <item name="quipnetTextGroupTo">@color/quipnet_charcoal_group_to</item>
+        <item name="quipnetTextTitle">@color/quipnet_charcoal_text_title</item>
+        <item name="quipnetTextValue">@color/quipnet_charcoal_text_value</item>
+        <item name="quipnetTextHint">@color/quipnet_charcoal_text_hint</item>
+        <item name="quipnetSwitchOn">@color/quipnet_charcoal_switch_on</item>
+        <item name="quipnetSwitchOff">@color/quipnet_charcoal_switch_off</item>
+        <item name="quipnetSwitchThumbOn">@color/quipnet_charcoal_thumb_on</item>
+        <item name="quipnetSwitchThumbOff">@color/quipnet_charcoal_thumb_off</item>
+        <item name="quipnetIconTint">@color/quipnet_charcoal_icon_tint</item>
+        <item name="quipnetCardFill">@color/quipnet_charcoal_card_fill</item>
+        <item name="quipnetCardStroke">@color/quipnet_charcoal_card_stroke</item>
+    </style>
+
+    <style name="Theme.QuipNet.Settings.Graphenegolden" parent="Theme.QuipNet.Settings">
+        <item name="android:windowBackground">@drawable/bg_quipnet_screen_graphene</item>
+        <item name="quipnetCardBackground">@drawable/bg_quipnet_card_graphene</item>
+        <item name="quipnetFieldBackground">@drawable/bg_quipnet_field_graphene</item>
+        <item name="android:alertDialogTheme">@style/Theme.QuipNet.Dialog.Graphenegolden</item>
+        <item name="alertDialogTheme">@style/Theme.QuipNet.Dialog.Graphenegolden</item>
+        <item name="colorAccent">@color/quipnet_graphene_accent</item>
+        <item name="android:colorAccent">@color/quipnet_graphene_accent</item>
+        <item name="colorControlActivated">@color/quipnet_graphene_accent</item>
+        <item name="android:colorControlActivated">@color/quipnet_graphene_accent</item>
+        <item name="colorControlNormal">@color/quipnet_graphene_text_value</item>
+        <item name="android:colorControlNormal">@color/quipnet_graphene_text_value</item>
+        <item name="android:textColorHint">@color/quipnet_graphene_text_hint</item>
+        <item name="quipnetFocusFill">@color/quipnet_graphene_focus_fill</item>
+        <item name="quipnetFocusStroke">@color/quipnet_graphene_focus_stroke</item>
+        <item name="quipnetAccent">@color/quipnet_graphene_accent</item>
+        <item name="quipnetAccentDim">@color/quipnet_graphene_accent_dim</item>
+        <item name="quipnetAccentOn">@color/quipnet_graphene_accent_on</item>
+        <item name="quipnetSeparator">@color/quipnet_graphene_separator</item>
+        <item name="quipnetTextGroupFrom">@color/quipnet_graphene_group_from</item>
+        <item name="quipnetTextGroupTo">@color/quipnet_graphene_group_to</item>
+        <item name="quipnetTextTitle">@color/quipnet_graphene_text_title</item>
+        <item name="quipnetTextValue">@color/quipnet_graphene_text_value</item>
+        <item name="quipnetTextHint">@color/quipnet_graphene_text_hint</item>
+        <item name="quipnetSwitchOn">@color/quipnet_graphene_switch_on</item>
+        <item name="quipnetSwitchOff">@color/quipnet_graphene_switch_off</item>
+        <item name="quipnetSwitchThumbOn">@color/quipnet_graphene_thumb_on</item>
+        <item name="quipnetSwitchThumbOff">@color/quipnet_graphene_thumb_off</item>
+        <item name="quipnetIconTint">@color/quipnet_graphene_icon_tint</item>
+        <item name="quipnetCardFill">@color/quipnet_graphene_card_fill</item>
+        <item name="quipnetCardStroke">@color/quipnet_graphene_card_stroke</item>
+    </style>
+
+    <style name="Theme.QuipNet.Settings.Cyberneon" parent="Theme.QuipNet.Settings">
+        <item name="android:windowBackground">@drawable/bg_quipnet_screen_neon</item>
+        <item name="quipnetCardBackground">@drawable/bg_quipnet_card_neon</item>
+        <item name="quipnetFieldBackground">@drawable/bg_quipnet_field_neon</item>
+        <item name="android:alertDialogTheme">@style/Theme.QuipNet.Dialog.Cyberneon</item>
+        <item name="alertDialogTheme">@style/Theme.QuipNet.Dialog.Cyberneon</item>
+        <item name="colorAccent">@color/quipnet_neon_accent</item>
+        <item name="android:colorAccent">@color/quipnet_neon_accent</item>
+        <item name="colorControlActivated">@color/quipnet_neon_accent</item>
+        <item name="android:colorControlActivated">@color/quipnet_neon_accent</item>
+        <item name="colorControlNormal">@color/quipnet_neon_text_value</item>
+        <item name="android:colorControlNormal">@color/quipnet_neon_text_value</item>
+        <item name="android:textColorHint">@color/quipnet_neon_text_hint</item>
+        <item name="quipnetFocusFill">@color/quipnet_neon_focus_fill</item>
+        <item name="quipnetFocusStroke">@color/quipnet_neon_focus_stroke</item>
+        <item name="quipnetAccent">@color/quipnet_neon_accent</item>
+        <item name="quipnetAccentDim">@color/quipnet_neon_accent_dim</item>
+        <item name="quipnetAccentOn">@color/quipnet_neon_accent_on</item>
+        <item name="quipnetSeparator">@color/quipnet_neon_separator</item>
+        <item name="quipnetTextGroupFrom">@color/quipnet_neon_group_from</item>
+        <item name="quipnetTextGroupTo">@color/quipnet_neon_group_to</item>
+        <item name="quipnetTextTitle">@color/quipnet_neon_text_title</item>
+        <item name="quipnetTextValue">@color/quipnet_neon_text_value</item>
+        <item name="quipnetTextHint">@color/quipnet_neon_text_hint</item>
+        <item name="quipnetSwitchOn">@color/quipnet_neon_switch_on</item>
+        <item name="quipnetSwitchOff">@color/quipnet_neon_switch_off</item>
+        <item name="quipnetSwitchThumbOn">@color/quipnet_neon_thumb_on</item>
+        <item name="quipnetSwitchThumbOff">@color/quipnet_neon_thumb_off</item>
+        <item name="quipnetIconTint">@color/quipnet_neon_icon_tint</item>
+        <item name="quipnetCardFill">@color/quipnet_neon_card_fill</item>
+        <item name="quipnetCardStroke">@color/quipnet_neon_card_stroke</item>
+    </style>
+
+    <style name="Theme.QuipNet.Settings.PathofExile1" parent="Theme.QuipNet.Settings">
+        <item name="android:windowBackground">@drawable/bg_quipnet_screen_poe1</item>
+        <item name="quipnetCardBackground">@drawable/bg_quipnet_card_poe1</item>
+        <item name="quipnetFieldBackground">@drawable/bg_quipnet_field_poe1</item>
+        <item name="android:alertDialogTheme">@style/Theme.QuipNet.Dialog.PathofExile1</item>
+        <item name="alertDialogTheme">@style/Theme.QuipNet.Dialog.PathofExile1</item>
+        <item name="colorAccent">@color/quipnet_poe1_accent</item>
+        <item name="android:colorAccent">@color/quipnet_poe1_accent</item>
+        <item name="colorControlActivated">@color/quipnet_poe1_accent</item>
+        <item name="android:colorControlActivated">@color/quipnet_poe1_accent</item>
+        <item name="colorControlNormal">@color/quipnet_poe1_text_value</item>
+        <item name="android:colorControlNormal">@color/quipnet_poe1_text_value</item>
+        <item name="android:textColorHint">@color/quipnet_poe1_text_hint</item>
+        <item name="quipnetFocusFill">@color/quipnet_poe1_focus_fill</item>
+        <item name="quipnetFocusStroke">@color/quipnet_poe1_focus_stroke</item>
+        <item name="quipnetAccent">@color/quipnet_poe1_accent</item>
+        <item name="quipnetAccentDim">@color/quipnet_poe1_accent_dim</item>
+        <item name="quipnetAccentOn">@color/quipnet_poe1_accent_on</item>
+        <item name="quipnetSeparator">@color/quipnet_poe1_separator</item>
+        <item name="quipnetTextGroupFrom">@color/quipnet_poe1_group_from</item>
+        <item name="quipnetTextGroupTo">@color/quipnet_poe1_group_to</item>
+        <item name="quipnetTextTitle">@color/quipnet_poe1_text_title</item>
+        <item name="quipnetTextValue">@color/quipnet_poe1_text_value</item>
+        <item name="quipnetTextHint">@color/quipnet_poe1_text_hint</item>
+        <item name="quipnetSwitchOn">@color/quipnet_poe1_switch_on</item>
+        <item name="quipnetSwitchOff">@color/quipnet_poe1_switch_off</item>
+        <item name="quipnetSwitchThumbOn">@color/quipnet_poe1_thumb_on</item>
+        <item name="quipnetSwitchThumbOff">@color/quipnet_poe1_thumb_off</item>
+        <item name="quipnetIconTint">@color/quipnet_poe1_icon_tint</item>
+        <item name="quipnetCardFill">@color/quipnet_poe1_card_fill</item>
+        <item name="quipnetCardStroke">@color/quipnet_poe1_card_stroke</item>
+    </style>
+
+    <style name="Theme.QuipNet.Settings.PathofExile2" parent="Theme.QuipNet.Settings">
+        <item name="android:windowBackground">@drawable/bg_quipnet_screen_poe2</item>
+        <item name="quipnetCardBackground">@drawable/bg_quipnet_card_poe2</item>
+        <item name="quipnetFieldBackground">@drawable/bg_quipnet_field_poe2</item>
+        <item name="android:alertDialogTheme">@style/Theme.QuipNet.Dialog.PathofExile2</item>
+        <item name="alertDialogTheme">@style/Theme.QuipNet.Dialog.PathofExile2</item>
+        <item name="colorAccent">@color/quipnet_poe2_accent</item>
+        <item name="android:colorAccent">@color/quipnet_poe2_accent</item>
+        <item name="colorControlActivated">@color/quipnet_poe2_accent</item>
+        <item name="android:colorControlActivated">@color/quipnet_poe2_accent</item>
+        <item name="colorControlNormal">@color/quipnet_poe2_text_value</item>
+        <item name="android:colorControlNormal">@color/quipnet_poe2_text_value</item>
+        <item name="android:textColorHint">@color/quipnet_poe2_text_hint</item>
+        <item name="quipnetFocusFill">@color/quipnet_poe2_focus_fill</item>
+        <item name="quipnetFocusStroke">@color/quipnet_poe2_focus_stroke</item>
+        <item name="quipnetAccent">@color/quipnet_poe2_accent</item>
+        <item name="quipnetAccentDim">@color/quipnet_poe2_accent_dim</item>
+        <item name="quipnetAccentOn">@color/quipnet_poe2_accent_on</item>
+        <item name="quipnetSeparator">@color/quipnet_poe2_separator</item>
+        <item name="quipnetTextGroupFrom">@color/quipnet_poe2_group_from</item>
+        <item name="quipnetTextGroupTo">@color/quipnet_poe2_group_to</item>
+        <item name="quipnetTextTitle">@color/quipnet_poe2_text_title</item>
+        <item name="quipnetTextValue">@color/quipnet_poe2_text_value</item>
+        <item name="quipnetTextHint">@color/quipnet_poe2_text_hint</item>
+        <item name="quipnetSwitchOn">@color/quipnet_poe2_switch_on</item>
+        <item name="quipnetSwitchOff">@color/quipnet_poe2_switch_off</item>
+        <item name="quipnetSwitchThumbOn">@color/quipnet_poe2_thumb_on</item>
+        <item name="quipnetSwitchThumbOff">@color/quipnet_poe2_thumb_off</item>
+        <item name="quipnetIconTint">@color/quipnet_poe2_icon_tint</item>
+        <item name="quipnetCardFill">@color/quipnet_poe2_card_fill</item>
+        <item name="quipnetCardStroke">@color/quipnet_poe2_card_stroke</item>
+    </style>
+
+    <style name="Theme.QuipNet.Settings.GTAVIViceSunset" parent="Theme.QuipNet.Settings">
+        <item name="android:windowBackground">@drawable/bg_quipnet_screen_gta6sunset</item>
+        <item name="quipnetCardBackground">@drawable/bg_quipnet_card_gta6sunset</item>
+        <item name="quipnetFieldBackground">@drawable/bg_quipnet_field_gta6sunset</item>
+        <item name="android:alertDialogTheme">@style/Theme.QuipNet.Dialog.GTAVIViceSunset</item>
+        <item name="alertDialogTheme">@style/Theme.QuipNet.Dialog.GTAVIViceSunset</item>
+        <item name="colorAccent">@color/quipnet_gta6sunset_accent</item>
+        <item name="android:colorAccent">@color/quipnet_gta6sunset_accent</item>
+        <item name="colorControlActivated">@color/quipnet_gta6sunset_accent</item>
+        <item name="android:colorControlActivated">@color/quipnet_gta6sunset_accent</item>
+        <item name="colorControlNormal">@color/quipnet_gta6sunset_text_value</item>
+        <item name="android:colorControlNormal">@color/quipnet_gta6sunset_text_value</item>
+        <item name="android:textColorHint">@color/quipnet_gta6sunset_text_hint</item>
+        <item name="quipnetFocusFill">@color/quipnet_gta6sunset_focus_fill</item>
+        <item name="quipnetFocusStroke">@color/quipnet_gta6sunset_focus_stroke</item>
+        <item name="quipnetAccent">@color/quipnet_gta6sunset_accent</item>
+        <item name="quipnetAccentDim">@color/quipnet_gta6sunset_accent_dim</item>
+        <item name="quipnetAccentOn">@color/quipnet_gta6sunset_accent_on</item>
+        <item name="quipnetSeparator">@color/quipnet_gta6sunset_separator</item>
+        <item name="quipnetTextGroupFrom">@color/quipnet_gta6sunset_group_from</item>
+        <item name="quipnetTextGroupTo">@color/quipnet_gta6sunset_group_to</item>
+        <item name="quipnetTextTitle">@color/quipnet_gta6sunset_text_title</item>
+        <item name="quipnetTextValue">@color/quipnet_gta6sunset_text_value</item>
+        <item name="quipnetTextHint">@color/quipnet_gta6sunset_text_hint</item>
+        <item name="quipnetSwitchOn">@color/quipnet_gta6sunset_switch_on</item>
+        <item name="quipnetSwitchOff">@color/quipnet_gta6sunset_switch_off</item>
+        <item name="quipnetSwitchThumbOn">@color/quipnet_gta6sunset_thumb_on</item>
+        <item name="quipnetSwitchThumbOff">@color/quipnet_gta6sunset_thumb_off</item>
+        <item name="quipnetIconTint">@color/quipnet_gta6sunset_icon_tint</item>
+        <item name="quipnetCardFill">@color/quipnet_gta6sunset_card_fill</item>
+        <item name="quipnetCardStroke">@color/quipnet_gta6sunset_card_stroke</item>
+    </style>
+
+    <style name="Theme.QuipNet.Settings.GTAVIViceNight" parent="Theme.QuipNet.Settings">
+        <item name="android:windowBackground">@drawable/bg_quipnet_screen_gta6night</item>
+        <item name="quipnetCardBackground">@drawable/bg_quipnet_card_gta6night</item>
+        <item name="quipnetFieldBackground">@drawable/bg_quipnet_field_gta6night</item>
+        <item name="android:alertDialogTheme">@style/Theme.QuipNet.Dialog.GTAVIViceNight</item>
+        <item name="alertDialogTheme">@style/Theme.QuipNet.Dialog.GTAVIViceNight</item>
+        <item name="colorAccent">@color/quipnet_gta6night_accent</item>
+        <item name="android:colorAccent">@color/quipnet_gta6night_accent</item>
+        <item name="colorControlActivated">@color/quipnet_gta6night_accent</item>
+        <item name="android:colorControlActivated">@color/quipnet_gta6night_accent</item>
+        <item name="colorControlNormal">@color/quipnet_gta6night_text_value</item>
+        <item name="android:colorControlNormal">@color/quipnet_gta6night_text_value</item>
+        <item name="android:textColorHint">@color/quipnet_gta6night_text_hint</item>
+        <item name="quipnetFocusFill">@color/quipnet_gta6night_focus_fill</item>
+        <item name="quipnetFocusStroke">@color/quipnet_gta6night_focus_stroke</item>
+        <item name="quipnetAccent">@color/quipnet_gta6night_accent</item>
+        <item name="quipnetAccentDim">@color/quipnet_gta6night_accent_dim</item>
+        <item name="quipnetAccentOn">@color/quipnet_gta6night_accent_on</item>
+        <item name="quipnetSeparator">@color/quipnet_gta6night_separator</item>
+        <item name="quipnetTextGroupFrom">@color/quipnet_gta6night_group_from</item>
+        <item name="quipnetTextGroupTo">@color/quipnet_gta6night_group_to</item>
+        <item name="quipnetTextTitle">@color/quipnet_gta6night_text_title</item>
+        <item name="quipnetTextValue">@color/quipnet_gta6night_text_value</item>
+        <item name="quipnetTextHint">@color/quipnet_gta6night_text_hint</item>
+        <item name="quipnetSwitchOn">@color/quipnet_gta6night_switch_on</item>
+        <item name="quipnetSwitchOff">@color/quipnet_gta6night_switch_off</item>
+        <item name="quipnetSwitchThumbOn">@color/quipnet_gta6night_thumb_on</item>
+        <item name="quipnetSwitchThumbOff">@color/quipnet_gta6night_thumb_off</item>
+        <item name="quipnetIconTint">@color/quipnet_gta6night_icon_tint</item>
+        <item name="quipnetCardFill">@color/quipnet_gta6night_card_fill</item>
+        <item name="quipnetCardStroke">@color/quipnet_gta6night_card_stroke</item>
+    </style>
+
+    <style name="Theme.QuipNet.Settings.Matrix" parent="Theme.QuipNet.Settings">
+        <item name="android:windowBackground">@drawable/bg_quipnet_screen_matrix</item>
+        <item name="quipnetCardBackground">@drawable/bg_quipnet_card_matrix</item>
+        <item name="quipnetFieldBackground">@drawable/bg_quipnet_field_matrix</item>
+        <item name="android:alertDialogTheme">@style/Theme.QuipNet.Dialog.Matrix</item>
+        <item name="alertDialogTheme">@style/Theme.QuipNet.Dialog.Matrix</item>
+        <item name="colorAccent">@color/quipnet_matrix_accent</item>
+        <item name="android:colorAccent">@color/quipnet_matrix_accent</item>
+        <item name="colorControlActivated">@color/quipnet_matrix_accent</item>
+        <item name="android:colorControlActivated">@color/quipnet_matrix_accent</item>
+        <item name="colorControlNormal">@color/quipnet_matrix_text_value</item>
+        <item name="android:colorControlNormal">@color/quipnet_matrix_text_value</item>
+        <item name="android:textColorHint">@color/quipnet_matrix_text_hint</item>
+        <item name="quipnetFocusFill">@color/quipnet_matrix_focus_fill</item>
+        <item name="quipnetFocusStroke">@color/quipnet_matrix_focus_stroke</item>
+        <item name="quipnetAccent">@color/quipnet_matrix_accent</item>
+        <item name="quipnetAccentDim">@color/quipnet_matrix_accent_dim</item>
+        <item name="quipnetAccentOn">@color/quipnet_matrix_accent_on</item>
+        <item name="quipnetSeparator">@color/quipnet_matrix_separator</item>
+        <item name="quipnetTextGroupFrom">@color/quipnet_matrix_group_from</item>
+        <item name="quipnetTextGroupTo">@color/quipnet_matrix_group_to</item>
+        <item name="quipnetTextTitle">@color/quipnet_matrix_text_title</item>
+        <item name="quipnetTextValue">@color/quipnet_matrix_text_value</item>
+        <item name="quipnetTextHint">@color/quipnet_matrix_text_hint</item>
+        <item name="quipnetSwitchOn">@color/quipnet_matrix_switch_on</item>
+        <item name="quipnetSwitchOff">@color/quipnet_matrix_switch_off</item>
+        <item name="quipnetSwitchThumbOn">@color/quipnet_matrix_thumb_on</item>
+        <item name="quipnetSwitchThumbOff">@color/quipnet_matrix_thumb_off</item>
+        <item name="quipnetIconTint">@color/quipnet_matrix_icon_tint</item>
+        <item name="quipnetCardFill">@color/quipnet_matrix_card_fill</item>
+        <item name="quipnetCardStroke">@color/quipnet_matrix_card_stroke</item>
+    </style>
+
+    <style name="Theme.QuipNet.Settings.DiabloII" parent="Theme.QuipNet.Settings">
+        <item name="android:windowBackground">@drawable/bg_quipnet_screen_diablo2</item>
+        <item name="quipnetCardBackground">@drawable/bg_quipnet_card_diablo2</item>
+        <item name="quipnetFieldBackground">@drawable/bg_quipnet_field_diablo2</item>
+        <item name="android:alertDialogTheme">@style/Theme.QuipNet.Dialog.DiabloII</item>
+        <item name="alertDialogTheme">@style/Theme.QuipNet.Dialog.DiabloII</item>
+        <item name="colorAccent">@color/quipnet_diablo2_accent</item>
+        <item name="android:colorAccent">@color/quipnet_diablo2_accent</item>
+        <item name="colorControlActivated">@color/quipnet_diablo2_accent</item>
+        <item name="android:colorControlActivated">@color/quipnet_diablo2_accent</item>
+        <item name="colorControlNormal">@color/quipnet_diablo2_text_value</item>
+        <item name="android:colorControlNormal">@color/quipnet_diablo2_text_value</item>
+        <item name="android:textColorHint">@color/quipnet_diablo2_text_hint</item>
+        <item name="quipnetFocusFill">@color/quipnet_diablo2_focus_fill</item>
+        <item name="quipnetFocusStroke">@color/quipnet_diablo2_focus_stroke</item>
+        <item name="quipnetAccent">@color/quipnet_diablo2_accent</item>
+        <item name="quipnetAccentDim">@color/quipnet_diablo2_accent_dim</item>
+        <item name="quipnetAccentOn">@color/quipnet_diablo2_accent_on</item>
+        <item name="quipnetSeparator">@color/quipnet_diablo2_separator</item>
+        <item name="quipnetTextGroupFrom">@color/quipnet_diablo2_group_from</item>
+        <item name="quipnetTextGroupTo">@color/quipnet_diablo2_group_to</item>
+        <item name="quipnetTextTitle">@color/quipnet_diablo2_text_title</item>
+        <item name="quipnetTextValue">@color/quipnet_diablo2_text_value</item>
+        <item name="quipnetTextHint">@color/quipnet_diablo2_text_hint</item>
+        <item name="quipnetSwitchOn">@color/quipnet_diablo2_switch_on</item>
+        <item name="quipnetSwitchOff">@color/quipnet_diablo2_switch_off</item>
+        <item name="quipnetSwitchThumbOn">@color/quipnet_diablo2_thumb_on</item>
+        <item name="quipnetSwitchThumbOff">@color/quipnet_diablo2_thumb_off</item>
+        <item name="quipnetIconTint">@color/quipnet_diablo2_icon_tint</item>
+        <item name="quipnetCardFill">@color/quipnet_diablo2_card_fill</item>
+        <item name="quipnetCardStroke">@color/quipnet_diablo2_card_stroke</item>
+    </style>
+
+    <style name="Theme.QuipNet.Dialog.Auroramint" parent="android:Theme.Material.Dialog.Alert">
+        <item name="android:windowBackground">@drawable/bg_quipnet_dialog_aurora</item>
+        <item name="android:textColorPrimary">@color/quipnet_aurora_text_title</item>
+        <item name="android:textColorSecondary">@color/quipnet_aurora_text_value</item>
+        <item name="android:textColorAlertDialogListItem">@color/quipnet_aurora_text_title</item>
+        <item name="android:colorAccent">@color/quipnet_aurora_accent</item>
+        <item name="android:colorControlActivated">@color/quipnet_aurora_accent</item>
+        <item name="android:colorControlNormal">@color/quipnet_aurora_text_value</item>
+        <item name="android:windowMinWidthMajor">85%</item>
+        <item name="android:windowMinWidthMinor">92%</item>
+        <item name="quipnetDialogButton">@drawable/bg_quipnet_dialog_button_aurora</item>
+        <item name="quipnetDialogButtonPrimary">@drawable/bg_quipnet_dialog_button_primary_aurora</item>
+        <item name="quipnetFocusFill">@color/quipnet_aurora_focus_fill</item>
+        <item name="quipnetFocusStroke">@color/quipnet_aurora_focus_stroke</item>
+        <item name="quipnetAccent">@color/quipnet_aurora_accent</item>
+        <item name="quipnetAccentDim">@color/quipnet_aurora_accent_dim</item>
+        <item name="quipnetAccentOn">@color/quipnet_aurora_accent_on</item>
+        <item name="quipnetSeparator">@color/quipnet_aurora_separator</item>
+        <item name="quipnetTextGroupFrom">@color/quipnet_aurora_group_from</item>
+        <item name="quipnetTextGroupTo">@color/quipnet_aurora_group_to</item>
+        <item name="quipnetTextTitle">@color/quipnet_aurora_text_title</item>
+        <item name="quipnetTextValue">@color/quipnet_aurora_text_value</item>
+        <item name="quipnetTextHint">@color/quipnet_aurora_text_hint</item>
+        <item name="quipnetSwitchOn">@color/quipnet_aurora_switch_on</item>
+        <item name="quipnetSwitchOff">@color/quipnet_aurora_switch_off</item>
+        <item name="quipnetSwitchThumbOn">@color/quipnet_aurora_thumb_on</item>
+        <item name="quipnetSwitchThumbOff">@color/quipnet_aurora_thumb_off</item>
+        <item name="quipnetIconTint">@color/quipnet_aurora_icon_tint</item>
+        <item name="quipnetCardFill">@color/quipnet_aurora_card_fill</item>
+        <item name="quipnetCardStroke">@color/quipnet_aurora_card_stroke</item>
+        <item name="android:buttonBarPositiveButtonStyle">@style/Widget.QuipNet.DialogButtonPrimary.Auroramint</item>
+        <item name="android:buttonBarNegativeButtonStyle">@style/Widget.QuipNet.DialogButton.Auroramint</item>
+        <item name="android:buttonBarNeutralButtonStyle">@style/Widget.QuipNet.DialogButton.Auroramint</item>
+    </style>
+
+    <style name="Theme.QuipNet.Dialog.DNSAI" parent="android:Theme.Material.Dialog.Alert">
+        <item name="android:windowBackground">@drawable/bg_quipnet_dialog_dnsai</item>
+        <item name="android:textColorPrimary">@color/quipnet_dnsai_text_title</item>
+        <item name="android:textColorSecondary">@color/quipnet_dnsai_text_value</item>
+        <item name="android:textColorAlertDialogListItem">@color/quipnet_dnsai_text_title</item>
+        <item name="android:colorAccent">@color/quipnet_dnsai_accent</item>
+        <item name="android:colorControlActivated">@color/quipnet_dnsai_accent</item>
+        <item name="android:colorControlNormal">@color/quipnet_dnsai_text_value</item>
+        <item name="android:windowMinWidthMajor">85%</item>
+        <item name="android:windowMinWidthMinor">92%</item>
+        <item name="quipnetDialogButton">@drawable/bg_quipnet_dialog_button_dnsai</item>
+        <item name="quipnetDialogButtonPrimary">@drawable/bg_quipnet_dialog_button_primary_dnsai</item>
+        <item name="quipnetFocusFill">@color/quipnet_dnsai_focus_fill</item>
+        <item name="quipnetFocusStroke">@color/quipnet_dnsai_focus_stroke</item>
+        <item name="quipnetAccent">@color/quipnet_dnsai_accent</item>
+        <item name="quipnetAccentDim">@color/quipnet_dnsai_accent_dim</item>
+        <item name="quipnetAccentOn">@color/quipnet_dnsai_accent_on</item>
+        <item name="quipnetSeparator">@color/quipnet_dnsai_separator</item>
+        <item name="quipnetTextGroupFrom">@color/quipnet_dnsai_group_from</item>
+        <item name="quipnetTextGroupTo">@color/quipnet_dnsai_group_to</item>
+        <item name="quipnetTextTitle">@color/quipnet_dnsai_text_title</item>
+        <item name="quipnetTextValue">@color/quipnet_dnsai_text_value</item>
+        <item name="quipnetTextHint">@color/quipnet_dnsai_text_hint</item>
+        <item name="quipnetSwitchOn">@color/quipnet_dnsai_switch_on</item>
+        <item name="quipnetSwitchOff">@color/quipnet_dnsai_switch_off</item>
+        <item name="quipnetSwitchThumbOn">@color/quipnet_dnsai_thumb_on</item>
+        <item name="quipnetSwitchThumbOff">@color/quipnet_dnsai_thumb_off</item>
+        <item name="quipnetIconTint">@color/quipnet_dnsai_icon_tint</item>
+        <item name="quipnetCardFill">@color/quipnet_dnsai_card_fill</item>
+        <item name="quipnetCardStroke">@color/quipnet_dnsai_card_stroke</item>
+        <item name="android:buttonBarPositiveButtonStyle">@style/Widget.QuipNet.DialogButtonPrimary.DNSAI</item>
+        <item name="android:buttonBarNegativeButtonStyle">@style/Widget.QuipNet.DialogButton.DNSAI</item>
+        <item name="android:buttonBarNeutralButtonStyle">@style/Widget.QuipNet.DialogButton.DNSAI</item>
+    </style>
+
+    <style name="Theme.QuipNet.Dialog.Proton" parent="android:Theme.Material.Dialog.Alert">
+        <item name="android:windowBackground">@drawable/bg_quipnet_dialog_proton</item>
+        <item name="android:textColorPrimary">@color/quipnet_proton_text_title</item>
+        <item name="android:textColorSecondary">@color/quipnet_proton_text_value</item>
+        <item name="android:textColorAlertDialogListItem">@color/quipnet_proton_text_title</item>
+        <item name="android:colorAccent">@color/quipnet_proton_accent</item>
+        <item name="android:colorControlActivated">@color/quipnet_proton_accent</item>
+        <item name="android:colorControlNormal">@color/quipnet_proton_text_value</item>
+        <item name="android:windowMinWidthMajor">85%</item>
+        <item name="android:windowMinWidthMinor">92%</item>
+        <item name="quipnetDialogButton">@drawable/bg_quipnet_dialog_button_proton</item>
+        <item name="quipnetDialogButtonPrimary">@drawable/bg_quipnet_dialog_button_primary_proton</item>
+        <item name="quipnetFocusFill">@color/quipnet_proton_focus_fill</item>
+        <item name="quipnetFocusStroke">@color/quipnet_proton_focus_stroke</item>
+        <item name="quipnetAccent">@color/quipnet_proton_accent</item>
+        <item name="quipnetAccentDim">@color/quipnet_proton_accent_dim</item>
+        <item name="quipnetAccentOn">@color/quipnet_proton_accent_on</item>
+        <item name="quipnetSeparator">@color/quipnet_proton_separator</item>
+        <item name="quipnetTextGroupFrom">@color/quipnet_proton_group_from</item>
+        <item name="quipnetTextGroupTo">@color/quipnet_proton_group_to</item>
+        <item name="quipnetTextTitle">@color/quipnet_proton_text_title</item>
+        <item name="quipnetTextValue">@color/quipnet_proton_text_value</item>
+        <item name="quipnetTextHint">@color/quipnet_proton_text_hint</item>
+        <item name="quipnetSwitchOn">@color/quipnet_proton_switch_on</item>
+        <item name="quipnetSwitchOff">@color/quipnet_proton_switch_off</item>
+        <item name="quipnetSwitchThumbOn">@color/quipnet_proton_thumb_on</item>
+        <item name="quipnetSwitchThumbOff">@color/quipnet_proton_thumb_off</item>
+        <item name="quipnetIconTint">@color/quipnet_proton_icon_tint</item>
+        <item name="quipnetCardFill">@color/quipnet_proton_card_fill</item>
+        <item name="quipnetCardStroke">@color/quipnet_proton_card_stroke</item>
+        <item name="android:buttonBarPositiveButtonStyle">@style/Widget.QuipNet.DialogButtonPrimary.Proton</item>
+        <item name="android:buttonBarNegativeButtonStyle">@style/Widget.QuipNet.DialogButton.Proton</item>
+        <item name="android:buttonBarNeutralButtonStyle">@style/Widget.QuipNet.DialogButton.Proton</item>
+    </style>
+
+    <style name="Theme.QuipNet.Dialog.Charcoalbirch" parent="android:Theme.Material.Dialog.Alert">
+        <item name="android:windowBackground">@drawable/bg_quipnet_dialog_charcoal</item>
+        <item name="android:textColorPrimary">@color/quipnet_charcoal_text_title</item>
+        <item name="android:textColorSecondary">@color/quipnet_charcoal_text_value</item>
+        <item name="android:textColorAlertDialogListItem">@color/quipnet_charcoal_text_title</item>
+        <item name="android:colorAccent">@color/quipnet_charcoal_accent</item>
+        <item name="android:colorControlActivated">@color/quipnet_charcoal_accent</item>
+        <item name="android:colorControlNormal">@color/quipnet_charcoal_text_value</item>
+        <item name="android:windowMinWidthMajor">85%</item>
+        <item name="android:windowMinWidthMinor">92%</item>
+        <item name="quipnetDialogButton">@drawable/bg_quipnet_dialog_button_charcoal</item>
+        <item name="quipnetDialogButtonPrimary">@drawable/bg_quipnet_dialog_button_primary_charcoal</item>
+        <item name="quipnetFocusFill">@color/quipnet_charcoal_focus_fill</item>
+        <item name="quipnetFocusStroke">@color/quipnet_charcoal_focus_stroke</item>
+        <item name="quipnetAccent">@color/quipnet_charcoal_accent</item>
+        <item name="quipnetAccentDim">@color/quipnet_charcoal_accent_dim</item>
+        <item name="quipnetAccentOn">@color/quipnet_charcoal_accent_on</item>
+        <item name="quipnetSeparator">@color/quipnet_charcoal_separator</item>
+        <item name="quipnetTextGroupFrom">@color/quipnet_charcoal_group_from</item>
+        <item name="quipnetTextGroupTo">@color/quipnet_charcoal_group_to</item>
+        <item name="quipnetTextTitle">@color/quipnet_charcoal_text_title</item>
+        <item name="quipnetTextValue">@color/quipnet_charcoal_text_value</item>
+        <item name="quipnetTextHint">@color/quipnet_charcoal_text_hint</item>
+        <item name="quipnetSwitchOn">@color/quipnet_charcoal_switch_on</item>
+        <item name="quipnetSwitchOff">@color/quipnet_charcoal_switch_off</item>
+        <item name="quipnetSwitchThumbOn">@color/quipnet_charcoal_thumb_on</item>
+        <item name="quipnetSwitchThumbOff">@color/quipnet_charcoal_thumb_off</item>
+        <item name="quipnetIconTint">@color/quipnet_charcoal_icon_tint</item>
+        <item name="quipnetCardFill">@color/quipnet_charcoal_card_fill</item>
+        <item name="quipnetCardStroke">@color/quipnet_charcoal_card_stroke</item>
+        <item name="android:buttonBarPositiveButtonStyle">@style/Widget.QuipNet.DialogButtonPrimary.Charcoalbirch</item>
+        <item name="android:buttonBarNegativeButtonStyle">@style/Widget.QuipNet.DialogButton.Charcoalbirch</item>
+        <item name="android:buttonBarNeutralButtonStyle">@style/Widget.QuipNet.DialogButton.Charcoalbirch</item>
+    </style>
+
+    <style name="Theme.QuipNet.Dialog.Graphenegolden" parent="android:Theme.Material.Dialog.Alert">
+        <item name="android:windowBackground">@drawable/bg_quipnet_dialog_graphene</item>
+        <item name="android:textColorPrimary">@color/quipnet_graphene_text_title</item>
+        <item name="android:textColorSecondary">@color/quipnet_graphene_text_value</item>
+        <item name="android:textColorAlertDialogListItem">@color/quipnet_graphene_text_title</item>
+        <item name="android:colorAccent">@color/quipnet_graphene_accent</item>
+        <item name="android:colorControlActivated">@color/quipnet_graphene_accent</item>
+        <item name="android:colorControlNormal">@color/quipnet_graphene_text_value</item>
+        <item name="android:windowMinWidthMajor">85%</item>
+        <item name="android:windowMinWidthMinor">92%</item>
+        <item name="quipnetDialogButton">@drawable/bg_quipnet_dialog_button_graphene</item>
+        <item name="quipnetDialogButtonPrimary">@drawable/bg_quipnet_dialog_button_primary_graphene</item>
+        <item name="quipnetFocusFill">@color/quipnet_graphene_focus_fill</item>
+        <item name="quipnetFocusStroke">@color/quipnet_graphene_focus_stroke</item>
+        <item name="quipnetAccent">@color/quipnet_graphene_accent</item>
+        <item name="quipnetAccentDim">@color/quipnet_graphene_accent_dim</item>
+        <item name="quipnetAccentOn">@color/quipnet_graphene_accent_on</item>
+        <item name="quipnetSeparator">@color/quipnet_graphene_separator</item>
+        <item name="quipnetTextGroupFrom">@color/quipnet_graphene_group_from</item>
+        <item name="quipnetTextGroupTo">@color/quipnet_graphene_group_to</item>
+        <item name="quipnetTextTitle">@color/quipnet_graphene_text_title</item>
+        <item name="quipnetTextValue">@color/quipnet_graphene_text_value</item>
+        <item name="quipnetTextHint">@color/quipnet_graphene_text_hint</item>
+        <item name="quipnetSwitchOn">@color/quipnet_graphene_switch_on</item>
+        <item name="quipnetSwitchOff">@color/quipnet_graphene_switch_off</item>
+        <item name="quipnetSwitchThumbOn">@color/quipnet_graphene_thumb_on</item>
+        <item name="quipnetSwitchThumbOff">@color/quipnet_graphene_thumb_off</item>
+        <item name="quipnetIconTint">@color/quipnet_graphene_icon_tint</item>
+        <item name="quipnetCardFill">@color/quipnet_graphene_card_fill</item>
+        <item name="quipnetCardStroke">@color/quipnet_graphene_card_stroke</item>
+        <item name="android:buttonBarPositiveButtonStyle">@style/Widget.QuipNet.DialogButtonPrimary.Graphenegolden</item>
+        <item name="android:buttonBarNegativeButtonStyle">@style/Widget.QuipNet.DialogButton.Graphenegolden</item>
+        <item name="android:buttonBarNeutralButtonStyle">@style/Widget.QuipNet.DialogButton.Graphenegolden</item>
+    </style>
+
+    <style name="Theme.QuipNet.Dialog.Cyberneon" parent="android:Theme.Material.Dialog.Alert">
+        <item name="android:windowBackground">@drawable/bg_quipnet_dialog_neon</item>
+        <item name="android:textColorPrimary">@color/quipnet_neon_text_title</item>
+        <item name="android:textColorSecondary">@color/quipnet_neon_text_value</item>
+        <item name="android:textColorAlertDialogListItem">@color/quipnet_neon_text_title</item>
+        <item name="android:colorAccent">@color/quipnet_neon_accent</item>
+        <item name="android:colorControlActivated">@color/quipnet_neon_accent</item>
+        <item name="android:colorControlNormal">@color/quipnet_neon_text_value</item>
+        <item name="android:windowMinWidthMajor">85%</item>
+        <item name="android:windowMinWidthMinor">92%</item>
+        <item name="quipnetDialogButton">@drawable/bg_quipnet_dialog_button_neon</item>
+        <item name="quipnetDialogButtonPrimary">@drawable/bg_quipnet_dialog_button_primary_neon</item>
+        <item name="quipnetFocusFill">@color/quipnet_neon_focus_fill</item>
+        <item name="quipnetFocusStroke">@color/quipnet_neon_focus_stroke</item>
+        <item name="quipnetAccent">@color/quipnet_neon_accent</item>
+        <item name="quipnetAccentDim">@color/quipnet_neon_accent_dim</item>
+        <item name="quipnetAccentOn">@color/quipnet_neon_accent_on</item>
+        <item name="quipnetSeparator">@color/quipnet_neon_separator</item>
+        <item name="quipnetTextGroupFrom">@color/quipnet_neon_group_from</item>
+        <item name="quipnetTextGroupTo">@color/quipnet_neon_group_to</item>
+        <item name="quipnetTextTitle">@color/quipnet_neon_text_title</item>
+        <item name="quipnetTextValue">@color/quipnet_neon_text_value</item>
+        <item name="quipnetTextHint">@color/quipnet_neon_text_hint</item>
+        <item name="quipnetSwitchOn">@color/quipnet_neon_switch_on</item>
+        <item name="quipnetSwitchOff">@color/quipnet_neon_switch_off</item>
+        <item name="quipnetSwitchThumbOn">@color/quipnet_neon_thumb_on</item>
+        <item name="quipnetSwitchThumbOff">@color/quipnet_neon_thumb_off</item>
+        <item name="quipnetIconTint">@color/quipnet_neon_icon_tint</item>
+        <item name="quipnetCardFill">@color/quipnet_neon_card_fill</item>
+        <item name="quipnetCardStroke">@color/quipnet_neon_card_stroke</item>
+        <item name="android:buttonBarPositiveButtonStyle">@style/Widget.QuipNet.DialogButtonPrimary.Cyberneon</item>
+        <item name="android:buttonBarNegativeButtonStyle">@style/Widget.QuipNet.DialogButton.Cyberneon</item>
+        <item name="android:buttonBarNeutralButtonStyle">@style/Widget.QuipNet.DialogButton.Cyberneon</item>
+    </style>
+
+    <style name="Theme.QuipNet.Dialog.PathofExile1" parent="android:Theme.Material.Dialog.Alert">
+        <item name="android:windowBackground">@drawable/bg_quipnet_dialog_poe1</item>
+        <item name="android:textColorPrimary">@color/quipnet_poe1_text_title</item>
+        <item name="android:textColorSecondary">@color/quipnet_poe1_text_value</item>
+        <item name="android:textColorAlertDialogListItem">@color/quipnet_poe1_text_title</item>
+        <item name="android:colorAccent">@color/quipnet_poe1_accent</item>
+        <item name="android:colorControlActivated">@color/quipnet_poe1_accent</item>
+        <item name="android:colorControlNormal">@color/quipnet_poe1_text_value</item>
+        <item name="android:windowMinWidthMajor">85%</item>
+        <item name="android:windowMinWidthMinor">92%</item>
+        <item name="quipnetDialogButton">@drawable/bg_quipnet_dialog_button_poe1</item>
+        <item name="quipnetDialogButtonPrimary">@drawable/bg_quipnet_dialog_button_primary_poe1</item>
+        <item name="quipnetFocusFill">@color/quipnet_poe1_focus_fill</item>
+        <item name="quipnetFocusStroke">@color/quipnet_poe1_focus_stroke</item>
+        <item name="quipnetAccent">@color/quipnet_poe1_accent</item>
+        <item name="quipnetAccentDim">@color/quipnet_poe1_accent_dim</item>
+        <item name="quipnetAccentOn">@color/quipnet_poe1_accent_on</item>
+        <item name="quipnetSeparator">@color/quipnet_poe1_separator</item>
+        <item name="quipnetTextGroupFrom">@color/quipnet_poe1_group_from</item>
+        <item name="quipnetTextGroupTo">@color/quipnet_poe1_group_to</item>
+        <item name="quipnetTextTitle">@color/quipnet_poe1_text_title</item>
+        <item name="quipnetTextValue">@color/quipnet_poe1_text_value</item>
+        <item name="quipnetTextHint">@color/quipnet_poe1_text_hint</item>
+        <item name="quipnetSwitchOn">@color/quipnet_poe1_switch_on</item>
+        <item name="quipnetSwitchOff">@color/quipnet_poe1_switch_off</item>
+        <item name="quipnetSwitchThumbOn">@color/quipnet_poe1_thumb_on</item>
+        <item name="quipnetSwitchThumbOff">@color/quipnet_poe1_thumb_off</item>
+        <item name="quipnetIconTint">@color/quipnet_poe1_icon_tint</item>
+        <item name="quipnetCardFill">@color/quipnet_poe1_card_fill</item>
+        <item name="quipnetCardStroke">@color/quipnet_poe1_card_stroke</item>
+        <item name="android:buttonBarPositiveButtonStyle">@style/Widget.QuipNet.DialogButtonPrimary.PathofExile1</item>
+        <item name="android:buttonBarNegativeButtonStyle">@style/Widget.QuipNet.DialogButton.PathofExile1</item>
+        <item name="android:buttonBarNeutralButtonStyle">@style/Widget.QuipNet.DialogButton.PathofExile1</item>
+    </style>
+
+    <style name="Theme.QuipNet.Dialog.PathofExile2" parent="android:Theme.Material.Dialog.Alert">
+        <item name="android:windowBackground">@drawable/bg_quipnet_dialog_poe2</item>
+        <item name="android:textColorPrimary">@color/quipnet_poe2_text_title</item>
+        <item name="android:textColorSecondary">@color/quipnet_poe2_text_value</item>
+        <item name="android:textColorAlertDialogListItem">@color/quipnet_poe2_text_title</item>
+        <item name="android:colorAccent">@color/quipnet_poe2_accent</item>
+        <item name="android:colorControlActivated">@color/quipnet_poe2_accent</item>
+        <item name="android:colorControlNormal">@color/quipnet_poe2_text_value</item>
+        <item name="android:windowMinWidthMajor">85%</item>
+        <item name="android:windowMinWidthMinor">92%</item>
+        <item name="quipnetDialogButton">@drawable/bg_quipnet_dialog_button_poe2</item>
+        <item name="quipnetDialogButtonPrimary">@drawable/bg_quipnet_dialog_button_primary_poe2</item>
+        <item name="quipnetFocusFill">@color/quipnet_poe2_focus_fill</item>
+        <item name="quipnetFocusStroke">@color/quipnet_poe2_focus_stroke</item>
+        <item name="quipnetAccent">@color/quipnet_poe2_accent</item>
+        <item name="quipnetAccentDim">@color/quipnet_poe2_accent_dim</item>
+        <item name="quipnetAccentOn">@color/quipnet_poe2_accent_on</item>
+        <item name="quipnetSeparator">@color/quipnet_poe2_separator</item>
+        <item name="quipnetTextGroupFrom">@color/quipnet_poe2_group_from</item>
+        <item name="quipnetTextGroupTo">@color/quipnet_poe2_group_to</item>
+        <item name="quipnetTextTitle">@color/quipnet_poe2_text_title</item>
+        <item name="quipnetTextValue">@color/quipnet_poe2_text_value</item>
+        <item name="quipnetTextHint">@color/quipnet_poe2_text_hint</item>
+        <item name="quipnetSwitchOn">@color/quipnet_poe2_switch_on</item>
+        <item name="quipnetSwitchOff">@color/quipnet_poe2_switch_off</item>
+        <item name="quipnetSwitchThumbOn">@color/quipnet_poe2_thumb_on</item>
+        <item name="quipnetSwitchThumbOff">@color/quipnet_poe2_thumb_off</item>
+        <item name="quipnetIconTint">@color/quipnet_poe2_icon_tint</item>
+        <item name="quipnetCardFill">@color/quipnet_poe2_card_fill</item>
+        <item name="quipnetCardStroke">@color/quipnet_poe2_card_stroke</item>
+        <item name="android:buttonBarPositiveButtonStyle">@style/Widget.QuipNet.DialogButtonPrimary.PathofExile2</item>
+        <item name="android:buttonBarNegativeButtonStyle">@style/Widget.QuipNet.DialogButton.PathofExile2</item>
+        <item name="android:buttonBarNeutralButtonStyle">@style/Widget.QuipNet.DialogButton.PathofExile2</item>
+    </style>
+
+    <style name="Theme.QuipNet.Dialog.GTAVIViceSunset" parent="android:Theme.Material.Dialog.Alert">
+        <item name="android:windowBackground">@drawable/bg_quipnet_dialog_gta6sunset</item>
+        <item name="android:textColorPrimary">@color/quipnet_gta6sunset_text_title</item>
+        <item name="android:textColorSecondary">@color/quipnet_gta6sunset_text_value</item>
+        <item name="android:textColorAlertDialogListItem">@color/quipnet_gta6sunset_text_title</item>
+        <item name="android:colorAccent">@color/quipnet_gta6sunset_accent</item>
+        <item name="android:colorControlActivated">@color/quipnet_gta6sunset_accent</item>
+        <item name="android:colorControlNormal">@color/quipnet_gta6sunset_text_value</item>
+        <item name="android:windowMinWidthMajor">85%</item>
+        <item name="android:windowMinWidthMinor">92%</item>
+        <item name="quipnetDialogButton">@drawable/bg_quipnet_dialog_button_gta6sunset</item>
+        <item name="quipnetDialogButtonPrimary">@drawable/bg_quipnet_dialog_button_primary_gta6sunset</item>
+        <item name="quipnetFocusFill">@color/quipnet_gta6sunset_focus_fill</item>
+        <item name="quipnetFocusStroke">@color/quipnet_gta6sunset_focus_stroke</item>
+        <item name="quipnetAccent">@color/quipnet_gta6sunset_accent</item>
+        <item name="quipnetAccentDim">@color/quipnet_gta6sunset_accent_dim</item>
+        <item name="quipnetAccentOn">@color/quipnet_gta6sunset_accent_on</item>
+        <item name="quipnetSeparator">@color/quipnet_gta6sunset_separator</item>
+        <item name="quipnetTextGroupFrom">@color/quipnet_gta6sunset_group_from</item>
+        <item name="quipnetTextGroupTo">@color/quipnet_gta6sunset_group_to</item>
+        <item name="quipnetTextTitle">@color/quipnet_gta6sunset_text_title</item>
+        <item name="quipnetTextValue">@color/quipnet_gta6sunset_text_value</item>
+        <item name="quipnetTextHint">@color/quipnet_gta6sunset_text_hint</item>
+        <item name="quipnetSwitchOn">@color/quipnet_gta6sunset_switch_on</item>
+        <item name="quipnetSwitchOff">@color/quipnet_gta6sunset_switch_off</item>
+        <item name="quipnetSwitchThumbOn">@color/quipnet_gta6sunset_thumb_on</item>
+        <item name="quipnetSwitchThumbOff">@color/quipnet_gta6sunset_thumb_off</item>
+        <item name="quipnetIconTint">@color/quipnet_gta6sunset_icon_tint</item>
+        <item name="quipnetCardFill">@color/quipnet_gta6sunset_card_fill</item>
+        <item name="quipnetCardStroke">@color/quipnet_gta6sunset_card_stroke</item>
+        <item name="android:buttonBarPositiveButtonStyle">@style/Widget.QuipNet.DialogButtonPrimary.GTAVIViceSunset</item>
+        <item name="android:buttonBarNegativeButtonStyle">@style/Widget.QuipNet.DialogButton.GTAVIViceSunset</item>
+        <item name="android:buttonBarNeutralButtonStyle">@style/Widget.QuipNet.DialogButton.GTAVIViceSunset</item>
+    </style>
+
+    <style name="Theme.QuipNet.Dialog.GTAVIViceNight" parent="android:Theme.Material.Dialog.Alert">
+        <item name="android:windowBackground">@drawable/bg_quipnet_dialog_gta6night</item>
+        <item name="android:textColorPrimary">@color/quipnet_gta6night_text_title</item>
+        <item name="android:textColorSecondary">@color/quipnet_gta6night_text_value</item>
+        <item name="android:textColorAlertDialogListItem">@color/quipnet_gta6night_text_title</item>
+        <item name="android:colorAccent">@color/quipnet_gta6night_accent</item>
+        <item name="android:colorControlActivated">@color/quipnet_gta6night_accent</item>
+        <item name="android:colorControlNormal">@color/quipnet_gta6night_text_value</item>
+        <item name="android:windowMinWidthMajor">85%</item>
+        <item name="android:windowMinWidthMinor">92%</item>
+        <item name="quipnetDialogButton">@drawable/bg_quipnet_dialog_button_gta6night</item>
+        <item name="quipnetDialogButtonPrimary">@drawable/bg_quipnet_dialog_button_primary_gta6night</item>
+        <item name="quipnetFocusFill">@color/quipnet_gta6night_focus_fill</item>
+        <item name="quipnetFocusStroke">@color/quipnet_gta6night_focus_stroke</item>
+        <item name="quipnetAccent">@color/quipnet_gta6night_accent</item>
+        <item name="quipnetAccentDim">@color/quipnet_gta6night_accent_dim</item>
+        <item name="quipnetAccentOn">@color/quipnet_gta6night_accent_on</item>
+        <item name="quipnetSeparator">@color/quipnet_gta6night_separator</item>
+        <item name="quipnetTextGroupFrom">@color/quipnet_gta6night_group_from</item>
+        <item name="quipnetTextGroupTo">@color/quipnet_gta6night_group_to</item>
+        <item name="quipnetTextTitle">@color/quipnet_gta6night_text_title</item>
+        <item name="quipnetTextValue">@color/quipnet_gta6night_text_value</item>
+        <item name="quipnetTextHint">@color/quipnet_gta6night_text_hint</item>
+        <item name="quipnetSwitchOn">@color/quipnet_gta6night_switch_on</item>
+        <item name="quipnetSwitchOff">@color/quipnet_gta6night_switch_off</item>
+        <item name="quipnetSwitchThumbOn">@color/quipnet_gta6night_thumb_on</item>
+        <item name="quipnetSwitchThumbOff">@color/quipnet_gta6night_thumb_off</item>
+        <item name="quipnetIconTint">@color/quipnet_gta6night_icon_tint</item>
+        <item name="quipnetCardFill">@color/quipnet_gta6night_card_fill</item>
+        <item name="quipnetCardStroke">@color/quipnet_gta6night_card_stroke</item>
+        <item name="android:buttonBarPositiveButtonStyle">@style/Widget.QuipNet.DialogButtonPrimary.GTAVIViceNight</item>
+        <item name="android:buttonBarNegativeButtonStyle">@style/Widget.QuipNet.DialogButton.GTAVIViceNight</item>
+        <item name="android:buttonBarNeutralButtonStyle">@style/Widget.QuipNet.DialogButton.GTAVIViceNight</item>
+    </style>
+
+    <style name="Theme.QuipNet.Dialog.Matrix" parent="android:Theme.Material.Dialog.Alert">
+        <item name="android:windowBackground">@drawable/bg_quipnet_dialog_matrix</item>
+        <item name="android:textColorPrimary">@color/quipnet_matrix_text_title</item>
+        <item name="android:textColorSecondary">@color/quipnet_matrix_text_value</item>
+        <item name="android:textColorAlertDialogListItem">@color/quipnet_matrix_text_title</item>
+        <item name="android:colorAccent">@color/quipnet_matrix_accent</item>
+        <item name="android:colorControlActivated">@color/quipnet_matrix_accent</item>
+        <item name="android:colorControlNormal">@color/quipnet_matrix_text_value</item>
+        <item name="android:windowMinWidthMajor">85%</item>
+        <item name="android:windowMinWidthMinor">92%</item>
+        <item name="quipnetDialogButton">@drawable/bg_quipnet_dialog_button_matrix</item>
+        <item name="quipnetDialogButtonPrimary">@drawable/bg_quipnet_dialog_button_primary_matrix</item>
+        <item name="quipnetFocusFill">@color/quipnet_matrix_focus_fill</item>
+        <item name="quipnetFocusStroke">@color/quipnet_matrix_focus_stroke</item>
+        <item name="quipnetAccent">@color/quipnet_matrix_accent</item>
+        <item name="quipnetAccentDim">@color/quipnet_matrix_accent_dim</item>
+        <item name="quipnetAccentOn">@color/quipnet_matrix_accent_on</item>
+        <item name="quipnetSeparator">@color/quipnet_matrix_separator</item>
+        <item name="quipnetTextGroupFrom">@color/quipnet_matrix_group_from</item>
+        <item name="quipnetTextGroupTo">@color/quipnet_matrix_group_to</item>
+        <item name="quipnetTextTitle">@color/quipnet_matrix_text_title</item>
+        <item name="quipnetTextValue">@color/quipnet_matrix_text_value</item>
+        <item name="quipnetTextHint">@color/quipnet_matrix_text_hint</item>
+        <item name="quipnetSwitchOn">@color/quipnet_matrix_switch_on</item>
+        <item name="quipnetSwitchOff">@color/quipnet_matrix_switch_off</item>
+        <item name="quipnetSwitchThumbOn">@color/quipnet_matrix_thumb_on</item>
+        <item name="quipnetSwitchThumbOff">@color/quipnet_matrix_thumb_off</item>
+        <item name="quipnetIconTint">@color/quipnet_matrix_icon_tint</item>
+        <item name="quipnetCardFill">@color/quipnet_matrix_card_fill</item>
+        <item name="quipnetCardStroke">@color/quipnet_matrix_card_stroke</item>
+        <item name="android:buttonBarPositiveButtonStyle">@style/Widget.QuipNet.DialogButtonPrimary.Matrix</item>
+        <item name="android:buttonBarNegativeButtonStyle">@style/Widget.QuipNet.DialogButton.Matrix</item>
+        <item name="android:buttonBarNeutralButtonStyle">@style/Widget.QuipNet.DialogButton.Matrix</item>
+    </style>
+
+    <style name="Theme.QuipNet.Dialog.DiabloII" parent="android:Theme.Material.Dialog.Alert">
+        <item name="android:windowBackground">@drawable/bg_quipnet_dialog_diablo2</item>
+        <item name="android:textColorPrimary">@color/quipnet_diablo2_text_title</item>
+        <item name="android:textColorSecondary">@color/quipnet_diablo2_text_value</item>
+        <item name="android:textColorAlertDialogListItem">@color/quipnet_diablo2_text_title</item>
+        <item name="android:colorAccent">@color/quipnet_diablo2_accent</item>
+        <item name="android:colorControlActivated">@color/quipnet_diablo2_accent</item>
+        <item name="android:colorControlNormal">@color/quipnet_diablo2_text_value</item>
+        <item name="android:windowMinWidthMajor">85%</item>
+        <item name="android:windowMinWidthMinor">92%</item>
+        <item name="quipnetDialogButton">@drawable/bg_quipnet_dialog_button_diablo2</item>
+        <item name="quipnetDialogButtonPrimary">@drawable/bg_quipnet_dialog_button_primary_diablo2</item>
+        <item name="quipnetFocusFill">@color/quipnet_diablo2_focus_fill</item>
+        <item name="quipnetFocusStroke">@color/quipnet_diablo2_focus_stroke</item>
+        <item name="quipnetAccent">@color/quipnet_diablo2_accent</item>
+        <item name="quipnetAccentDim">@color/quipnet_diablo2_accent_dim</item>
+        <item name="quipnetAccentOn">@color/quipnet_diablo2_accent_on</item>
+        <item name="quipnetSeparator">@color/quipnet_diablo2_separator</item>
+        <item name="quipnetTextGroupFrom">@color/quipnet_diablo2_group_from</item>
+        <item name="quipnetTextGroupTo">@color/quipnet_diablo2_group_to</item>
+        <item name="quipnetTextTitle">@color/quipnet_diablo2_text_title</item>
+        <item name="quipnetTextValue">@color/quipnet_diablo2_text_value</item>
+        <item name="quipnetTextHint">@color/quipnet_diablo2_text_hint</item>
+        <item name="quipnetSwitchOn">@color/quipnet_diablo2_switch_on</item>
+        <item name="quipnetSwitchOff">@color/quipnet_diablo2_switch_off</item>
+        <item name="quipnetSwitchThumbOn">@color/quipnet_diablo2_thumb_on</item>
+        <item name="quipnetSwitchThumbOff">@color/quipnet_diablo2_thumb_off</item>
+        <item name="quipnetIconTint">@color/quipnet_diablo2_icon_tint</item>
+        <item name="quipnetCardFill">@color/quipnet_diablo2_card_fill</item>
+        <item name="quipnetCardStroke">@color/quipnet_diablo2_card_stroke</item>
+        <item name="android:buttonBarPositiveButtonStyle">@style/Widget.QuipNet.DialogButtonPrimary.DiabloII</item>
+        <item name="android:buttonBarNegativeButtonStyle">@style/Widget.QuipNet.DialogButton.DiabloII</item>
+        <item name="android:buttonBarNeutralButtonStyle">@style/Widget.QuipNet.DialogButton.DiabloII</item>
+    </style>
+
+    <style name="Widget.QuipNet.DialogButton.Auroramint" parent="android:Widget.Material.Button.Borderless">
+        <item name="android:background">@drawable/bg_quipnet_dialog_button_aurora</item>
+        <item name="android:backgroundTint">@color/quipnet_aurora_accent</item>
+        <item name="android:backgroundTintMode">src_in</item>
+        <item name="android:textColor">@color/quipnet_aurora_accent</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:minWidth">48dp</item>
+        <item name="android:minHeight">44dp</item>
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:paddingRight">10dp</item>
+        <item name="android:layout_marginStart">8dp</item>
+    </style>
+
+    <style name="Widget.QuipNet.DialogButtonPrimary.Auroramint" parent="@style/Widget.QuipNet.DialogButton.Auroramint">
+        <item name="android:background">@drawable/bg_quipnet_dialog_button_primary_aurora</item>
+        <item name="android:textColor">@color/quipnet_aurora_accent_on</item>
+    </style>
+
+    <style name="Widget.QuipNet.DialogButton.DNSAI" parent="android:Widget.Material.Button.Borderless">
+        <item name="android:background">@drawable/bg_quipnet_dialog_button_dnsai</item>
+        <item name="android:backgroundTint">@color/quipnet_dnsai_accent</item>
+        <item name="android:backgroundTintMode">src_in</item>
+        <item name="android:textColor">@color/quipnet_dnsai_accent</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:minWidth">48dp</item>
+        <item name="android:minHeight">44dp</item>
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:paddingRight">10dp</item>
+        <item name="android:layout_marginStart">8dp</item>
+    </style>
+
+    <style name="Widget.QuipNet.DialogButtonPrimary.DNSAI" parent="@style/Widget.QuipNet.DialogButton.DNSAI">
+        <item name="android:background">@drawable/bg_quipnet_dialog_button_primary_dnsai</item>
+        <item name="android:textColor">@color/quipnet_dnsai_accent_on</item>
+    </style>
+
+    <style name="Widget.QuipNet.DialogButton.Proton" parent="android:Widget.Material.Button.Borderless">
+        <item name="android:background">@drawable/bg_quipnet_dialog_button_proton</item>
+        <item name="android:backgroundTint">@color/quipnet_proton_accent</item>
+        <item name="android:backgroundTintMode">src_in</item>
+        <item name="android:textColor">@color/quipnet_proton_accent</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:minWidth">48dp</item>
+        <item name="android:minHeight">44dp</item>
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:paddingRight">10dp</item>
+        <item name="android:layout_marginStart">8dp</item>
+    </style>
+
+    <style name="Widget.QuipNet.DialogButtonPrimary.Proton" parent="@style/Widget.QuipNet.DialogButton.Proton">
+        <item name="android:background">@drawable/bg_quipnet_dialog_button_primary_proton</item>
+        <item name="android:textColor">@color/quipnet_proton_accent_on</item>
+    </style>
+
+    <style name="Widget.QuipNet.DialogButton.Charcoalbirch" parent="android:Widget.Material.Button.Borderless">
+        <item name="android:background">@drawable/bg_quipnet_dialog_button_charcoal</item>
+        <item name="android:backgroundTint">@color/quipnet_charcoal_accent</item>
+        <item name="android:backgroundTintMode">src_in</item>
+        <item name="android:textColor">@color/quipnet_charcoal_accent</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:minWidth">48dp</item>
+        <item name="android:minHeight">44dp</item>
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:paddingRight">10dp</item>
+        <item name="android:layout_marginStart">8dp</item>
+    </style>
+
+    <style name="Widget.QuipNet.DialogButtonPrimary.Charcoalbirch" parent="@style/Widget.QuipNet.DialogButton.Charcoalbirch">
+        <item name="android:background">@drawable/bg_quipnet_dialog_button_primary_charcoal</item>
+        <item name="android:textColor">@color/quipnet_charcoal_accent_on</item>
+    </style>
+
+    <style name="Widget.QuipNet.DialogButton.Graphenegolden" parent="android:Widget.Material.Button.Borderless">
+        <item name="android:background">@drawable/bg_quipnet_dialog_button_graphene</item>
+        <item name="android:backgroundTint">@color/quipnet_graphene_accent</item>
+        <item name="android:backgroundTintMode">src_in</item>
+        <item name="android:textColor">@color/quipnet_graphene_accent</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:minWidth">48dp</item>
+        <item name="android:minHeight">44dp</item>
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:paddingRight">10dp</item>
+        <item name="android:layout_marginStart">8dp</item>
+    </style>
+
+    <style name="Widget.QuipNet.DialogButtonPrimary.Graphenegolden" parent="@style/Widget.QuipNet.DialogButton.Graphenegolden">
+        <item name="android:background">@drawable/bg_quipnet_dialog_button_primary_graphene</item>
+        <item name="android:textColor">@color/quipnet_graphene_accent_on</item>
+    </style>
+
+    <style name="Widget.QuipNet.DialogButton.Cyberneon" parent="android:Widget.Material.Button.Borderless">
+        <item name="android:background">@drawable/bg_quipnet_dialog_button_neon</item>
+        <item name="android:backgroundTint">@color/quipnet_neon_accent</item>
+        <item name="android:backgroundTintMode">src_in</item>
+        <item name="android:textColor">@color/quipnet_neon_accent</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:minWidth">48dp</item>
+        <item name="android:minHeight">44dp</item>
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:paddingRight">10dp</item>
+        <item name="android:layout_marginStart">8dp</item>
+    </style>
+
+    <style name="Widget.QuipNet.DialogButtonPrimary.Cyberneon" parent="@style/Widget.QuipNet.DialogButton.Cyberneon">
+        <item name="android:background">@drawable/bg_quipnet_dialog_button_primary_neon</item>
+        <item name="android:textColor">@color/quipnet_neon_accent_on</item>
+    </style>
+
+    <style name="Widget.QuipNet.DialogButton.PathofExile1" parent="android:Widget.Material.Button.Borderless">
+        <item name="android:background">@drawable/bg_quipnet_dialog_button_poe1</item>
+        <item name="android:backgroundTint">@color/quipnet_poe1_accent</item>
+        <item name="android:backgroundTintMode">src_in</item>
+        <item name="android:textColor">@color/quipnet_poe1_accent</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:minWidth">48dp</item>
+        <item name="android:minHeight">44dp</item>
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:paddingRight">10dp</item>
+        <item name="android:layout_marginStart">8dp</item>
+    </style>
+
+    <style name="Widget.QuipNet.DialogButtonPrimary.PathofExile1" parent="@style/Widget.QuipNet.DialogButton.PathofExile1">
+        <item name="android:background">@drawable/bg_quipnet_dialog_button_primary_poe1</item>
+        <item name="android:textColor">@color/quipnet_poe1_accent_on</item>
+    </style>
+
+    <style name="Widget.QuipNet.DialogButton.PathofExile2" parent="android:Widget.Material.Button.Borderless">
+        <item name="android:background">@drawable/bg_quipnet_dialog_button_poe2</item>
+        <item name="android:backgroundTint">@color/quipnet_poe2_accent</item>
+        <item name="android:backgroundTintMode">src_in</item>
+        <item name="android:textColor">@color/quipnet_poe2_accent</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:minWidth">48dp</item>
+        <item name="android:minHeight">44dp</item>
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:paddingRight">10dp</item>
+        <item name="android:layout_marginStart">8dp</item>
+    </style>
+
+    <style name="Widget.QuipNet.DialogButtonPrimary.PathofExile2" parent="@style/Widget.QuipNet.DialogButton.PathofExile2">
+        <item name="android:background">@drawable/bg_quipnet_dialog_button_primary_poe2</item>
+        <item name="android:textColor">@color/quipnet_poe2_accent_on</item>
+    </style>
+
+    <style name="Widget.QuipNet.DialogButton.GTAVIViceSunset" parent="android:Widget.Material.Button.Borderless">
+        <item name="android:background">@drawable/bg_quipnet_dialog_button_gta6sunset</item>
+        <item name="android:backgroundTint">@color/quipnet_gta6sunset_accent</item>
+        <item name="android:backgroundTintMode">src_in</item>
+        <item name="android:textColor">@color/quipnet_gta6sunset_accent</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:minWidth">48dp</item>
+        <item name="android:minHeight">44dp</item>
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:paddingRight">10dp</item>
+        <item name="android:layout_marginStart">8dp</item>
+    </style>
+
+    <style name="Widget.QuipNet.DialogButtonPrimary.GTAVIViceSunset" parent="@style/Widget.QuipNet.DialogButton.GTAVIViceSunset">
+        <item name="android:background">@drawable/bg_quipnet_dialog_button_primary_gta6sunset</item>
+        <item name="android:textColor">@color/quipnet_gta6sunset_accent_on</item>
+    </style>
+
+    <style name="Widget.QuipNet.DialogButton.GTAVIViceNight" parent="android:Widget.Material.Button.Borderless">
+        <item name="android:background">@drawable/bg_quipnet_dialog_button_gta6night</item>
+        <item name="android:backgroundTint">@color/quipnet_gta6night_accent</item>
+        <item name="android:backgroundTintMode">src_in</item>
+        <item name="android:textColor">@color/quipnet_gta6night_accent</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:minWidth">48dp</item>
+        <item name="android:minHeight">44dp</item>
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:paddingRight">10dp</item>
+        <item name="android:layout_marginStart">8dp</item>
+    </style>
+
+    <style name="Widget.QuipNet.DialogButtonPrimary.GTAVIViceNight" parent="@style/Widget.QuipNet.DialogButton.GTAVIViceNight">
+        <item name="android:background">@drawable/bg_quipnet_dialog_button_primary_gta6night</item>
+        <item name="android:textColor">@color/quipnet_gta6night_accent_on</item>
+    </style>
+
+    <style name="Widget.QuipNet.DialogButton.Matrix" parent="android:Widget.Material.Button.Borderless">
+        <item name="android:background">@drawable/bg_quipnet_dialog_button_matrix</item>
+        <item name="android:backgroundTint">@color/quipnet_matrix_accent</item>
+        <item name="android:backgroundTintMode">src_in</item>
+        <item name="android:textColor">@color/quipnet_matrix_accent</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:minWidth">48dp</item>
+        <item name="android:minHeight">44dp</item>
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:paddingRight">10dp</item>
+        <item name="android:layout_marginStart">8dp</item>
+    </style>
+
+    <style name="Widget.QuipNet.DialogButtonPrimary.Matrix" parent="@style/Widget.QuipNet.DialogButton.Matrix">
+        <item name="android:background">@drawable/bg_quipnet_dialog_button_primary_matrix</item>
+        <item name="android:textColor">@color/quipnet_matrix_accent_on</item>
+    </style>
+
+    <style name="Widget.QuipNet.DialogButton.DiabloII" parent="android:Widget.Material.Button.Borderless">
+        <item name="android:background">@drawable/bg_quipnet_dialog_button_diablo2</item>
+        <item name="android:backgroundTint">@android:color/white</item>
+        <item name="android:backgroundTintMode">multiply</item>
+        <item name="android:textColor">@color/quipnet_diablo2_accent</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:minWidth">48dp</item>
+        <item name="android:minHeight">44dp</item>
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:paddingRight">10dp</item>
+        <item name="android:layout_marginStart">8dp</item>
+    </style>
+
+    <style name="Widget.QuipNet.DialogButtonPrimary.DiabloII" parent="@style/Widget.QuipNet.DialogButton.DiabloII">
+        <item name="android:background">@drawable/bg_quipnet_dialog_button_primary_diablo2</item>
+        <item name="android:textColor">@color/quipnet_diablo2_accent_on</item>
+    </style>
+</resources>

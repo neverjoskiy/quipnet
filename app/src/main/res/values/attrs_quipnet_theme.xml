@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Словарь темы оформления.
+
+    Смысл в том, чтобы разметка не знала ни одного цвета. Раньше их было 14 штук
+    литералами по десяти файлам — четыре серых на одну роль, четыре зелёных на один
+    акцент, семь кеглей на четыре смысла. Пока цвет прибит в разметке, «единая
+    палитра» держится только на внимании, а внимание кончается на пятом экране.
+
+    Значения приходят из `values/themes_nova.xml` (генерируется
+    `tools/gen_nova_themes.py`), умолчания — из `Theme.QuipNet.Settings`, чтобы экран
+    без явной темы не остался с нулями.
+
+    Ролей текста ровно четыре, и больше заводить нельзя: пятая роль означает, что
+    какая-то из четырёх используется не по назначению.
+-->
+<resources>
+
+    <!-- Подложки. Ссылками, а не цветами: у тем разный радиус и разная толщина
+         обводки, а прямоугольные панели Path of Exile — это не «почти как у всех»,
+         а то, по чему тема узнаётся. -->
+    <!-- Выделение: заливка и обводка при фокусе пульта, нажатии и свечении под
+         пальцем. Раньше на это стоял общий `@color/tv_focus_*`, то есть один и тот
+         же зелёный `#32D74B` во всех десяти темах — на золотой теме долгое нажатие
+         подсвечивало строку зелёным. Значения выдаёт тема, фигуры ссылаются сюда. -->
+    <attr name="quipnetFocusFill" format="color" />
+    <attr name="quipnetFocusStroke" format="color" />
+
+    <attr name="quipnetCardBackground" format="reference" />
+    <attr name="quipnetFieldBackground" format="reference" />
+
+    <!-- Подложки кнопок диалога. Нужны словарём, а не только стилем: кнопки
+         приходится красить кодом (`QuipNetDialogs`) — на Pixel платформенный стиль
+         кнопки диалога перебивает и фон, и оттенок, заданные темой. -->
+    <attr name="quipnetDialogButton" format="reference" />
+    <attr name="quipnetDialogButtonPrimary" format="reference" />
+
+    <!-- Акцент — ровно один на тему. `quipnetAccentOn` — цвет текста поверх акцента:
+         на светлом акценте белые буквы пропадают. -->
+    <attr name="quipnetAccent" format="color" />
+    <attr name="quipnetAccentDim" format="color" />
+    <attr name="quipnetAccentOn" format="color" />
+
+    <attr name="quipnetSeparator" format="color" />
+    <attr name="quipnetCardFill" format="color" />
+    <attr name="quipnetCardStroke" format="color" />
+
+    <!-- Роль A — заголовок группы. Две точки градиента: заливка идёт шейдером по
+         тексту (`QuipNetTheme.paintHeading`), а не картинкой. -->
+    <attr name="quipnetTextGroupFrom" format="color" />
+    <attr name="quipnetTextGroupTo" format="color" />
+
+    <!-- Роль B — название пункта. -->
+    <attr name="quipnetTextTitle" format="color" />
+    <!-- Роль C — значение справа и пояснения. -->
+    <attr name="quipnetTextValue" format="color" />
+    <!-- Роль D — подпись под названием. -->
+    <attr name="quipnetTextHint" format="color" />
+
+    <attr name="quipnetSwitchOn" format="color" />
+    <attr name="quipnetSwitchOff" format="color" />
+    <attr name="quipnetSwitchThumbOn" format="color" />
+    <attr name="quipnetSwitchThumbOff" format="color" />
+
+    <attr name="quipnetIconTint" format="color" />
+
+</resources>

@@ -1,0 +1,756 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#04070D"
+    android:clipChildren="false"
+    android:clipToPadding="false"
+    tools:context=".MainActivity">
+
+    <com.example.quipnet.BackdropRevealImageView
+        android:id="@+id/iv_background_art"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:contentDescription="@null"
+        android:scaleType="centerCrop"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.example.quipnet.QuipNetNetworkBackgroundView
+        android:id="@+id/quipnet_background_animation"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:contentDescription="@null"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.example.quipnet.TronRingsView
+        android:id="@+id/tron_backdrop"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!--
+        Граница колонок горизонтальной раскладки (`MainActivity.applyOrientationLayout`):
+        слева статус и кнопка, справа селектор, адреса и пинг. В портрете к ней
+        ничего не привязано.
+    -->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guide_main_split"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.62" />
+
+    <!-- Правая граница колонки микро-лога в горизонтали; в портрете не используется. -->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guide_main_log"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.25" />
+
+    <!--
+        Status Text.
+
+        Отступы — поле под ореол букв (`StrokeTextView.fittedBlurRadius`); нижний
+        вместе с отступом до кнопки держит прежнее расстояние статус — кнопка. Микро-лог стоит над статусом (в горизонтали — колонкой слева),
+        а не между статусом и кнопкой: строки и бегущие точки над кнопкой читались
+        как часть кнопки, а «...» — как сломанный текст.
+    -->
+    <com.example.quipnet.StrokeTextView
+        android:id="@+id/tvStatus"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="НЕ ПОДКЛЮЧЕНО"
+        android:textColor="#C62828"
+        android:textSize="16sp"
+        android:fontFamily="sans-serif-black"
+        android:textStyle="bold"
+        android:letterSpacing="0.082"
+        android:breakStrategy="balanced"
+        android:paddingTop="44dp"
+        android:paddingBottom="60dp"
+        android:layout_marginBottom="48dp"
+        app:layout_constraintBottom_toTopOf="@+id/btnConnect"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!--
+        Предупреждение под состоянием: DNS-канал измеренно держит 380/42 кбит/с,
+        и человек, ждущий от него обычной скорости, решит, что приложение
+        сломалось. Текст лежит ВНУТРИ нижнего отступа tvStatus, поэтому цепочка
+        ограничений ниже не сдвигается вовсе.
+    -->
+    <TextView
+        android:id="@+id/tv_dns_mode_notice"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:paddingStart="24dp"
+        android:paddingEnd="24dp"
+        android:layout_marginBottom="30dp"
+        android:textColor="#CFE1F2"
+        android:alpha="0.82"
+        android:textSize="12sp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/tvStatus"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!--
+        Микро-лог: что сейчас происходит при подключении. Один контейнер, чтобы
+        раскладка переставляла его целиком: в портрете — над статусом, в
+        горизонтали — колонкой слева от статуса (`MainActivity.applyOrientationLayout`).
+        Порядок строк — от общего к частному: какой транспорт работает вместо
+        выбранного, выпуск профилей, номер попытки и бегущие точки ожидания.
+    -->
+    <LinearLayout
+        android:id="@+id/ll_micro_log"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/tvStatus"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <!--
+            Фоновое событие: выпуск и обновление профилей Proton с шагом и итогом
+            (`MainActivity.renderMicroEvent`).
+        -->
+        <TextView
+            android:id="@+id/tv_micro_event"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="6dp"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:maxLines="2"
+            android:saveEnabled="false"
+            android:text=""
+            android:textColor="#9FD8FF"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:visibility="gone" />
+
+        <!-- Пояснение, когда работает не тот транспорт, который выбрал пользователь -->
+        <TextView
+            android:id="@+id/tv_transport_notice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="6dp"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:maxLines="3"
+            android:saveEnabled="false"
+            android:text=""
+            android:textColor="#FFC46B"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:visibility="gone" />
+
+        <!--
+            Выпуск личных профилей Cloudflare. Отдельная строка, а не
+            `tvAttemptProgress`: тот занят счётчиком перебора и шагом выпуска
+            Proton. Выпуск идёт в процессе `:vpn`, поэтому текст берётся из файла
+            `warp_generated_state.json`, а не из синглтона (I2).
+        -->
+        <TextView
+            android:id="@+id/tv_profile_issue_progress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="6dp"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:maxLines="2"
+            android:saveEnabled="false"
+            android:text=""
+            android:textColor="#7EEA87"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/tvAttemptProgress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:maxLines="2"
+            android:text=""
+            android:textColor="#C8D4FF"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:visibility="invisible" />
+
+        <com.example.quipnet.SlidingDotsIndicatorView
+            android:id="@+id/restricted_mobile_dots"
+            android:layout_width="74dp"
+            android:layout_height="11dp"
+            android:layout_marginTop="6dp"
+            android:visibility="gone" />
+    </LinearLayout>
+
+    <!-- Main Button (Geometric Center) -->
+    <com.example.quipnet.GlowPillButton
+        android:id="@+id/btnConnect"
+        android:layout_width="236dp" 
+        android:layout_height="68dp"
+        android:text="ПОДКЛЮЧИТЬ"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="#000000"
+        android:fontFamily="sans-serif-black"
+        android:letterSpacing="0.02"
+        android:shadowColor="#80FFFFFF"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="12"
+        android:stateListAnimator="@null"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!--
+        Подпись над кнопкой «&gt;». Без неё стрелка ничего не сообщала: на
+        устройстве её принимали за «вперёд» вообще. Видимость подписи обязана
+        меняться там же, где видимость самой кнопки, — иначе «след. профиль»
+        повисает над пустым местом.
+
+        Подпись шире кнопки, поэтому она выровнена по её правому краю, а не по
+        центру: по центру она уходила за край экрана в портрете и на чипы
+        селектора в горизонтали.
+    -->
+    <TextView
+        android:id="@+id/tv_next_profile_caption"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="2dp"
+        android:gravity="center"
+        android:text="след. профиль"
+        android:textColor="#B9C4D6"
+        android:textSize="10sp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/btnNextProfile"
+        app:layout_constraintEnd_toEndOf="@+id/btnNextProfile" />
+
+    <com.example.quipnet.GlowPillButton
+        android:id="@+id/btnNextProfile"
+        android:layout_width="68dp"
+        android:layout_height="68dp"
+        android:text="&gt;"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="#000000"
+        android:fontFamily="sans-serif-black"
+        android:letterSpacing="0.02"
+        android:shadowColor="#80FFFFFF"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="12"
+        android:stateListAnimator="@null"
+        app:layout_constraintBottom_toBottomOf="@id/btnConnect"
+        app:layout_constraintTop_toTopOf="@id/btnConnect"
+        app:layout_constraintStart_toEndOf="@id/btnConnect"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!--
+        Плашка обновления. Вверху справа, а не под главной кнопкой: под кнопкой она
+        оттягивала внимание от единственного действия, ради которого экран открывают.
+    -->
+    <com.example.quipnet.UpdateChipView
+        android:id="@+id/btn_install_update"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="2dp"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="25dp"
+        android:paddingTop="22dp"
+        android:paddingEnd="27dp"
+        android:paddingBottom="22dp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/iv_update_icon"
+            android:layout_width="19dp"
+            android:layout_height="19dp"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_update_chrome" />
+
+        <!--
+            Две строки, а не одна: во время загрузки на первой стоит статус, на
+            второй — проценты и единственное доступное действие. Вторая строка
+            скрыта, пока показывать в ней нечего, поэтому в покое плашка остаётся
+            прежней однострочной капсулой.
+        -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_update_caption"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:letterSpacing="0.01"
+                android:text="Обновить"
+                android:textColor="#A9F2BF"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_update_progress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:letterSpacing="0.02"
+                android:textColor="#FFD166"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                android:visibility="gone" />
+        </LinearLayout>
+    </com.example.quipnet.UpdateChipView>
+
+    <!-- Latency Label (Above Graph, Right side) -->
+    <TextView
+        android:id="@+id/tv_internet_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="end"
+        android:lineSpacingExtra="2dp"
+        android:text="Ping:&#10;---"
+        android:textColor="#FFFFFF"
+        android:shadowColor="#000000"
+        android:shadowDx="2"
+        android:shadowDy="2"
+        android:shadowRadius="4"
+        android:textSize="14sp"
+        android:layout_marginTop="0dp"
+        app:layout_constraintTop_toTopOf="@+id/ll_ip_row"
+        app:layout_constraintEnd_toEndOf="@+id/graph_latency" />
+
+    <TextView
+        android:id="@+id/tv_country_badge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:saveEnabled="false"
+        android:layout_marginBottom="6dp"
+        android:background="@drawable/bg_country_badge"
+        android:paddingStart="10dp"
+        android:paddingTop="6dp"
+        android:paddingEnd="10dp"
+        android:paddingBottom="6dp"
+        android:text="WARP: --"
+        android:textAllCaps="true"
+        android:textColor="#FFFFFF"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/btn_settings"
+        app:layout_constraintEnd_toEndOf="@+id/graph_latency" />
+
+    <!--
+        Выбор протокола/региона прямо на главном экране.
+
+        Идентификаторы кнопок обязаны совпадать с `ConnectionSelectorPolicy.BUTTON_IDS`
+        и с одноимёнными кнопками в activity_settings.xml: оба экрана собирают
+        группу одним и тем же кодом, и порядок берут оттуда же. Разметки разные,
+        поэтому совпадение имён никого не путает — `findViewById` ищет в дереве
+        своего экрана.
+
+        Три смысловые полосы вместо прокручиваемой ленты: сначала всё, что идёт
+        через Cloudflare, потом зарубежные VPN, потом Tor. Разбиение задаёт
+        `ConnectionSelectorPolicy.ROWS`, а не разметка, — оно смысловое, и по
+        ширине его не восстановить. Прокрутка убрана намеренно: скрытая за краем
+        кнопка читается как отсутствующая.
+
+        Все шесть кнопок обязаны остаться **прямыми** детьми одной группы.
+        `RadioGroup` следит за взаимным исключением только у прямых детей, а
+        `check()` находит кнопку по всему дереву — вложенные строки дали бы две
+        зажжённые кнопки сразу и нажатия, которые ничего не делают (G95).
+    -->
+    <LinearLayout
+        android:id="@+id/sv_exit_region_main"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="12dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnConnect"
+        app:layout_constraintBottom_toTopOf="@+id/btn_settings"
+        app:layout_constraintVertical_bias="0">
+
+        <!--
+            Каждая полоса — ровно та, что назвал план; не поместившееся уезжает
+            вбок и прокручивается пальцем или пультом, а не переносится на
+            четвёртую строку. Прокрутка одна на все три полосы намеренно: три
+            независимых `HorizontalScrollView` разорвали бы группу, а `RadioGroup`
+            следит за единственным выбором только у **прямых** детей.
+        -->
+        <HorizontalScrollView
+            android:id="@+id/hsv_exit_region"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fillViewport="true"
+            android:scrollbars="none">
+
+        <com.example.quipnet.FlowRadioGroup
+            android:id="@+id/rg_exit_region"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/rb_exit_auto"
+                style="@style/QuipNetMainRegionChip"
+                android:text="AUTO" />
+
+            <RadioButton
+                android:id="@+id/rb_exit_ru"
+                style="@style/QuipNetMainRegionChip"
+                android:text="WARP" />
+
+            <RadioButton
+                android:id="@+id/rb_exit_masque"
+                style="@style/QuipNetMainRegionChip"
+                android:text="MASQUE" />
+
+            <RadioButton
+                android:id="@+id/rb_exit_opera"
+                style="@style/QuipNetMainRegionChip"
+                android:text="OPERA" />
+
+            <RadioButton
+                android:id="@+id/rb_exit_proton"
+                style="@style/QuipNetMainRegionChip"
+                android:text="PROTON" />
+
+            <RadioButton
+                android:id="@+id/rb_exit_tor"
+                style="@style/QuipNetMainRegionChip"
+                android:text="TOR" />
+
+            <RadioButton
+                android:id="@+id/rb_exit_dns"
+                style="@style/QuipNetMainRegionChip"
+                android:text="DNS" />
+        </com.example.quipnet.FlowRadioGroup>
+        </HorizontalScrollView>
+
+        <!--
+            Четвёртая строка: подрегион уже выбранного транспорта. Для OPERA это
+            «Регион: EU US», для PROTON — список стран, которые реально есть в
+            выпущенных профилях. Кнопки создаёт код: их число переменное.
+        -->
+        <LinearLayout
+            android:id="@+id/ll_exit_sub_region"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical|start"
+            android:orientation="horizontal"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/tv_exit_sub_region_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:text="Регион:"
+                android:textColor="#B9C4D6"
+                android:textSize="11sp" />
+
+            <!--
+                Подсказка про системный «Частный DNS», и стоит она именно здесь —
+                рядом с выбором входа в Tor, а не в общей строке под селектором.
+                Причина простая: с включённым строгим DoT ни одно имя не
+                открывается вовсе, то есть выбирать вход бессмысленно, пока это
+                не выключено. Нажатие открывает объяснение целиком.
+            -->
+            <TextView
+                android:id="@+id/tv_exit_dot_hint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:background="@drawable/bg_region_chip"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:maxLines="1"
+                android:paddingStart="10dp"
+                android:paddingTop="4dp"
+                android:paddingEnd="10dp"
+                android:paddingBottom="4dp"
+                android:text="Отключите DoT"
+                android:textColor="#FFD166"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                android:visibility="gone" />
+
+            <!--
+                Стран у Proton бывает десять, и в ширину они не помещаются. Список
+                прокручивается вбок, а не переносится: четвёртая полоса обязана
+                остаться одной полосой.
+            -->
+            <!--
+                Ширина по содержимому, без веса: с весом полоса занимала всю
+                оставшуюся ширину и подпись «Регион:» уезжала к левому краю, а
+                кнопки оставались посередине — пара переставала читаться как одна
+                строка. `wrap_content` внутри `match_parent` всё равно обрезается
+                мерной спецификацией родителя, и прокрутка при переполнении
+                остаётся.
+            -->
+            <HorizontalScrollView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scrollbars="none">
+
+                <com.example.quipnet.FlowRadioGroup
+                    android:id="@+id/rg_exit_sub_region"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:orientation="horizontal" />
+            </HorizontalScrollView>
+        </LinearLayout>
+
+        <!--
+            Выбор протокола импортированных профилей (AUTO и семьи). Вместо регионов
+            показывается только в режиме импортированных конфигураций; пишет ту же
+            настройку, что и «Настройки» → «Конфигурации». Кнопки создаёт код
+            (`MainActivity.refreshImportedProtocolGroup`) по `item_imported_protocol_chip`.
+        -->
+        <com.example.quipnet.FlowRadioGroup
+            android:id="@+id/rg_imported_protocol"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:orientation="horizontal"
+            android:visibility="gone" />
+
+        <!--
+            Сворачиваемая строка импортированных профилей под выбором протокола. Видна
+            только в режиме импортированных конфигураций. Нажатие открывает полный список
+            (ImportedProfilesSheet): список с замерами в строке не умещается между
+            кнопкой и «Настройками» ни в портрете, ни в альбоме.
+        -->
+        <TextView
+            android:id="@+id/tv_imported_profiles"
+            android:layout_width="wrap_content"
+            android:layout_height="34dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="6dp"
+            android:background="@drawable/bg_settings_button"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:minWidth="112dp"
+            android:paddingStart="14dp"
+            android:paddingEnd="14dp"
+            android:text="Импортированные профили (0) ▾"
+            android:textColor="#FFFFFF"
+            android:textSize="13sp"
+            android:visibility="gone" />
+    </LinearLayout>
+
+    <!--
+        Строка под селектором: причина запрета, статус выпуска Proton, состояние
+        Tor. Скрыта, пока сказать нечего — пустая строка отнимала бы место у
+        кнопки подключения.
+
+        Кнопки «Конфигурации» здесь больше нет: владелец попросил её убрать.
+        Единственный вход в тот экран теперь — «⚙️ Настройки».
+    -->
+    <TextView
+        android:id="@+id/tv_exit_last"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:maxLines="2"
+        android:textColor="#B9C4D6"
+        android:textSize="12sp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sv_exit_region_main" />
+
+    <!-- Settings Button (Gear Emoji) -->
+    <TextView
+        android:id="@+id/btn_settings"
+        android:layout_width="wrap_content"
+        android:layout_height="38dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:minWidth="112dp"
+        android:text="⚙️ Настройки"
+        android:textColor="#FFFFFF"
+        android:textSize="13sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:background="@drawable/bg_settings_button"
+        android:paddingStart="14dp"
+        android:paddingEnd="14dp"
+        android:layout_marginBottom="2dp"
+        app:layout_constraintBottom_toTopOf="@+id/ll_ip_row"
+        app:layout_constraintStart_toStartOf="@+id/graph_latency"/>
+
+    <!--
+        Язык интерфейса — справа от «Настроек», той же капсулой: планета и код
+        выбранного языка. Нажатие открывает список языков; выбор применяется сразу,
+        без перезапуска. Подпись ставит код (`renderLanguageBadge`), здесь — только
+        заглушка на время раздувания.
+    -->
+    <TextView
+        android:id="@+id/btn_language"
+        android:layout_width="wrap_content"
+        android:layout_height="38dp"
+        android:layout_marginStart="8dp"
+        android:background="@drawable/bg_settings_button"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center"
+        android:minWidth="64dp"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
+        android:text="🌍 RU"
+        android:textColor="#FFFFFF"
+        android:textSize="13sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_settings"
+        app:layout_constraintStart_toEndOf="@+id/btn_settings"
+        app:layout_constraintTop_toTopOf="@+id/btn_settings" />
+
+    <!--
+        Строка адресов не заходит на пинг справа: ширина — по содержимому, но не дальше
+        левого края подписи «Ping» (`constrainedWidth`). Длинный IPv6 без нажатия
+        обрезается многоточием; раскрытый нажатием адрес показывается целиком и при
+        нехватке места сжимается по ширине (`MainActivity.fitIpAddressToPing`).
+    -->
+    <LinearLayout
+        android:id="@+id/ll_ip_row"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="0dp"
+        android:layout_marginEnd="8dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        app:layout_constrainedWidth="true"
+        app:layout_constraintBottom_toTopOf="@+id/graph_latency"
+        app:layout_constraintEnd_toStartOf="@+id/tv_internet_label"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toStartOf="@+id/graph_latency">
+
+        <TextView
+            android:id="@+id/tv_ip_address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:saveEnabled="false"
+            android:background="@drawable/bg_ip_label"
+            android:ellipsize="end"
+            android:gravity="start"
+            android:lineSpacingExtra="2dp"
+            android:maxLines="2"
+            android:minLines="2"
+            android:text="...&#10;..."
+            android:textColor="#50C878"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <!-- Latency Graph (Bottom) -->
+    <com.example.quipnet.LatencyGraphView
+        android:id="@+id/graph_latency"
+        android:layout_width="0dp"
+        android:layout_height="64dp"
+        android:layout_marginBottom="0dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:background="@drawable/bg_latency_graph"
+        app:layout_constraintBottom_toTopOf="@+id/tv_version"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!--
+        Пояснение вместо пинга в режиме DNS.
+
+        Лежит ровно поверх шкалы, а не вместо неё: `graph_latency` держит на себе
+        и строку адресов сверху, и версию снизу, и если убрать его в `gone`, обе
+        уедут к краю экрана. Шкала в этом режиме остаётся пустой рамкой, внутри
+        которой и стоит текст.
+    -->
+    <TextView
+        android:id="@+id/tv_dns_ping_notice"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:saveEnabled="false"
+        android:textColor="#CFE1F2"
+        android:textSize="11sp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/graph_latency"
+        app:layout_constraintEnd_toEndOf="@+id/graph_latency"
+        app:layout_constraintStart_toStartOf="@+id/graph_latency"
+        app:layout_constraintTop_toTopOf="@+id/graph_latency" />
+
+    <TextView
+        android:id="@+id/tv_version"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:layout_marginBottom="0dp"
+        android:text="v1.12"
+        android:textColor="#50C878"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/graph_latency" />
+
+    <!--
+        Лёд кладётся ПОСЛЕДНИМ ребёнком намеренно: он обязан лежать поверх всего,
+        иначе намерзает не на интерфейс, а под него. Касания сквозь него проходят
+        (см. FrostOverlayView.onTouchEvent).
+    -->
+    <com.example.quipnet.FrostOverlayView
+        android:id="@+id/frost_overlay"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:clickable="false"
+        android:focusable="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
