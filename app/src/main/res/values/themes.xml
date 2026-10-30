@@ -8,7 +8,7 @@
          скругления. Elevation — выраженные ступени 0..12 dp. Типографика — type scale
          Material 3 Expressive (display/headline/title/body/label).
          ======================================================================== -->
-    <style name="Theme.QuipNet" parent="Theme.Material3.DayNight.NoActionBar">
+    <style name="Theme.QuipNet" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Виды разметки переводят свой текст при показе (QuipNetLanguage, QuipNetViewInflater). -->
         <item name="viewInflaterClass">com.example.quipnet.QuipNetViewInflater</item>
 
@@ -32,6 +32,7 @@
         <item name="colorOutline">@color/m3_outline</item>
         <item name="colorOutlineVariant">@color/m3_outlineVariant</item>
         <item name="colorSurface">@color/m3_surface</item>
+        <item name="colorOnSurface">@color/m3_onSurface</item>
         <item name="colorSurfaceDim">@color/m3_surfaceDim</item>
         <item name="colorSurfaceBright">@color/m3_surfaceBright</item>
         <item name="colorSurfaceContainer">@color/m3_surfaceContainer</item>
