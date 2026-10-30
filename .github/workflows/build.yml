@@ -50,6 +50,13 @@ jobs:
           ANDROID_HOME: /usr/local/lib/android/sdk
           ANDROID_SDK_ROOT: /usr/local/lib/android/sdk
         run: |
+          mkdir -p ~/.android
+          keytool -genkeypair -v \
+            -keystore ~/.android/debug.keystore \
+            -alias androiddebugkey \
+            -keyalg RSA -keysize 2048 -validity 10000 \
+            -dname "CN=Android Debug,O=Android,C=US" \
+            -storepass android -keypass android >/dev/null 2>&1
           APK=$(ls app/build/outputs/apk/github/debug/*.apk | head -n1)
           "$ANDROID_HOME/build-tools/35.0.1/apksigner" sign \
             --ks ~/.android/debug.keystore \
