@@ -771,7 +771,9 @@ class MainActivity : AppCompatActivity() {
         window.navigationBarColor = android.graphics.Color.TRANSPARENT
         
         setContentView(R.layout.activity_main)
-        setupOrientationLayout()
+        runCatching { setupOrientationLayout() }.onFailure {
+            LogManager.log("Установка раскладки по повороту не удалась: ${it.message}")
+        }
 
         ivBackgroundArt = findViewById(R.id.iv_background_art)
         // Новые узоры для погружения фона (BackdropRevealImageView): строятся в фоне.
@@ -1087,7 +1089,9 @@ class MainActivity : AppCompatActivity() {
                 Color.parseColor("#04070D")
             )
         )
-        QuipNetFontHelper.apply(findViewById(android.R.id.content))
+        runCatching { QuipNetFontHelper.apply(findViewById(android.R.id.content)) }.onFailure {
+            LogManager.log("Применение шрифтов не удалось: ${it.message}")
+        }
         appliedFontFace = runCatching {
             QuipNetTheme.optionFor(QuipNetTheme.current(this)).face
         }.getOrDefault(QuipNetTheme.Face.DEFAULT)
@@ -1129,7 +1133,9 @@ class MainActivity : AppCompatActivity() {
         // сверки давно не было. В обеих сборках — это не обновление приложения.
         DnsServerFeed.syncSchedule(this)
         DnsServerFeed.refreshInBackground(this, LogManager::log)
-        refreshInstallUpdateButton()
+        runCatching { refreshInstallUpdateButton() }.onFailure {
+            LogManager.log("Плашка обновления не инициализировалась: ${it.message}")
+        }
         btnConnect.setPillStyle(
             fillColor = Color.argb(78, 220, 208, 255),
             glowColor = Color.argb(188, 220, 208, 255),

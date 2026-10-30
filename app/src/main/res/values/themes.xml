@@ -85,6 +85,7 @@
 
         <item name="m3ColorBackground">@color/m3_background</item>
         <item name="m3ColorOnBackground">@color/m3_onBackground</item>
+        <item name="m3ColorOnSurfaceContainer">@color/m3_onSurfaceContainer</item>
 
         <!-- Scarf — дополнительный экспрессивный акцент (золотой) -->
         <item name="m3ColorScarf">@color/m3_scarf</item>
