@@ -109,6 +109,9 @@
         <item name="android:windowTranslucentStatus">false</item>
         <item name="android:windowTranslucentNavigation">false</item>
 
+        <!-- Фон окна — без него на старте может быть чёрный/белый экран до инфляции разметки. -->
+        <item name="android:windowBackground">@color/m3_surface</item>
+
         <!-- Формы Material 3 Expressive: скругления small/medium/large -->
         <item name="shapeSmall">4dp</item>
         <item name="shapeMedium">8dp</item>
@@ -126,15 +129,6 @@
 
         <!-- Анимация окон Material 3 Expressive: плавные переходы между экранами -->
         <item name="android:windowAnimationStyle">@style/AnimationQuipNet</item>
-        <item name="android:windowContentTransitions">true</item>
-        <item name="android:windowEnterTransition">@android:transition/fade</item>
-        <item name="android:windowExitTransition">@android:transition/fade</item>
-        <item name="android:windowReenterTransition">@android:transition/fade</item>
-        <item name="android:windowReturnTransition">@android:transition/fade</item>
-        <item name="android:activityOpenEnterAnimation">@anim/quipnet_slide_in</item>
-        <item name="android:activityOpenExitAnimation">@anim/quipnet_slide_out</item>
-        <item name="android:activityCloseEnterAnimation">@anim/quipnet_slide_in</item>
-        <item name="android:activityCloseExitAnimation">@anim/quipnet_slide_out</item>
 
         <!-- Типографика Material 3 Expressive — type scale -->
         <item name="textAppearanceHeadlineLarge">@style/TextAppearance.QuipNet.HeadlineLarge</item>
