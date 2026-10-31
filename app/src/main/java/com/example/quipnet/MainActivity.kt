@@ -1136,10 +1136,29 @@ class MainActivity : AppCompatActivity() {
         runCatching { refreshInstallUpdateButton() }.onFailure {
             LogManager.log("Плашка обновления не инициализировалась: ${it.message}")
         }
+        // Цвета кнопки из темы — без них на тёмной теме пилюля светится лавандовым,
+        // не сочетаясь ни с одной из 12 тем.
+        val tv = android.util.TypedValue()
+        val fillResolved = theme.resolveAttribute(R.attr.m3ColorPrimaryContainer, tv, true)
+        val fillColor = if (fillResolved) {
+            when (tv.type) {
+                android.util.TypedValue.TYPE_REFERENCE ->
+                    resources.getColor(tv.data, theme)
+                else -> tv.data
+            }
+        } else Color.argb(78, 80, 200, 120)
+        val glowResolved = theme.resolveAttribute(R.attr.m3ColorOnPrimaryContainer, tv, true)
+        val glowColor = if (glowResolved) {
+            when (tv.type) {
+                android.util.TypedValue.TYPE_REFERENCE ->
+                    resources.getColor(tv.data, theme)
+                else -> tv.data
+            }
+        } else Color.argb(188, 126, 224, 154)
         btnConnect.setPillStyle(
-            fillColor = Color.argb(78, 220, 208, 255),
-            glowColor = Color.argb(188, 220, 208, 255),
-            highlightColor = Color.argb(78, 220, 208, 255),
+            fillColor = fillColor,
+            glowColor = glowColor,
+            highlightColor = fillColor,
             insetX = 12f,
             insetY = 10f,
             blurRadius = 9f,

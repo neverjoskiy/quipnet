@@ -8,7 +8,12 @@
          скругления. Elevation — выраженные ступени 0..12 dp. Типографика — type scale
          Material 3 Expressive (display/headline/title/body/label).
          ======================================================================== -->
-    <style name="Theme.QuipNet" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <style name="Theme.QuipNet" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- viewInflaterClass подключён здесь (в базовой теме), чтобы перевод
+             текста работал на всех экранах, включая главный. QuipNetViewInflater
+             создаёт QuipNetTextView/QuipNetButton/QuipNetRadioButton/QuipNetCheckBox,
+             которые переправляют setText через QuipNetLanguage.onSetText. -->
+        <item name="viewInflaterClass">com.example.quipnet.QuipNetViewInflater</item>
         <!-- Материал 3 — основные роли цвета -->
         <item name="colorPrimary">@color/m3_primary</item>
         <item name="colorOnPrimary">@color/m3_onPrimary</item>
@@ -148,7 +153,6 @@
          Наследуется от Theme.QuipNet, добавляет роли словаря темы (quipnet*).
          ======================================================================== -->
     <style name="Theme.QuipNet.Settings" parent="Theme.QuipNet">
-        <item name="viewInflaterClass">com.example.quipnet.QuipNetViewInflater</item>
         <item name="android:windowIsFloating">false</item>
 
         <!-- Фон экрана — поверхность базового цвета -->

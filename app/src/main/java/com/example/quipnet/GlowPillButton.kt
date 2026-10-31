@@ -1,6 +1,7 @@
 package com.example.quipnet
 
 import android.content.Context
+import android.content.res.TypedArray
 import android.graphics.BlurMaskFilter
 import android.graphics.Canvas
 import android.graphics.Color
@@ -8,6 +9,7 @@ import android.graphics.Paint
 import android.graphics.RectF
 import android.util.AttributeSet
 import androidx.appcompat.widget.AppCompatButton
+import com.example.quipnet.R
 
 class GlowPillButton @JvmOverloads constructor(
     context: Context,
@@ -22,8 +24,8 @@ class GlowPillButton @JvmOverloads constructor(
     private val focusRect = RectF()
     private val focusGlowFilter by lazy { BlurMaskFilter(dp(6f), BlurMaskFilter.Blur.NORMAL) }
 
-    private var fillColor: Int = Color.argb(54, 220, 208, 255)
-    private var glowColor: Int = Color.argb(172, 220, 208, 255)
+    private var fillColor: Int = 0
+    private var glowColor: Int = 0
     private var insetX: Float = dp(10f)
     private var insetY: Float = dp(8f)
     private var blurRadius: Float = dp(11f)
@@ -33,6 +35,20 @@ class GlowPillButton @JvmOverloads constructor(
         background = null
         stateListAnimator = null
         isAllCaps = true
+
+        // Цвета берем из темы, а не прибиты luzerman: без темы кнопка рисовала бы
+        // светло-лавандовую пилюлю, которая не сочетается ни с одной из 12 тем.
+        val ta = context.theme.obtainStyledAttributes(
+            attrs,
+            intArrayOf(R.attr.m3ColorPrimaryContainer, R.attr.m3ColorOnPrimaryContainer),
+            defStyleAttr, 0
+        )
+        try {
+            fillColor = ta.getColor(0, Color.argb(54, 80, 200, 120))
+            glowColor = ta.getColor(1, Color.argb(172, 126, 224, 154))
+        } finally {
+            ta.recycle()
+        }
     }
 
     fun setPillStyle(
